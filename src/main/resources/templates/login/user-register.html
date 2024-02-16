@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link th:href="@{/styles/layout.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <h1>Arbor Woodshop</h1>
+</header>
+<nav>
+  <ul>
+    <li><a th:href="@{'/'}">Home</a></li>
+    <li><a th:href="@{'/user'}">User Page</a></li>
+    <li><a th:href="@{'/admin'}">Admin Page</a></li>
+    <li><a th:href="@{'/login'}">Login</a></li>
+    <li><a th:href="@{'/logout'}">Logout</a></li>
+  </ul>
+</nav>
+<main>
+<div align="center">
+  <h1>User Registration</h1>
+  <form action="#" th:action="@{/login/register-user}" method="POST" th:object="${user}">
+    <label>Username:</label>
+    <input type="text" th:field="*{username}" /><br/>
+
+    <label>E-mail:</label>
+    <input type="text" th:field="*{email}" /><br/>
+
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" /><br/>
+
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+</main>
+</body>
+</html>

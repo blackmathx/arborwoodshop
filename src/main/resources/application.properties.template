@@ -1,0 +1,18 @@
+
+
+spring.jpa.hibernate.ddl-auto=none
+# none - default for MySQL, no change is made
+# update - hibernate changes the database according to the given entity structures
+# create - creates the database everytime but does not drop it on close (it keeps old tables even if unused)
+# create-drop creates the database and drops it when SessionFactory closes
+
+
+spring.datasource.url=jdbc:mysql://10.0.0.1:3306/arborwoodshop
+spring.datasource.username=user
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql: true
+
+# log path for default SpringBoot logging
+logging.file.path=logs/
+logging.file.name=logs/application.log
