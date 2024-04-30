@@ -1,64 +1,228 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link th:href="@{/styles/layout.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace</title>
+
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/index.css">
+
+
 </head>
+
 <body>
+<div class="page-container">
+    <div class="website-alert">This is a maintenance message</div>
 
-<header>
-    <h1>Arbor Woodshop</h1>
-<!--    <span sec:authentication="principal.username">Username</span>-->
+    <header class="header">
+        <div id="site-title">
+            <img src="icon.png" id="logo-image" />
+            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
+            <span id="subtitle">Marketplace</span>
+        </div>
 
+        <div id="login-placeholder">
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+        </div>
 
-</header>
-<nav>
-    <ul>
-        <li><a th:href="@{'/'}">Home</a></li>
-        <li><a th:href="@{'/user'}">User Page</a></li>
-        <li><a th:href="@{'/admin'}">Admin Page</a></li>
-        <li><a th:href="@{'/login'}">Login</a></li>
-        <li><a th:href="@{'/logout'}">Logout</a></li>
-    </ul>
-</nav>
-<main>
+    </header>
 
-    <span>Welcome to The Arbor Woodcraft Shop</span><form><input type="text"/></form>
-
-
-    <div class="banner" style="width: 80%; margin:auto; min-height: 200px; background-color:#347474">
-
-        <h3>Crafted Elegance, Timeless Woodwork Charm</h3>
-        <h3>Woodcraft Shopping: Timeless & Tailored</h3>
-        <h3>Buy Bespoke: Beauty in Wood</h3>
-        <h3>Shop Crafted, Live Cozy</h3>
-        <h3>Wood Wonders: Buy, Behold, Belong</h3>
-        <h3>Elegance Awaits: Shop Woodcraft</h3>
-        <h3>Nature's Own: Shop Wood Treasures</h3>
-        <h3>Acquire Artisanal: Woodcrafted Elegance</h3>
-        <h3>Heirlooms Await: Your Woodcraft Shop</h3>
-        <h3>Treasures in Timber: Shop Now</h3>
-        <h3>Woodcraft Shopping: Timeless & Tailored</h3>
-        <h3>Discover, Shop, Cherish: Wood Elegance</h3>
-
-
+    <!-- moto text -->
+    <div id="moto">
+        Wood crafted treasures. Local marketplace.
     </div>
-    <h2>What is Lorem Ipsum?</h2><br/>
-    <p style="width: 60%;">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-    </p>
-</main>
+
+    <!-- location section -->
+    <div id="location-section">
+        <div>
+            <a th:href="@{/city}">Alabama</a><br />
+            <a th:href="@{/city}">Alaska</a><br />
+            <a th:href="@{/city}">Arizona</a><br />
+            <a th:href="@{/city}">Arkansas</a><br />
+            <a th:href="@{/city}">California</a><br />
+            <a th:href="@{/city}">Colorado</a><br />
+            <a th:href="@{/city}">Connecticut</a><br />
+            <a th:href="@{/city}">Delaware</a><br />
+            <a th:href="@{/city}">Florida</a><br />
+            <a th:href="@{/city}">Georgia</a><br />
+        </div>
+        <div>
+            <a th:href="@{/city}">Hawaii</a><br />
+            <a th:href="@{/city}">Idaho</a><br />
+            <a th:href="@{/city}">Illinois</a><br />
+            <a th:href="@{/city}">Indiana</a><br />
+            <a th:href="@{/city}">Iowa</a><br />
+            <a th:href="@{/city}">Kansas</a><br />
+            <a th:href="@{/city}">Kentucky</a><br />
+            <a th:href="@{/city}">Louisiana</a><br />
+            <a th:href="@{/city}">Maine</a><br />
+            <a th:href="@{/city}">Maryland</a><br />
+        </div>
+        <div>
+            <a th:href="@{/city}">Massachusetts</a><br />
+            <a th:href="@{/city}">Michigan</a><br />
+            <a th:href="@{/city}">Minnesota</a><br />
+            <a th:href="@{/city}">Mississippi</a><br />
+            <a th:href="@{/city}">Missouri</a><br />
+            <a th:href="@{/city}">Montana</a><br />
+            <a th:href="@{/city}">Nebraska</a><br />
+            <a th:href="@{/city}">Nevada</a><br />
+            <a th:href="@{/city}">New&nbspHampshire</a><br />
+            <a th:href="@{/city}">New&nbspJersey</a><br />
+        </div>
+        <div>
+            <a th:href="@{/city}">New&nbspMexico</a><br />
+            <a th:href="@{/city}">New&nbspYork</a><br />
+            <a th:href="@{/city}">North&nbspCarolina</a><br />
+            <a th:href="@{/city}">North&nbspDakota</a><br />
+            <a th:href="@{/city}">Ohio</a><br />
+            <a th:href="@{/city}">Oklahoma</a><br />
+            <a th:href="@{/city}">Oregon</a><br />
+            <a th:href="@{/city}">Pennsylvania</a><br />
+            <a th:href="@{/city}">Rhode&nbspIsland</a><br />
+            <a th:href="@{/city}">South&nbspCarolina</a><br />
+        </div>
+        <div>
+            <a th:href="@{/city}">South&nbspDakota</a><br />
+            <a th:href="@{/city}">Tennessee</a><br />
+            <a th:href="@{/city}">Texas</a><br />
+            <a th:href="@{/city}">Utah</a><br />
+            <a th:href="@{/city}">Vermont</a><br />
+            <a th:href="@{/city}">Virginia</a><br />
+            <a th:href="@{/city}">Washington</a><br />
+            <a th:href="@{/city}">West&nbspVirginia</a><br />
+            <a th:href="@{/city}">Wisconsin</a><br />
+            <a th:href="@{/city}">Wyoming</a><br />
+        </div>
+    </div>
+
+
+
+    <!-- advertisment row -->
+    <section id="local_adRow">
+        <div class="local_adCard local_adCard-bdrRight">
+            <h1 style="text-align:center; padding-bottom:10px;">Local Marketplace</h1>
+            <p>
+                Discover the craftsmanship of nearby artisans with our local marketplace. Find and acquire
+                stunning wood crafted pieces from talented local makers in your area. Explore a diverse
+                collection, championing the creativity and skill of woodworkers right in your community.
+            </p>
+        </div>
+        <div class="local_adCard local_adCard-bdrRight">
+            <h1 style="text-align:center; padding-bottom:10px;">Shop Woodcrafted Treasures</h1>
+            <p>
+                Embark on a journey of exploration through our platform, where you'll find
+                a myriad of unique woodcrafted treasures from artisans in your vicinity. From
+                elegant furniture to intricately carved decor pieces, uncover the finest
+                craftsmanship and support local talent—all at your fingertips.
+            </p>
+        </div>
+        <div class="local_adCard">
+            <h1 style="text-align:center; padding-bottom:10px;">Become A Seller</h1>
+            <p>
+                Elevate your passion for craftsmanship by becoming a seller through our monthly
+                membership. Seamlessly transition from buyer to entrepreneur, showcasing your own
+                wood crafted creations to a community eager to discover and support local talent.
+            </p>
+        </div>
+    </section>
+
+
+
+    <main id="index_main-content" class="content-footer-wrap">
+
+        <section>
+            <div class="category-title">Furniture</div>
+            <div class="category-items">
+                <div class="item-card" style="  background-image: url('img/5.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/6.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/7.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/8.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/9.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/10.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/11.jpg');">
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="category-title">Signs</div>
+            <div class="category-items">
+                <div class="item-card" style="  background-image: url('img/1.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/2.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/3.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/4.jpg');">
+
+                </div>
+
+            </div>
+        </section>
+        <section>
+            <div class="category-title">Tables</div>
+            <div class="category-items">
+                <div class="item-card" style="  background-image: url('img/42.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/49.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/43.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/33.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/48.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/41.jpg');">
+
+                </div>
+                <div class="item-card" style="  background-image: url('img/33.jpg');">
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer id="footer">
+        <div class="footer_links">
+            <div class="footer-item"><a th:href="@{about}">about</a></div>
+            <div class="footer-item"><a th:href="@{avoiding-scams}">avoiding scams</a></div>
+            <div class="footer-item"><a th:href="@{abuse}">abuse</a></div>
+            <div class="footer-item"><a th:href="@{terms-of-use}">terms of use</a></div>
+        </div>
+        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All&nbsprights&nbspreserved</div>
+    </footer>
+
+</div> <!-- .page-container -->
+
 </body>
+
 </html>
-
-
-

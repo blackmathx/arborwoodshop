@@ -1,0 +1,103 @@
+
+
+
+
+#location-section{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content:center;
+	border-top: 1px solid rgb(226, 226, 226);
+	border-bottom: 1px solid rgb(226, 226, 226);
+	background-color: rgb(238, 238, 238);
+}
+#location-section div {
+	padding: 10px 34px;
+	min-width: 125px;
+	line-height: 1.3rem;
+}
+
+@media (max-width: 1300px){
+	#location-section div {
+		padding: 10px 14px;
+		line-height: 1.2rem;
+	}
+}
+
+
+
+
+/************  ADVERT CARDS ************************/
+#local_adRow{
+	cursor: default;
+}
+.local_adCard {
+	color:rgb(44, 55, 65);
+	max-width: 480px;
+	padding:20px 15px;
+	margin: auto;
+}
+
+@media (min-width: 700px){
+	#local_adRow {
+		display:flex;
+		justify-content: center;
+		margin: 20px 0px;
+	}
+	.local_adCard {
+		margin: 0;
+		min-height: 220px;
+	}
+	.local_adCard-bdrRight {
+		border-right:1px solid rgb(209, 209, 209);
+	}
+}
+
+
+
+
+/*********************** INDEX MAIN CONTENT SECTION *******************/
+#index_main-content {
+	width: 90%;
+	margin:auto;
+}
+@media (min-width: 1380px){
+	#index_main-content {
+		width: 80%;
+		margin: auto;
+	}
+}
+
+
+.category-title {
+	margin-left: 20px;
+	font-size:1.2rem;
+}
+.category-items {
+	border-top: 1px solid rgb(212, 212, 212);
+	padding: 10px 0px 8px 10px;
+	display: flex;
+	overflow: clip;
+	overflow-x: scroll;
+}
+.item-card {
+	color:rgb(158, 158, 158);
+	min-width: 310px;
+	height: 210px;
+	background-color: rgba(232, 235, 232, 0.486);
+	margin-right:30px;
+	margin-bottom: 2px;
+	border-radius:  2px;
+	outline: 1px solid rgb(218, 218, 218);
+
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center top;
+	padding: 5px 0px 0px 5px;
+}
+
+
+
+/* override */
+.content-footer-wrap {
+	padding-bottom: calc(var(--footer-height) + 30px);
+}

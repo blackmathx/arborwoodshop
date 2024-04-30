@@ -1,4 +1,4 @@
-package com.arborwoodshop.app_config;
+package com.arborwoodshop.config;
 
 import com.arborwoodshop.service.JpaUserDetailsService;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +28,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // without it the logout has to be a POST to /logout
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/user").authenticated()
-                        .requestMatchers("/register").permitAll()
+                        .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
+                .httpBasic(Customizer.withDefaults())
                 .userDetailsService(jpaUserDetailsService)
 
                 //.logout(logout -> logout.logoutSuccessUrl("/logout-url"))
@@ -37,8 +38,7 @@ public class SecurityConfig {
                 .logout((logout) -> logout.logoutSuccessUrl("/"))
 
                 //.formLogin(Customizer.withDefaults())
-               .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/user").permitAll())
-
+               .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/user/dashboard").permitAll())
                 .build();
     }
 

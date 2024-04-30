@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
+		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.arborwoodshop</groupId>
-	<artifactId>app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>app</name>
-	<description>Demo project for Spring Boot</description>
+	<artifactId>arborwoodshop</artifactId>
+	<version>0.1</version>
+	<name>arbor-woodshop</name>
+	<description>Arbor Woodshop Marketplace</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -41,8 +41,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-<!--			<scope>runtime</scope>-->
-<!--			<optional>true</optional>-->
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -68,6 +67,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+<!--		<finalName>arborwoodshop</finalName>-->
 	</build>
 
 </project>

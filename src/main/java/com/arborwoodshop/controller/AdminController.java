@@ -12,7 +12,7 @@ public class AdminController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value="")
     public String admin(){
-        return "/admin/admin";
+        return "admin/admin";
     }
 
 }

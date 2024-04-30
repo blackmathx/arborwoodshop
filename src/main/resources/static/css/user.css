@@ -1,0 +1,76 @@
+
+/************* LEFT NAV BAR FOR USER-*.HTML PAGES *************/
+
+#user_leftNavBar {
+	display:flex;
+	flex-direction: column;
+
+	min-width:240px;
+	padding-top:30px;
+	padding-left: 30px;
+}
+.user_navBarLinks {
+	display:flex;
+	flex-direction: column;
+}
+.user-links {
+	display:inline;
+	margin: 0px 0px 0px 5px;
+	line-height: 1.5rem;
+}
+@media screen and (max-width: 1000px){
+	#user_leftNavBar{
+		min-height: 0;
+		padding: 5px 10px;
+		display: block;
+		margin-top: 5px;
+	}
+	.user_navBarLinks {
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+
+/******************* USER PAGES MAIN CONTENT ***************************/
+.userSection{
+	padding: 30px 0px 0px 30px;
+}
+
+.user_mainContent {
+	display:flex;
+	width: 75%;
+	margin:auto;
+}
+
+@media screen and (max-width: 1300px){
+	.user_mainContent {
+		display:flex;
+		width: 95%;
+		margin:auto;
+	}
+}
+@media screen and (max-width: 1000px){
+	.user_mainContent {
+		display:block;
+	}
+}
+/*******************   USER SAVED & LISTINGS CARDS *************************/
+.userListingCard {
+	display:flex;
+	width: 700px;
+	min-height: 140px;
+	background-color: beige;
+	margin-bottom: 20px;
+
+}
+.userListingCard__img {
+	min-width: 140px;
+	height: 140px;
+	background-color:gainsboro;
+
+}
+.userListingCard__desc {
+	padding-left:10px;
+}
+

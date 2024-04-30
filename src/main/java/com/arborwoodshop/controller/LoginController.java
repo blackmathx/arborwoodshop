@@ -24,13 +24,14 @@ public class LoginController {
 
     @GetMapping(value="")
     public String login(){
-        return "/login/user-login";
+        return "security/login";
     }
+
     @GetMapping(value="/register")
     public String register(Model model){
         User user = new User();
         model.addAttribute("user", user);
-        return "/login/user-register";
+        return "security/register";
     }
 
     @PostMapping(path="/register-user") // Map ONLY POST Requests
@@ -40,16 +41,18 @@ public class LoginController {
         user.setRoles("ROLE_USER");
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
-        return "redirect:/login";
+        return "redirect:login";
     }
-    ///////////////////
+
     @GetMapping(value="/login-success")
-    public String loginSuccess(){ System.out.println("login-success url"); return "/user"; }
+    public String loginSuccess(){
+        System.out.println("*************\n**************\n**************** login-success url");
+        return "user/user-dashboard";
+    }
 
     @GetMapping(value="/logout-url")
     public String logoutUrl(){
-        return "/index";
+        return "index";
     }
-/////////////////
 
 }

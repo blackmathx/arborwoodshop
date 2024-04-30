@@ -6,8 +6,6 @@
 */
 
 
-
-
 /* HTML RESET */
 html {  box-sizing: border-box;  font-size: 16px;}
 *, *:before, *:after {  box-sizing: inherit;}
@@ -19,40 +17,35 @@ img {  max-width: 100%;  height: auto;}
 
 /*   MAIN  */
 body {
-    background-color: #42b883;
-    font-family: Times, serif;
+    background-color: white;
+    font-family: 'Newsreader', Times, serif;
 }
 header {
     padding-top: 20px;
+    padding-left:120px;
     font-size: 1.6em;
-    text-align: center;
+
     width: 100%;
-    height: 150px;
-    color: white;
-    background-color: #347474;
+    height: 90px;
+
+    background-color: white;
 }
-header h1 {
-    padding-top: 20px;
-}
+
 main {
-    color: white;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 nav {
-    background-color: #35495e;
+
     height: 60px;
     padding-left: 100px;
     padding-top: 15px;
     color: white;
 }
 ul li {
-    background-color: #ff7e67;
+
     display: inline;
     padding: 10px 10px;
     margin-right: 20px;
-
 
 }
 a {
@@ -68,24 +61,3 @@ a {
     font-family: fantasy, ui-rounded;
 }
 
-/* REGISTER FORM */
-    label {
-        display: inline-block;
-        width: 200px;
-        margin: 5px;
-        text-align: left;
-    }
-    input[type=text], input[type=password], select {
-        display: inline-block;
-        width: 200px;
-    }
-    input[type=radio] {
-        margin-left: 45px;
-    }
-    input[type=checkbox] {
-        margin-right: 190px;
-    }
-    button {
-        padding: 5px;
-        margin: 10px;
-    }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbor Woodshop | Login </title>
+    <link rel="stylesheet" href="../css/layout.css">
+</head>
+
+<body>
+<div class="page-container">
+    <div class="website-alert">This is a maintenance message</div>
+
+    <header class="header">
+        <div id="site-title">
+            <img src="icon.png" id="logo-image" />
+            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
+            <span id="subtitle">Marketplace</span>
+        </div>
+        <div id="login-placeholder">
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+        </div>
+    </header>
+
+    <div id="moto">
+        Wood crafted treasures. Local marketplace.
+    </div>
+
+
+
+    <div style="display:flex; margin-top:100px;">
+
+        <h2 style="margin:auto;">Login</h2><br />
+    </div>
+    <div style="display:flex; margin-top:20px;">
+
+        <form style="margin:auto;" action="/login" method="POST">
+            <label>username</label><br/>
+            <input type="text" name="username"><br />
+            <label>password</label><br/>
+            <input type="password" name="password"><br />
+
+            <button type="submit">Sign in</button>&nbsp&nbsp
+            <a href="register.html">Sign Up</a>
+        </form>
+    </div>
+    <div style="margin:auto; width: 240px; height: 40px; margin-top: 50px; background-color: lightskyblue">Sign in with Google</div>
+
+
+    <footer id="footer">
+        <div class="footer_links">
+            <div class="footer-item"><a href="about.html">about</a></div>
+            <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
+            <div class="footer-item"><a href="abuse.html">abuse</a></div>
+            <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
+        </div>
+        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
+    </footer>
+
+
+</div> <!-- .page-container -->
+</body>
+
+</html>

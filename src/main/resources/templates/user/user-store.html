@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Page</title>
+    <title>User Store</title>
     <link th:href="@{/styles/layout.css}" rel="stylesheet" />
 </head>
 <body>
@@ -22,10 +22,21 @@
         <li><a th:href="@{'/logout'}">Logout</a></li>
     </ul>
 </nav>
-<main>
-<h1>User Page</h1>
-    <p th:text="${username}"></p>
 
+<main>
+    <h1>User Page</h1>
+    <div>
+        My listings
+        <ul>
+            <li><img src="https://i.etsystatic.com/19117533/r/il/db48a9/2687778029/il_fullxfull.2687778029_e5uf.jpg" style="width:300px; height:300px;"\></li>
+            <li>sdfsdf</li>
+            <li>sdfsdf</li>
+            <li>sdfasfasdlfasd</li>
+            <li>3htiuhsdf</li>
+        </ul>
+    </div>
+    <p th:text="${username}"></p>
+    <img src="https://i.etsystatic.com/19117533/r/il/db48a9/2687778029/il_fullxfull.2687778029_e5uf.jpg" style="width:300px; height:300px;"\>
 </main>
 </body>
 </html>

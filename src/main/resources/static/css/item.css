@@ -1,0 +1,34 @@
+
+
+.viewItemSection {
+
+	margin: 10px;
+	flex-grow: 1;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(236, 236, 236);
+}
+
+.viewItemCard {
+	background-color: rgb(207, 207, 207);
+}
+
+.viewItemCard__img {
+	margin: 100px 0px 20px 0px;
+	height: auto;
+	max-height: 400px;
+
+}
+
+.viewItemCard__description {
+	width: 70%;
+	margin: 20px 0px;
+}
+
+
+@media screen and (max-width: 1000px){
+	.viewItemCard__img {
+		margin-top: 30px;
+	}
+}

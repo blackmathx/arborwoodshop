@@ -1,12 +1,21 @@
-HELP.md
+
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
+logs/
+
+
+
+HELP.md
+
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 application.log
 application.log.*
 application.properties
+applicaiton-prod.properties
+application-dev.properties
 
 ### STS ###
 .apt_generated
@@ -35,3 +44,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/application-prod.properties

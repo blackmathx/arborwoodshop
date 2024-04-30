@@ -1,0 +1,234 @@
+:root {
+	--footer-height: 80px;
+
+	--pallete-mossgreen: rgb(145, 150, 83);
+	--pallete-bluegray: rgb(107, 91, 154);
+	--pallete-blueyonder: rgb(83, 119, 150);
+	--pallete-pine: rgb(91, 154, 138);
+	--pallete-link-blue: #4d4de7;
+	--pallete-visitedLink-purple: #912faf;
+	--pallete-activeLink-red: #FF0000;
+}
+
+
+html {  box-sizing: border-box;  font-size: 16px;}
+*, *:before, *:after {  box-sizing: inherit;}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {  margin: 0;  padding: 0;  font-weight: normal;}
+ol, ul {  list-style: none;}
+img {  max-width: 100%;  height: auto;}
+
+a:link { color: var(--pallete-link-blue);}
+a:visited {color: var(--pallete-visitedLink-purple);}
+a:active {color: var(--pallete-activeLink-red);}
+
+
+* {
+	/* outline: 1px solid var(--pallete-pine); */
+}
+
+.website-alert {
+	background-color: yellow;
+	min-height: 60px;
+	display:none;
+}
+
+.page-container {
+	position: relative; /* keep footer down */
+	min-height: 100vh; /* keep footer down */
+}
+
+/******************* HEADER *****************************/
+.header {
+	border-bottom: 1px solid rgb(226, 226, 226);
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	min-height:80px;
+}
+#logo-image {
+	display:none;
+}
+#site-title {
+	font-size: 2.3rem;
+	font-weight:bold;
+}
+#logo-image {
+	width: 80px; height: 60px;
+	padding-right: 20px;
+	display:none;
+}
+#site-title a {
+	text-decoration: none;
+	color:black;
+}
+
+#subtitle {
+	color: var(--pallete-mossgreen);
+	font-size: .8em;
+}
+#login-placeholder {
+	align-self:flex-end;
+	display:flex;
+	margin-bottom: 10px;
+}
+#moto {
+	padding: 8px 12%;
+	font-size: 1.4rem;
+	font-style: italic;
+	font-family: arial;
+	color: rgb(30, 71, 71);
+}
+
+@media screen and (max-width: 1000px){
+	#site-title{
+		font-size: 1.5rem;
+	}
+	#moto {
+		padding: 4px 0% 4px 3%;
+		font-size: 1.0rem;
+	}
+	.header {
+		padding: 8px 2% 8px 4%;
+		min-height: 0px;
+
+	}
+}
+@media screen and (max-width: 420px){
+	html {
+		font-size: 15px;
+	}
+	#title {
+		font-size: 1.3rem;
+	}
+	#subtitle {
+		font-size: .7em;
+	}
+	#moto{
+		font-size: 1rem;
+	}
+}
+
+
+
+
+/*************************** MAIN CONTENT **************************/
+
+#left-nav-bar {
+	display:flex;
+	flex-direction: column;
+
+	min-width:240px;
+	padding-top:30px;
+	padding-left: 30px;
+
+	background: rgb(230, 230, 230);
+	/* min-height: 930px; */
+}
+
+
+
+
+.main_content {
+	display:flex;
+	width: 95%;
+	margin:auto;
+}
+
+.content-flex-stretch {
+	flex-grow: 1;
+	padding-right: 320px;
+}
+
+/* content on the service pages*/
+.servicePages {
+	width: 80%;
+	margin:auto;
+}
+@media screen and (max-width: 1000px){
+	#left-nav-bar {
+		min-height: 0;
+		padding: 5px 10px;
+		display: block;
+		margin-top: 5px;
+	}
+	.main_content {
+		display:block;
+		width: 100%;
+		margin: 0px;
+
+	}
+}
+@media screen and (max-width: 1800px){
+	.content-flex-stretch {
+		padding-right: 200px;
+	}
+}
+@media (max-width: 1400px){
+	.content-flex-stretch{
+		padding-right: 0;
+	}
+}
+
+
+
+
+/******************************* FOOTER ******************************/
+
+/* add to last container in main content before the footer */
+.content-footer-wrap {
+	padding-bottom: var(--footer-height);
+}
+
+#footer {
+	display:flex;
+	justify-content: space-between;
+	padding: 20px 0px;
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	color:white;
+	background-color: var(--pallete-blueyonder);
+	min-height: var(--footer-height);
+
+}
+.footer_links {
+	min-width: 600px;
+	display:flex;
+	justify-content: space-between;
+	padding: 0px 70px;
+}
+
+.footer-item, .footer-item a{
+    line-height: 1.5rem;
+	color:white;
+}
+.footer_copyright {
+	margin: 0px 70px;
+}
+
+@media screen and (max-width: 1300px){
+	.footer-item, .footer-item a {
+		line-height: 1.8rem;
+	}
+	#footer {
+		flex-direction: column;
+		padding-top: 10px;
+	}
+	.content-footer-wrap {
+		padding-bottom: 190px;
+	}
+	.footer_links {
+		flex-direction: column;
+		min-width: 0;
+		padding: 0px 40px;
+	}
+	.footer_copyright {
+		margin: 0px 40px;
+	}
+
+}
+@media screen and (max-width: 600px){
+	.content-footer-wrap {
+		padding-bottom: 290px;
+	}
+}
