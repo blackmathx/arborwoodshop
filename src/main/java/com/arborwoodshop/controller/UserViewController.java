@@ -13,50 +13,60 @@ import java.security.Principal;
 public class UserViewController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value={"", "/dashboard", "/saved-items"})
-    public String user(Model model, Principal principal){
+    @GetMapping(value = {"", "/dashboard", "/saved-items"})
+    public String user(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-dashboard";
+        return "user/dashboard";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value="/preferences")
-    public String userPreferences(Model model, Principal principal){
+    @GetMapping(value = "/preferences")
+    public String userPreferences(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-preferences";
+        return "user/preferences";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value="/messages")
-    public String userMessages(Model model, Principal principal){
+    @GetMapping(value = "/messages")
+    public String userMessages(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-messages";
+        return "user/messages";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value="/listings")
-    public String userListings(Model model, Principal principal){
+    @GetMapping(value = "/listings")
+    public String userListings(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-listings";
+        return "user/listings";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value="/listings/{id}")
-    public String userListingById(Model model, Principal principal){
+    @GetMapping(value = "/listings/{id}")
+    public String userListingById(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-listings";
+        return "user/listings";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value="/listings/create-listing")
-    public String userCreateListing(Model model, Principal principal){
+    @GetMapping(value = "/listings/create-listing")
+    public String userCreateListing(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/user-listings";
+        return "user/user-create-listing";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @GetMapping(value = "/manage-subscription")
+    public String userManageSubscription(Model model, Principal principal) {
+        model.addAttribute("username", principal.getName());
+        return "user/user-manage-subscription";
+    }
 
-
-
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @GetMapping(value = "/become-a-seller")
+    public String userBecomeSeller(Model model, Principal principal) {
+        model.addAttribute("username", principal.getName());
+        return "user/dashboard";
+    }
 
 
 }

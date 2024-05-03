@@ -7,12 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestApiController {
 
-    public static class Something {
-        public String str;
-        public Something(String s){
-            this.str = s;
-        }
-    }
+    public record Something (String something){}
 
     @GetMapping("api/testing")
     public Something findall(){

@@ -10,9 +10,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping(value="")
-    public String admin(){
-        return "admin/admin";
+    @GetMapping(value = {"", "/", "dashboard"})
+    public String admin() {
+        return "admin/dashboard";
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping(value = "metadata")
+    public String metadata() {
+        return "admin/dashboard";
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping(value = "admin-todo")
+    public String todoList() {
+        return "admin/dashboard";
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping(value = "custom-view")
+    public String customView() {
+        return "admin/dashboard";
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping(value = "manage-user")
+    public String manageUser() {
+        return "admin/dashboard";
     }
 
 }

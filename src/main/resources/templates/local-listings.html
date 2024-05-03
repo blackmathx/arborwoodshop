@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arbor Woodshop | Fort Wayne</title>
-
-    <!-- <link rel="stylesheet" href="layout.css"> -->
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" href="css/local.css">
 
-
+    <title>Arbor Woodshop | Fort Wayne</title>
 </head>
 
 <body>
@@ -24,10 +20,10 @@
             <span id="subtitle">Fort&nbspWayne</span>
         </div>
         <div id="login-placeholder">
-            <a href="user-messages.html" style="margin-right:20px;">Messages</a>
-            <a href="user-dashboard.html" style="margin-right:20px;">Dashboard</a>
-            <!-- <a href="login.html" style="margin-right:20px;">login</a> -->
-            <!-- <a href="register.html" style="margin-right:20px;">sign up</a> -->
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
         </div>
     </header>
 
@@ -36,11 +32,7 @@
         Wood crafted treasures. Local marketplace.
     </div>
 
-
-
-
     <main class="main_content content-footer-wrap local_mainContentPad">
-
 
         <nav id="left-nav-bar">
 
@@ -56,7 +48,6 @@
             </div>
 
         </nav>
-
 
         <section class="local_resultsContainer content-flex-stretch">
             <form>
@@ -535,15 +526,7 @@
 
     </main>
 
-    <footer id="footer">
-        <div class="footer_links">
-            <div class="footer-item"><a href="about.html">about</a></div>
-            <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
-            <div class="footer-item"><a href="abuse.html">abuse</a></div>
-            <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
-        </div>
-        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
-    </footer>
+    <footer id="footer"  th:insert="~{_fragments/footer::footer}"></footer>
 
 </div> <!-- .page-container -->
 </body>

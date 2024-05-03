@@ -2,6 +2,10 @@ package com.arborwoodshop.controller;
 
 import com.arborwoodshop.model.User;
 import com.arborwoodshop.repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,48 +14,65 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final UserRepository userRepository;
     private final PasswordEncoder encoder;
 
-    public LoginController(UserRepository userRepository, PasswordEncoder encoder){
+    public LoginController(UserRepository userRepository, PasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.encoder = encoder;
     }
 
-    @GetMapping(value="")
-    public String login(){
+    @GetMapping(value = {"", "/"})
+    public String login() {
         return "security/login";
     }
 
-    @GetMapping(value="/register")
-    public String register(Model model){
+    @GetMapping(value = "/register")
+    public String register(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "security/register";
     }
 
-    @PostMapping(path="/register-user") // Map ONLY POST Requests
-    public String addNewUser (@ModelAttribute("user") User user) {
+    @PostMapping(path = "/register-user")
+    public String addNewUser(@ModelAttribute("user") User user, Model model) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
+
+
+        if(user.getEmail().isBlank() || user.getPassword().isBlank()){
+            model.addAttribute("errorMessage", "Invalid email or password.");
+            return "security/register";
+        }
+        if(!userRepository.findByEmail(user.getEmail()).isEmpty()) {
+            model.addAttribute("errorMessage", "User email already exists.");
+            return "security/register";
+        }
+
         user.setRoles("ROLE_USER");
         user.setPassword(encoder.encode(user.getPassword()));
+
         userRepository.save(user);
-        return "redirect:login";
+        return "redirect:/login";
     }
 
-    @GetMapping(value="/login-success")
-    public String loginSuccess(){
-        System.out.println("*************\n**************\n**************** login-success url");
-        return "user/user-dashboard";
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @GetMapping(value = "/login-success")
+    public String loginSuccess(HttpServletRequest request) {
+        String userEmail = request.getUserPrincipal().getName();
+        String address = request.getRemoteAddr();
+        logger.info(address + " " + userEmail);
+        return "user/dashboard";
     }
 
-    @GetMapping(value="/logout-url")
-    public String logoutUrl(){
+    @GetMapping(value = "/logout-url")
+    public String logoutUrl() {
         return "index";
     }
 

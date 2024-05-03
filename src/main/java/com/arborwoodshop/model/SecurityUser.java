@@ -10,7 +10,8 @@ import java.util.Collection;
 /**
  * The SecurityUser is for our User Details Service we created.
  * It implements UserDetails so that User doesn't have to.
- * Learned from Dan Vega at https://www.youtube.com/watch?v=awcCiqBO36E
+ * Learned from dvega at https://www.youtube.com/watch?v=awcCiqBO36E
+ * titled Spring Security JPA Authentication in Spring Boot from 2023
  *
  */
 public class SecurityUser implements UserDetails {
@@ -21,11 +22,11 @@ public class SecurityUser implements UserDetails {
         this.user = user;
     }
 
-
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getEmail();
     }
+
     @Override
     public String getPassword() {
         return user.getPassword();

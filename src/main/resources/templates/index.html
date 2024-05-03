@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace</title>
+    <meta name="description" content="Discover the craftsmanship of nearby artisans with our local marketplace. Find and
+        acquire stunning wood crafted pieces from talented local makers in your area. Explore a diverse collection from
+        creative and skilled woodworkers right in your community.">
+    <meta name="keywords" content="Woodcraft Marketplace, Woodworking Marketplace, Custom Wood Products, Local Marketplace">
 
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script type="text/javascript" th:src="@{/js/locations.js}"></script>
 
-
+    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 </head>
 
 <body>
@@ -28,6 +31,8 @@
             <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
             <a th:href="@{/login}" style="margin-right:20px;">login</a>
             <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <a th:href="@{/logout}" style="margin-right:20px;">LOGOUT</a>
+
         </div>
 
     </header>
@@ -40,64 +45,64 @@
     <!-- location section -->
     <div id="location-section">
         <div>
-            <a th:href="@{/city}">Alabama</a><br />
-            <a th:href="@{/city}">Alaska</a><br />
-            <a th:href="@{/city}">Arizona</a><br />
-            <a th:href="@{/city}">Arkansas</a><br />
-            <a th:href="@{/city}">California</a><br />
-            <a th:href="@{/city}">Colorado</a><br />
-            <a th:href="@{/city}">Connecticut</a><br />
-            <a th:href="@{/city}">Delaware</a><br />
-            <a th:href="@{/city}">Florida</a><br />
-            <a th:href="@{/city}">Georgia</a><br />
+            <a href="#" th:onclick="stateSelect('Alabama')">Alabama</a><br/>
+            <a href="#" th:onclick="stateSelect('Alaska')">Alaska</a><br/>
+            <a href="#" th:onclick="stateSelect('Arizona')">Arizona</a><br/>
+            <a href="#" th:onclick="stateSelect('Arkansas')">Arkansas</a><br/>
+            <a href="#" th:onclick="stateSelect('California')">California</a><br/>
+            <a href="#" th:onclick="stateSelect('Colorado')">Colorado</a><br/>
+            <a href="#" th:onclick="stateSelect('Connecticut')">Connecticut</a><br/>
+            <a href="#" th:onclick="stateSelect('Delaware')">Delaware</a><br/>
+            <a href="#" th:onclick="stateSelect('Florida')">Florida</a><br/>
+            <a href="#" th:onclick="stateSelect('Georgia')">Georgia</a><br/>
         </div>
         <div>
-            <a th:href="@{/city}">Hawaii</a><br />
-            <a th:href="@{/city}">Idaho</a><br />
-            <a th:href="@{/city}">Illinois</a><br />
-            <a th:href="@{/city}">Indiana</a><br />
-            <a th:href="@{/city}">Iowa</a><br />
-            <a th:href="@{/city}">Kansas</a><br />
-            <a th:href="@{/city}">Kentucky</a><br />
-            <a th:href="@{/city}">Louisiana</a><br />
-            <a th:href="@{/city}">Maine</a><br />
-            <a th:href="@{/city}">Maryland</a><br />
+            <a href="#" th:onclick="stateSelect('Hawaii')">Hawaii</a><br/>
+            <a href="#" th:onclick="stateSelect('Idaho')">Idaho</a><br/>
+            <a href="#" th:onclick="stateSelect('Illinois')">Illinois</a><br/>
+            <a href="#" th:href="@{/city}" th:onclick="stateSelect('Indiana')">Indiana</a><br/>
+            <a href="#" th:onclick="stateSelect('Iowa')">Iowa</a><br/>
+            <a href="#" th:onclick="stateSelect('Kansas')">Kansas</a><br/>
+            <a href="#" th:onclick="stateSelect('Kentucky')">Kentucky</a><br/>
+            <a href="#" th:onclick="stateSelect('Louisiana')">Louisiana</a><br/>
+            <a href="#" th:onclick="stateSelect('Maine')">Maine</a><br/>
+            <a href="#" th:onclick="stateSelect('Maryland')">Maryland</a><br/>
         </div>
         <div>
-            <a th:href="@{/city}">Massachusetts</a><br />
-            <a th:href="@{/city}">Michigan</a><br />
-            <a th:href="@{/city}">Minnesota</a><br />
-            <a th:href="@{/city}">Mississippi</a><br />
-            <a th:href="@{/city}">Missouri</a><br />
-            <a th:href="@{/city}">Montana</a><br />
-            <a th:href="@{/city}">Nebraska</a><br />
-            <a th:href="@{/city}">Nevada</a><br />
-            <a th:href="@{/city}">New&nbspHampshire</a><br />
-            <a th:href="@{/city}">New&nbspJersey</a><br />
+            <a href="#" th:onclick="stateSelect('Massachusetts')">Massachusetts</a><br/>
+            <a href="#" th:onclick="stateSelect('Michigan')">Michigan</a><br/>
+            <a href="#" th:onclick="stateSelect('Minnesota')">Minnesota</a><br/>
+            <a href="#" th:onclick="stateSelect('Mississippi')">Mississippi</a><br/>
+            <a href="#" th:onclick="stateSelect('Missouri')">Missouri</a><br/>
+            <a href="#" th:onclick="stateSelect('Montana')">Montana</a><br/>
+            <a href="#" th:onclick="stateSelect('Nebraska')">Nebraska</a><br/>
+            <a href="#" th:onclick="stateSelect('Nevada')">Nevada</a><br/>
+            <a href="#" th:onclick="stateSelect('New Hampshire')">New Hampshire</a><br/>
+            <a href="#" th:onclick="stateSelect('New Jersey')">New Jersey</a><br/>
         </div>
         <div>
-            <a th:href="@{/city}">New&nbspMexico</a><br />
-            <a th:href="@{/city}">New&nbspYork</a><br />
-            <a th:href="@{/city}">North&nbspCarolina</a><br />
-            <a th:href="@{/city}">North&nbspDakota</a><br />
-            <a th:href="@{/city}">Ohio</a><br />
-            <a th:href="@{/city}">Oklahoma</a><br />
-            <a th:href="@{/city}">Oregon</a><br />
-            <a th:href="@{/city}">Pennsylvania</a><br />
-            <a th:href="@{/city}">Rhode&nbspIsland</a><br />
-            <a th:href="@{/city}">South&nbspCarolina</a><br />
+            <a href="#" th:onclick="stateSelect('New Mexico')">New Mexico</a><br/>
+            <a href="#" th:onclick="stateSelect('New York')">New York</a><br/>
+            <a href="#" th:onclick="stateSelect('North Carolina')">North Carolina</a><br/>
+            <a href="#" th:onclick="stateSelect('North Dakota')">North Dakota</a><br/>
+            <a href="#" th:onclick="stateSelect('Ohio')">Ohio</a><br/>
+            <a href="#" th:onclick="stateSelect('Oklahoma')">Oklahoma</a><br/>
+            <a href="#" th:onclick="stateSelect('Oregon')">Oregon</a><br/>
+            <a href="#" th:onclick="stateSelect('Pennsylvania')">Pennsylvania</a><br/>
+            <a href="#" th:onclick="stateSelect('Rhode Island')">Rhode Island</a><br/>
+            <a href="#" th:onclick="stateSelect('South Carolina')">South Carolina</a><br/>
         </div>
         <div>
-            <a th:href="@{/city}">South&nbspDakota</a><br />
-            <a th:href="@{/city}">Tennessee</a><br />
-            <a th:href="@{/city}">Texas</a><br />
-            <a th:href="@{/city}">Utah</a><br />
-            <a th:href="@{/city}">Vermont</a><br />
-            <a th:href="@{/city}">Virginia</a><br />
-            <a th:href="@{/city}">Washington</a><br />
-            <a th:href="@{/city}">West&nbspVirginia</a><br />
-            <a th:href="@{/city}">Wisconsin</a><br />
-            <a th:href="@{/city}">Wyoming</a><br />
+            <a href="#" th:onclick="stateSelect('South Dakota')">South Dakota</a><br/>
+            <a href="#" th:onclick="stateSelect('Tennessee')">Tennessee</a><br/>
+            <a href="#" th:onclick="stateSelect('Texas')">Texas</a><br/>
+            <a href="#" th:onclick="stateSelect('Utah')">Utah</a><br/>
+            <a href="#" th:onclick="stateSelect('Vermont')">Vermont</a><br/>
+            <a href="#" th:onclick="stateSelect('Virginia')">Virginia</a><br/>
+            <a href="#" th:onclick="stateSelect('Washington')">Washington</a><br/>
+            <a href="#" th:onclick="stateSelect('West Virginia')">West Virginia</a><br/>
+            <a href="#" th:onclick="stateSelect('Wisconsin')">Wisconsin</a><br/>
+            <a href="#" th:onclick="stateSelect('Wyoming')">Wyoming</a><br/>
         </div>
     </div>
 
@@ -211,15 +216,7 @@
     </main>
 
 
-    <footer id="footer">
-        <div class="footer_links">
-            <div class="footer-item"><a th:href="@{about}">about</a></div>
-            <div class="footer-item"><a th:href="@{avoiding-scams}">avoiding scams</a></div>
-            <div class="footer-item"><a th:href="@{abuse}">abuse</a></div>
-            <div class="footer-item"><a th:href="@{terms-of-use}">terms of use</a></div>
-        </div>
-        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All&nbsprights&nbspreserved</div>
-    </footer>
+    <footer th:insert="~{_fragments/footer::footer}"></footer>
 
 </div> <!-- .page-container -->
 

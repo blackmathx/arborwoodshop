@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+
     <title>Arbor Woodshop | About</title>
-
-    <link rel="stylesheet" href="css/layout.css">
-
-
 </head>
 
 <body>
@@ -18,25 +15,19 @@
     <header class="header">
         <div id="site-title">
             <img src="icon.png" id="logo-image" />
-            <span><a href="index.html" id="title">Arbor Woodshop</a></span>
+            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a href="user-messages.html" style="margin-right:20px;">Messages</a>
-            <a href="user-dashboard.html" style="margin-right:20px;">Dashboard</a>
-            <!-- <a href="login.html" style="margin-right:20px;">login</a> -->
-            <!-- <a href="register.html" style="margin-right:20px;">sign up</a> -->
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
         </div>
     </header>
 
-    <!-- moto text -->
-    <div id="moto">
-        Wood crafted treasures. Local marketplace.
-    </div>
-
-
     <main class="servicePages content-footer-wrap">
-        <h1>About ArborWoodshop</h1>
+        <h1>About Arbor Woodshop</h1>
         <pre>
 Welcome to [WebApp Name], the local marketplace for wood crafted treasures! Founded in 2024 by [Creator], our platform was born out of a passion for woodworking
 and a vision to create a vibrant community hub for buyers and sellers of unique wood crafted items.
@@ -75,15 +66,8 @@ Thank you for being a part of our journey as we celebrate the art of woodworking
     </main>
 
 
-    <footer id="footer">
-        <div class="footer_links">
-            <div class="footer-item"><a href="about.html">about</a></div>
-            <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
-            <div class="footer-item"><a href="abuse.html">abuse</a></div>
-            <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
-        </div>
-        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
-    </footer>
+    <footer th:insert="~{_fragments/footer::footer}"></footer>
+
 
 </div> <!-- .page-container -->
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/layout.css}">
+
   <title>Arbor Woodshop | Register</title>
-  <link rel="stylesheet" href="../css/layout.css">
 </head>
 
 <body>
@@ -32,20 +32,20 @@
 
 
   <div style="display:flex; margin-top:100px;">
-
     <h2 style="margin:auto;">Sign Up</h2><br />
   </div>
 
+  <div style="margin:auto" th:text="${errorMessage}"></div><br/>
+
 
   <div style="display:flex; margin-top:20px;">
-
-    <form style="margin:auto;">
+    <form style="margin:auto;" action="register-user" method="POST">
       <label>email</label><br/>
-      <input type="text"><br />
+      <input type="text" name="email"><br />
       <label>password</label><br/>
-      <input type="password"><br />
+      <input type="password" name="password"><br />
       <button type="submit">Submit</button>
-      Already a member? <a href="login.html">Login</a>
+      Already a member? <a th:href="@{/login}">Login</a>
     </form>
   </div>
   <div style="margin: auto; width: 240px; height: 40px; margin-top: 50px; background-color: lightskyblue">Sign in with Google</div>
@@ -55,15 +55,8 @@
 
 
 
-<footer id="footer">
-  <div class="footer_links">
-    <div class="footer-item"><a href="about.html">about</a></div>
-    <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
-    <div class="footer-item"><a href="abuse.html">abuse</a></div>
-    <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
-  </div>
-  <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
-</footer>
+<footer th:insert="~{_fragments/footer::footer}"></footer>
+
 
 </div> <!-- .page-container -->
 </body>

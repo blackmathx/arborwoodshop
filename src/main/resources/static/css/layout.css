@@ -75,7 +75,7 @@ a:active {color: var(--pallete-activeLink-red);}
 	padding: 8px 12%;
 	font-size: 1.4rem;
 	font-style: italic;
-	font-family: arial;
+	font-family: Georgia;
 	color: rgb(30, 71, 71);
 }
 
@@ -141,8 +141,13 @@ a:active {color: var(--pallete-activeLink-red);}
 
 /* content on the service pages*/
 .servicePages {
-	width: 80%;
+	padding-top: 20px;
+	width: 85%;
 	margin:auto;
+}
+.servicePages pre{
+	padding-top: 20px;
+	padding-left:40px;
 }
 @media screen and (max-width: 1000px){
 	#left-nav-bar {

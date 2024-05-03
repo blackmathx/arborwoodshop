@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/user.css}">
 
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/user.css">
-
+    <title>Arbor Woodshop | Admin</title>
 </head>
 
 <body>
@@ -17,7 +15,7 @@
 
     <header class="header">
         <div id="site-title">
-            <img src="icon.png" id="logo-image" />
+            <img src="icon.png" id="logo-image"/>
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
@@ -29,26 +27,21 @@
         </div>
     </header>
 
-
-
     <main class="user_mainContent content-footer-wrap">
 
         <nav id="user_leftNavBar">
             <div class="user_navBarLinks">
-                <div class="user-links"><a href="user-dashboard.html">Saved Items</a></div>
-                <div class="user-links"><a href="user-preferences.html">Preferences</a></div>
-                <div class="user-links"><a href="user-subscribe.html">Become a Seller</a></div>
-                &nbsp<br/>
-                <div class="user-links"><a href="user-messages.html">Messages</a></div>
-                &nbsp<br/>
-                <div class="user-links"><a href="user-listings.html">Your Listings</a></div>
-                <div class="user-links"><a href="user-list-item.html">List An Item</a></div>
-                <div class="user-links"><a href="user-subscription.html">Manage Subscription</a></div>
+                <div class="user-links"><a th:href="@{/admin/dashboard}">Dashboard</a></div>
+                <div class="user-links"><a th:href="@{/admin/metadata}">Metadata</a></div>
+                <div class="user-links"><a th:href="@{/admin/admin-todo}">Todo List</a></div>
+                <div class="user-links"><a th:href="@{/admin/custom-view}">Custom View</a></div>
+                <div class="user-links"><a th:href="@{/admin/manage-user}">Manage User</a></div>
             </div>
         </nav>
 
-        <section  class="userSection content-flex-stretch">
-            <h3>Saved Items</h3><br />
+
+        <section class="userSection content-flex-stretch">
+            <h3>Administrator</h3><br/>
 
             <div class="userListingCard">
                 <div class="userListingCard__img">
@@ -78,24 +71,12 @@
                 </div>
             </div>
 
-
-
-
         </section>
 
     </main>
 
 
-
-    <footer id="footer">
-        <div class="footer_links">
-            <div class="footer-item"><a href="about.html">about</a></div>
-            <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
-            <div class="footer-item"><a href="abuse.html">abuse</a></div>
-            <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
-        </div>
-        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
-    </footer>
+    <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
 
 
 </div> <!-- .page-container -->

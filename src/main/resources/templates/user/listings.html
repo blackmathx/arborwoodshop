@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/user.css}">
 
-    <title>Arbor Woodshop | Messages</title>
+    <title>Arbor Woodshop | Listings</title>
 </head>
 
 <body>
@@ -33,15 +33,38 @@
         <nav id="user_leftNavBar" th:insert="~{_fragments/user-navbar::user-navbar}"></nav>
 
         <section class="userSection content-flex-stretch">
-            <h3>Messages</h3>
-            <ul>
-                <li>provide messaging in app</li>
-                <li>provide anonymous p2p texting</li>
-                <li>provide anonymous p2p emailing</li>
-                <li>show seller phone/email to users</li>
-            </ul>
+            <h3>Current Listings</h3><br/>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
+                </div>
+            </div>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
+                    consectetur adipisicing elit. Placeat.
+                    consectetur adipisicing elit. Placeat.
+                </div>
+            </div>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
+                    adipisicing elit. Magni ad voluptates libero.
+                </div>
+            </div>
+
 
         </section>
+
 
     </main>
 

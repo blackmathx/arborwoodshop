@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/user.css}">
+
+    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 </head>
+
 <body>
-create listing
+<div class="page-container">
+    <div class="website-alert">This is a maintenance message</div>
+
+    <header class="header">
+        <div id="site-title">
+            <img src="icon.png" id="logo-image"/>
+            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
+            <span id="subtitle">Marketplace</span>
+        </div>
+        <div id="login-placeholder">
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+        </div>
+    </header>
+
+
+    <main class="user_mainContent content-footer-wrap">
+
+        <nav id="user_leftNavBar" th:insert="~{_fragments/user-navbar::user-navbar}"></nav>
+
+        <section class="userSection content-flex-stretch">
+            <h3>Create Listing</h3><br/>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
+                </div>
+            </div>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
+                    consectetur adipisicing elit. Placeat.
+                    consectetur adipisicing elit. Placeat.
+                </div>
+            </div>
+            <div class="userListingCard">
+                <div class="userListingCard__img">
+
+                </div>
+                <div class="userListingCard__desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
+                    adipisicing elit. Magni ad voluptates libero.
+                </div>
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+    <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
+
+
+</div> <!-- .page-container -->
 </body>
+
 </html>

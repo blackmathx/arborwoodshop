@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+
     <title>Arbor Woodshop | Terms of Use</title>
-
-    <link rel="stylesheet" href="css/layout.css">
-
-
 </head>
 
 <body>
@@ -18,22 +15,16 @@
     <header class="header">
         <div id="site-title">
             <img src="icon.png" id="logo-image" />
-            <span><a href="index.html" id="title">Arbor Woodshop</a></span>
+            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a href="user-messages.html" style="margin-right:20px;">Messages</a>
-            <a href="user-dashboard.html" style="margin-right:20px;">Dashboard</a>
-            <!-- <a href="login.html" style="margin-right:20px;">login</a> -->
-            <!-- <a href="register.html" style="margin-right:20px;">sign up</a> -->
+            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
+            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
+            <a th:href="@{/login}" style="margin-right:20px;">login</a>
+            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
         </div>
     </header>
-
-    <!-- moto text -->
-    <div id="moto">
-        Wood crafted treasures. Local marketplace.
-    </div>
-
 
     <main class="servicePages content-footer-wrap">
         <h1>Terms of Use</h1>
@@ -115,15 +106,8 @@ By using [WebApp Name], you agree to abide by these Terms of Use. Thank you for 
 
     </main>
 
-    <footer id="footer">
-        <div class="footer_links">
-            <div class="footer-item"><a href="about.html">about</a></div>
-            <div class="footer-item"><a href="avoiding-scams.html">avoiding scams</a></div>
-            <div class="footer-item"><a href="abuse.html">abuse</a></div>
-            <div class="footer-item"><a href="terms-of-use.html">terms of use</a></div>
-        </div>
-        <div class="footer-item footer_copyright">&#169; 2024 PaytonWebDesign. All rights reserved </div>
-    </footer>
+    <footer th:insert="~{_fragments/footer::footer}"></footer>
+
 
 
 </div> <!-- .page-container -->
