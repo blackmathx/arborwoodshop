@@ -1,7 +1,6 @@
 package com.arborwoodshop.config;
 
 import com.arborwoodshop.service.JpaUserDetailsService;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -26,11 +25,9 @@ public class SecurityConfig {
 
     private final JpaUserDetailsService jpaUserDetailsService;
 
-
-    public SecurityConfig(JpaUserDetailsService jpaUserDetailsService){
+    public SecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
         this.jpaUserDetailsService = jpaUserDetailsService;
     }
-
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -46,26 +43,22 @@ public class SecurityConfig {
                 .logout((logout) -> logout.logoutSuccessUrl("/"))
 
                 .formLogin(form -> form.loginPage("/login")
-                       //.defaultSuccessUrl("/user/dashboard")
-                       .successHandler(new AuthenticationSuccessHandler() {
-                           @Override
-                           public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                               response.sendRedirect("/login/login-success");
-                           }
-                       })
-                       .usernameParameter("email").permitAll())
+                        // BO 5/3/24 Replaced deafultSuccessUrl with custom success handler
+                        //.defaultSuccessUrl("/user/dashboard")
+                        .successHandler(new AuthenticationSuccessHandler() {
+                            @Override
+                            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
+                                response.sendRedirect("/login/login-success");
+                            }
+                        })
+                        .usernameParameter("email").permitAll())
                 .build();
     }
 
-    /*
-     * Defines the password encoder used when verifying users. Another option is a Bean with DoaAuthenticationProvider
-     * and set the encoder there.
-     */
+    // Defines the password encoder used when verifying users.
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 
 }

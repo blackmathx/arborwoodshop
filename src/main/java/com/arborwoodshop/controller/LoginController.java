@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
+
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final UserRepository userRepository;
@@ -35,8 +36,7 @@ public class LoginController {
 
     @GetMapping(value = "/register")
     public String register(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+        model.addAttribute("user", new User());
         return "security/register";
     }
 
@@ -44,7 +44,6 @@ public class LoginController {
     public String addNewUser(@ModelAttribute("user") User user, Model model) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-
 
         if(user.getEmail().isBlank() || user.getPassword().isBlank()){
             model.addAttribute("errorMessage", "Invalid email or password.");
@@ -62,18 +61,26 @@ public class LoginController {
         return "redirect:/login";
     }
 
+
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/login-success")
     public String loginSuccess(HttpServletRequest request) {
+
         String userEmail = request.getUserPrincipal().getName();
         String address = request.getRemoteAddr();
+
+        if(userEmail.equals("admin@arborwoodshop.com")){
+            return "redirect:/admin/dashboard";
+        }
+
         logger.info(address + " " + userEmail);
-        return "user/dashboard";
+        return "redirect:/user/dashboard";
     }
 
-    @GetMapping(value = "/logout-url")
-    public String logoutUrl() {
-        return "index";
-    }
+//    @GetMapping(value = "/logout-url")
+//    public String logoutUrl() {
+//        System.out.println("logging out.............");
+//        return "index";
+//    }
 
 }

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,15 +19,11 @@ public class ViewController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     private final ItemRepository itemRepository;
-    //private static final List<Item> cachedItems = new ArrayList<>();
 
     public ViewController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
-        // TODO limit caching to an item limit
-        //List<Item> stash = itemRepository.findAll();
-        //cachedItems.addAll(stash);
+        // TODO implement some sort of in memory caching
     }
 
 //    @GetMapping("/")
@@ -38,56 +33,52 @@ public class ViewController {
 
     @GetMapping(value = "/")
     public String index(HttpServletRequest request, Model model) {
-        logger.debug("*********A DEBUG Message");
-        logger.info("**********An INFO Message");
-        logger.warn("**********A WARN Message");
-        logger.error("**********An ERROR Message");
+        logger.info("PAGE VIEW:/index " + request.getRemoteAddr());
 
-        //System.out.println(request.getRemoteAddr());
+        List<Item> items = itemRepository.findAll();
 
-        List<Item> items = new ArrayList<>();
-        items = itemRepository.findAll();
-//        if (cachedItems.isEmpty()) {
-//            // TODO limit caching to an item limit
-//            cachedItems.addAll(itemRepository.findAll());
-//            items.addAll(cachedItems);
-//        } else {
-//            items.addAll(cachedItems);
-//        }
         model.addAttribute("items", items);
         return "index";
     }
 
+
     // TODO remove /city mapping. blocked because there are no cities
     @GetMapping(value = {"/city", "/city/{city}"})
-    public String displayItemsByCity() {
+    public String displayItemsByCity(HttpServletRequest request) {
+        logger.info("PAGE VIEW:/city " + request.getRemoteAddr());
         return "local-listings";
     }
 
     @GetMapping(value = "/item/{id}")
-    public String displayItemById(Model model, @PathVariable Long id) {
+    public String displayItemById(HttpServletRequest request, Model model, @PathVariable Long id) {
+        logger.info("PAGE VIEW:/item/" + id + " " + request.getRemoteAddr());
+
         Item item = itemRepository.findById(id).orElse(new Item());
         model.addAttribute("item", item);
         return "item";
     }
 
     @GetMapping(value = {"/about"})
-    public String about() {
+    public String about(HttpServletRequest request) {
+        logger.info("PAGE VIEW:/about " + request.getRemoteAddr());
         return "about";
     }
 
     @GetMapping(value = {"/avoiding-scams"})
-    public String avoidingScams() {
+    public String avoidingScams(HttpServletRequest request) {
+        logger.info("PAGE VIEW:/avoiding-scams " + request.getRemoteAddr());
         return "avoiding-scams";
     }
 
     @GetMapping(value = {"/abuse"})
-    public String abuse() {
+    public String abuse(HttpServletRequest request) {
+        logger.info("PAGE VIEW:/abuse " + request.getRemoteAddr());
         return "abuse";
     }
 
     @GetMapping(value = {"/terms-of-use"})
-    public String termsOfUse() {
+    public String termsOfUse(HttpServletRequest request) {
+        logger.info("PAGE VIEW:/terms-of-use " + request.getRemoteAddr());
         return "terms-of-use";
     }
 
