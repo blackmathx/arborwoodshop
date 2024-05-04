@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/user.css}">
 
-    <title>Arbor Woodshop | Messages</title>
+    <title>Arbor Woodshop | Manage Subscription</title>
 </head>
 
 <body>
@@ -20,28 +20,43 @@
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
 
     <main class="user_mainContent content-footer-wrap">
 
-        <nav id="user_leftNavBar" th:insert="~{_fragments/user-navbar::user-navbar}"></nav>
+        <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
-        <section class="userSection content-flex-stretch">
-            <h3>Messages</h3>
-            <ul>
-                <li>provide messaging in app</li>
-                <li>provide anonymous p2p texting</li>
-                <li>provide anonymous p2p emailing</li>
-                <li>show seller phone/email to users</li>
-            </ul>
+
+
+
+        <section  class="userSection content-flex-stretch">
+            <h3>Manage Subscription</h3>
+            <br/>
+
+            <div class="subscription">
+                <div>Start: September 2023</div>
+                <div>End: September 2024</div>
+
+            </div>
+
+            <br/>
+            <button>1 Month</button><br/>
+            <p>Extend your subscription for 1 month for $7.99.</p>
+
+            <br/>
+            <button>Subscribe</button><br/>
+            <p>Extend your subscription for 1 year for $75.99 and save $20.</p>
+            <br/>
+
+            <p>Cancel your subscription: Lorem ipsum temporibus animi reprehenderit.<br/>
+                Laudantium, placeat ipsum praesentium explicabo suscipit quis officiis. <a href="#">Cancel</a></p>
 
         </section>
+
+
 
     </main>
 

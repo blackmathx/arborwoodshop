@@ -20,10 +20,7 @@
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
@@ -33,9 +30,9 @@
             <div class="user_navBarLinks">
                 <div class="user-links"><a th:href="@{/admin/dashboard}">Dashboard</a></div>
                 <div class="user-links"><a th:href="@{/admin/metadata}">Metadata</a></div>
-                <div class="user-links"><a th:href="@{/admin/admin-todo}">Todo List</a></div>
-                <div class="user-links"><a th:href="@{/admin/custom-view}">Custom View</a></div>
-                <div class="user-links"><a th:href="@{/admin/manage-user}">Manage User</a></div>
+                <div class="user-links"><a th:href="@{/admin/admin-todo}">Todo&nbspList</a></div>
+                <div class="user-links"><a th:href="@{/admin/custom-view}">Custom&nbspView</a></div>
+                <div class="user-links"><a th:href="@{/admin/manage-user}">Manage&nbspUser</a></div>
             </div>
         </nav>
 

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
+
 
 @Controller
 @RequestMapping(value = "/login")
@@ -54,11 +56,18 @@ public class LoginController {
             return "security/register";
         }
 
-        user.setRoles("ROLE_USER");
+        user.setUsername(null);
         user.setPassword(encoder.encode(user.getPassword()));
+        user.setRecordStatus("A");
+        user.setActiveDate(null);
+        user.setExpireDate(null);
+        user.setCreated(LocalDateTime.now());
+        user.setRoles("ROLE_USER");
 
         userRepository.save(user);
-        return "redirect:/login";
+
+        model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
+        return "security/login";
     }
 
 

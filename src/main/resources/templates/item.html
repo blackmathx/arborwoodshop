@@ -21,10 +21,7 @@
         </div>
 
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 

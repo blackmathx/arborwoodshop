@@ -20,17 +20,14 @@
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
 
     <main class="user_mainContent content-footer-wrap">
 
-        <nav id="user_leftNavBar" th:insert="~{_fragments/user-navbar::user-navbar}"></nav>
+        <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
         <section class="userSection content-flex-stretch">
             <h3>Profile Settings</h3><br/>

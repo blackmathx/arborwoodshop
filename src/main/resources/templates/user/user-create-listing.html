@@ -20,53 +20,47 @@
             <span id="subtitle">Marketplace</span>
         </div>
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
 
     <main class="user_mainContent content-footer-wrap">
 
-        <nav id="user_leftNavBar" th:insert="~{_fragments/user-navbar::user-navbar}"></nav>
+         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
-        <section class="userSection content-flex-stretch">
-            <h3>Create Listing</h3><br/>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
 
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
-                </div>
-            </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
+        <section  class="userSection content-flex-stretch">
+            <h3>List A New Item</h3>
 
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                </div>
-            </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
+            <br/><br/>
+            <form method="POST" action="#">
 
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
-                    adipisicing elit. Magni ad voluptates libero.
-                </div>
-            </div>
+                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
+                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
+                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
 
+                <br/><br/>
+
+                <label for="title">title</label><br/>
+                <input name="title" type="text" size="40"><br/>
+
+                <label for="price">price</label><br/>
+                <input name="price" type="text"><br/>
+
+                <label>description</label><br/>
+                <textarea name="description" rows="6" cols="70"></textarea><br/>
+
+                <input type="submit" value="submit">
+            </form>
 
         </section>
 
 
+
+
     </main>
+
 
     <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
 

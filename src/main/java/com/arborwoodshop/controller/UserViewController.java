@@ -20,10 +20,10 @@ public class UserViewController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value = "/preferences")
+    @GetMapping(value = "/account-settings")
     public String userPreferences(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/preferences";
+        return "user/account-settings";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
@@ -65,7 +65,7 @@ public class UserViewController {
     @GetMapping(value = "/become-a-seller")
     public String userBecomeSeller(Model model, Principal principal) {
         model.addAttribute("username", principal.getName());
-        return "user/dashboard";
+        return "user/become-a-seller";
     }
 
 

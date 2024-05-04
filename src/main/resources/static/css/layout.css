@@ -10,7 +10,6 @@
 	--pallete-activeLink-red: #FF0000;
 }
 
-
 html {  box-sizing: border-box;  font-size: 16px;}
 *, *:before, *:after {  box-sizing: inherit;}
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {  margin: 0;  padding: 0;  font-weight: normal;}
@@ -20,7 +19,6 @@ img {  max-width: 100%;  height: auto;}
 a:link { color: var(--pallete-link-blue);}
 a:visited {color: var(--pallete-visitedLink-purple);}
 a:active {color: var(--pallete-activeLink-red);}
-
 
 * {
 	/* outline: 1px solid var(--pallete-pine); */
@@ -71,6 +69,10 @@ a:active {color: var(--pallete-activeLink-red);}
 	display:flex;
 	margin-bottom: 10px;
 }
+.account-link {
+    margin-right: 20px;
+    padding: 4px;
+}
 #moto {
 	padding: 8px 12%;
 	font-size: 1.4rem;
@@ -83,6 +85,9 @@ a:active {color: var(--pallete-activeLink-red);}
 	#site-title{
 		font-size: 1.5rem;
 	}
+	#account-link-messages {
+	    display: none;
+	}
 	#moto {
 		padding: 4px 0% 4px 3%;
 		font-size: 1.0rem;
@@ -90,18 +95,21 @@ a:active {color: var(--pallete-activeLink-red);}
 	.header {
 		padding: 8px 2% 8px 4%;
 		min-height: 0px;
-
 	}
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 470px){
 	html {
 		font-size: 15px;
 	}
 	#title {
-		font-size: 1.3rem;
+		font-size: 1.4rem;
 	}
 	#subtitle {
-		font-size: .7em;
+		font-size: .8em;
+	}
+	.account-link {
+	    display: block;
+	    padding-top: 5px;
 	}
 	#moto{
 		font-size: 1rem;

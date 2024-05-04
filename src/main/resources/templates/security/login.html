@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,13 +19,11 @@
             <span id="subtitle">Marketplace</span>
         </div>
 
-        <div style="margin:auto" th:text="${errorMessage}"></div><br/>
+        <div style="margin:auto" th:text="${errorMessage}"></div>
+        <br/>
 
         <div id="login-placeholder">
-            <a th:href="@{/user/messages}" style="margin-right:20px;">Messages</a>
-            <a th:href="@{/user/dashboard}" style="margin-right:20px;">Dashboard</a>
-            <a th:href="@{/login}" style="margin-right:20px;">login</a>
-            <a th:href="@{/login/register}" style="margin-right:20px;">sign up</a>
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
@@ -38,7 +36,7 @@
         <h2 style="margin:auto;">Login</h2><br />
     </div>
     <div style="display:flex; margin-top:20px;">
-
+        <div th:text="${registrationSuccess}"></div>
         <form style="margin:auto;" action="/login" method="POST">
             <label>email</label><br/>
             <input type="text" name="email"><br />

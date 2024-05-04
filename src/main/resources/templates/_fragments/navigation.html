@@ -1,0 +1,30 @@
+<div th:fragment="account-navbar">
+    <div sec:authorize="isAnonymous()">
+        <a th:href="@{/login}" class="account-link">Login</a>
+        <a th:href="@{/login/register}" class="account-link" >Sign&nbspup</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <a th:href="@{/user/messages}" class="account-link" id="account-link-messages">Messages</a>
+        <a th:href="@{/user/dashboard}" class="account-link" >Dashboard</a>
+        <a th:href="@{/logout}" class="account-link" >Logout</a>
+    </div>
+</div>
+
+
+
+
+<div   th:fragment="user-navbar"  class="user_navBarLinks">
+    <div class="user-links"><a th:href="@{/user/listings}">Your&nbspListings</a></div>
+    <div class="user-links"><a th:href="@{/user/messages}">Messages</a></div>
+    <div class="user-links"><a th:href="@{/user/listings/create-listing}">List&nbspAn&nbspItem</a></div>
+    <div class="user-links"><a th:href="@{/user/manage-subscription}">Manage&nbspSubscription</a></div>
+    <div class="user-links"><a th:href="@{/user/dashboard}">Saved&nbspItems</a></div>
+    <div class="user-links"><a th:href="@{/user/account-settings}">Account&nbspSettings</a></div>
+    &nbsp<br/>
+    <div class="user-links"><a th:href="@{/user/become-a-seller}">Become&nbspa&nbspSeller</a></div>
+    &nbsp<br/>
+
+</div>
+
+
+
