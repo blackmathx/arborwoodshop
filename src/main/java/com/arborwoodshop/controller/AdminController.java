@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping(value = {"", "/", "dashboard"})
+    @GetMapping(value = {"", "/", "admin-dashboard"})
     public String admin() {
         // TODO implement a users/subscribers/items count view and metadata for admin
-        return "admin/dashboard";
+        return "admin/admin-dashboard";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "support-tasks")
     public String todoList() {
         // TODO implement an it-support system tasks list
-        return "admin/dashboard";
+        return "admin/admin-dashboard";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "manage-users")
     public String manageUser() {
         // TODO implement a way to disable/delete accounts and items for the admin
-        return "admin/dashboard";
+        return "admin/admin-dashboard";
     }
 
 }

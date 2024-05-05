@@ -31,6 +31,16 @@
 
         <section class="userSection content-flex-stretch">
             <h3>Current Listings</h3><br/>
+
+
+            <div th:text="${username}"></div>
+            <div th:each="listing : ${listings}">
+                <div th:text="${listing.title}"></div>
+                <div th:text="${listing.price}"></div>
+                <div th:text="${listing.description}"></div>
+
+            </div>
+
             <div class="userListingCard">
                 <div class="userListingCard__img">
 

@@ -36,8 +36,8 @@ public class LoginController {
     }
 
     @GetMapping(value = "/register")
-    public String register(Model model) {
-        model.addAttribute("user", new User());
+    public String register(Model model, User user) {
+        model.addAttribute("user", user);
         return "security/register";
     }
 
@@ -84,7 +84,7 @@ public class LoginController {
         String address = request.getRemoteAddr();
 
         if(userEmail.equals("admin@arborwoodshop.com")){
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin/admin-dashboard";
         }
 
         logger.info("LOGGING IN: {} {}", address, userEmail);

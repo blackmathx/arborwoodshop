@@ -26,6 +26,15 @@ public class SecurityUser implements UserDetails {
     public String getUsername() {
         return user.getEmail();
     }
+    @Override  public boolean isEnabled() {
+        // BO 5/4/24 Check account is enabled. was returning true;
+        return user.getEnabled();
+    }
+
+    // BO 5/5/24 Return user id
+    public Long getId(){
+        return user.getId();
+    }
 
     // BO 5/4/24 Custom method to check member status. Appears to persist in SecurityContextHolder.getContext() at login
     public boolean getMemberStatus(){
@@ -54,24 +63,9 @@ public class SecurityUser implements UserDetails {
                 .toList();
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+    @Override  public boolean isAccountNonExpired() { return true; }
+    @Override  public boolean isAccountNonLocked() { return true; }
+    @Override  public boolean isCredentialsNonExpired() { return true; }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        // BO 5/4/24 Check account is enabled. was returning true;
-        return user.getEnabled();
-    }
 
 }

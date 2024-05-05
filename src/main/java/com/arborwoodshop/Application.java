@@ -47,7 +47,7 @@ public class Application {
 			Optional<User> u = userRepo.findByEmail("ozzie@gmail.com");
 			u.ifPresent( i -> {
 				for(Listing j : i.getListings()){
-					System.out.println(j.getTitle() + ":  " + j.getDescription());
+					System.out.println(i.getEmail() + ": " + j.getTitle() + ":  " + j.getDescription());
 				}
 			});
 		};

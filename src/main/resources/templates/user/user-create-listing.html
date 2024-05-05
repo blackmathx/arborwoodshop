@@ -24,7 +24,6 @@
         </div>
     </header>
 
-
     <main class="user_mainContent content-footer-wrap">
 
          <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
@@ -34,11 +33,11 @@
             <h3>New Listing</h3>
 
             <br/><br/>
-            <form method="POST" action="#">
+            <form action="create-listing" method="POST">
 
-                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
-                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
-                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>
+<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
+<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
+<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
 
                 <br/><br/>
 
@@ -56,11 +55,7 @@
 
         </section>
 
-
-
-
     </main>
-
 
     <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
 
