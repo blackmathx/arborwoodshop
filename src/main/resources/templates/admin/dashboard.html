@@ -28,21 +28,22 @@
 
         <nav id="user_leftNavBar">
             <div class="user_navBarLinks">
-                <div class="user-links"><a th:href="@{/admin/dashboard}">Dashboard</a></div>
-                <div class="user-links"><a th:href="@{/admin/metadata}">Metadata</a></div>
-                <div class="user-links"><a th:href="@{/admin/admin-todo}">Todo&nbspList</a></div>
-                <div class="user-links"><a th:href="@{/admin/custom-view}">Custom&nbspView</a></div>
-                <div class="user-links"><a th:href="@{/admin/manage-user}">Manage&nbspUser</a></div>
+                <div class="user-links"><a th:href="@{/admin/dashboard}">Admin&nbspDashboard</a></div>
+                <div class="user-links"><a th:href="@{/admin/support-tasks}">Support&nbspTasks</a></div>
+                <div class="user-links"><a th:href="@{/admin/manage-users}">Manage&nbspContent</a></div>
             </div>
         </nav>
 
 
         <section class="userSection content-flex-stretch">
-            <h3>Administrator</h3><br/>
+            <h3>Administrator Dashboard</h3><br/>
+
+            <!-- TODO implement metadata, manage content, support tasks -->
+
+
 
             <div class="userListingCard">
                 <div class="userListingCard__img">
-
                 </div>
                 <div class="userListingCard__desc">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
@@ -50,31 +51,24 @@
             </div>
             <div class="userListingCard">
                 <div class="userListingCard__img">
-
                 </div>
                 <div class="userListingCard__desc">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
+                    consectetur adipisicing elit. Placeat. consectetur adipisicing elit. Placeat.
                 </div>
             </div>
             <div class="userListingCard">
                 <div class="userListingCard__img">
-
                 </div>
                 <div class="userListingCard__desc">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
                     adipisicing elit. Magni ad voluptates libero.
                 </div>
             </div>
-
         </section>
-
     </main>
 
-
     <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
-
 
 </div> <!-- .page-container -->
 </body>

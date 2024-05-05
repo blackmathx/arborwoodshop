@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @Controller
 @EnableMethodSecurity
 public class ViewController {
@@ -23,7 +22,7 @@ public class ViewController {
 
     public ViewController(ListingRepository listingRepo) {
         this.listingRepo = listingRepo;
-        // TODO implement some sort of in memory caching
+        // TODO implement some sort of in memory caching for front page
     }
 
 //    @GetMapping("/")
@@ -33,7 +32,7 @@ public class ViewController {
 
     @GetMapping(value = "/")
     public String index(HttpServletRequest request, Model model) {
-        logger.info("PAGE VIEW:/index " + request.getRemoteAddr());
+        //logger.info("PAGE VIEW:/index " + request.getRemoteAddr());
 
         List<Listing> listings = listingRepo.findAll();
 
@@ -41,13 +40,11 @@ public class ViewController {
         return "index";
     }
 
-
-    // TODO remove /city mapping. blocked because there are no cities
-    @GetMapping(value = {"/city", "/city/{city}"})
-    public String displayListingsByCity(HttpServletRequest request) {
-        logger.info("PAGE VIEW:/city " + request.getRemoteAddr());
-        return "local-listings";
-    }
+    // TODO Delete /city route
+//    @GetMapping(value = {"/city", "/city/{city}"})
+//    public String displayListingsByCity(HttpServletRequest request) {
+//        return "local-listings";
+//    }
 
     @GetMapping(value = {"/marketplace/state/{state}"})
     public String displayListingsByState(@PathVariable("state") String state, Model model){
@@ -56,39 +53,40 @@ public class ViewController {
         return "local-listings";
     }
 
-
-    @GetMapping(value = "/listing/{id}")
+    @GetMapping(value = "/marketplace/listing/{id}")
     public String displayListingById(HttpServletRequest request, Model model, @PathVariable Long id) {
-        logger.info("PAGE VIEW:/listing/" + id + " " + request.getRemoteAddr());
 
-        Listing listing = listingRepo.findById(id).orElse(new Listing());
-        model.addAttribute("listing", listing);
+        //Listing listing = listingRepo.findById(id).orElse(new Listing());
+        //model.addAttribute("listing", listing);
         return "listing";
     }
 
+
+
+
+    /* ----------------- Service Pages ----------------------------------------------- */
+
     @GetMapping(value = {"/about"})
     public String about(HttpServletRequest request) {
-        logger.info("PAGE VIEW:/about " + request.getRemoteAddr());
+        //logger.info("PAGE VIEW:/about " + request.getRemoteAddr());
         return "about";
     }
 
     @GetMapping(value = {"/avoiding-scams"})
     public String avoidingScams(HttpServletRequest request) {
-        logger.info("PAGE VIEW:/avoiding-scams " + request.getRemoteAddr());
+        //logger.info("PAGE VIEW:/avoiding-scams " + request.getRemoteAddr());
         return "avoiding-scams";
     }
 
     @GetMapping(value = {"/abuse"})
     public String abuse(HttpServletRequest request) {
-        logger.info("PAGE VIEW:/abuse " + request.getRemoteAddr());
+        //logger.info("PAGE VIEW:/abuse " + request.getRemoteAddr());
         return "abuse";
     }
 
     @GetMapping(value = {"/terms-of-use"})
     public String termsOfUse(HttpServletRequest request) {
-        logger.info("PAGE VIEW:/terms-of-use " + request.getRemoteAddr());
+        //logger.info("PAGE VIEW:/terms-of-use " + request.getRemoteAddr());
         return "terms-of-use";
     }
-
-
 }

@@ -28,6 +28,7 @@ public class UserViewController {
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/account-settings")
     public String userPreferences(Model model, Principal principal) {
+
         model.addAttribute("username", principal.getName());
         return "user/account-settings";
     }
@@ -42,6 +43,7 @@ public class UserViewController {
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/listings")
     public String userListings(Model model, Principal principal) {
+        // TODO show users listings
         model.addAttribute("username", principal.getName());
         return "user/listings";
     }
@@ -56,6 +58,7 @@ public class UserViewController {
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/listings/create-listing")
     public String userCreateListing(Model model, Principal principal) {
+        // TODO add new listing
         model.addAttribute("username", principal.getName());
         return "user/user-create-listing";
     }
