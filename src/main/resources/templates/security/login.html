@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
 
     <title>Arbor Woodshop | Login </title>
 </head>
@@ -32,23 +34,31 @@
     </div>
 
     <div style="display:flex; margin-top:100px;">
-
-        <h2 style="margin:auto;">Login</h2><br />
+        <h2 style="margin:auto;">Account Login</h2><br />
     </div>
+
+
+
+    <div style="display:flex; margin:auto; margin-top: 20px; width:300px;" th:if="${registrationSuccess != null}" th:text="${registrationSuccess}"></div>
+
+
     <div style="display:flex; margin-top:20px;">
-        <div th:text="${registrationSuccess}"></div>
         <form style="margin:auto;" action="/login" method="POST">
             <label>email</label><br/>
-            <input type="text" name="email"><br />
+            <input type="text" size="40" name="email"><br />
             <label>password</label><br/>
-            <input type="password" name="password"><br />
+            <input type="password" size="40" name="password"><br />
 
-            <button type="submit">Sign in</button>&nbsp&nbsp
-            <a th:href="@{/login/register}">Sign Up</a>
+            <button type="submit">Sign in</button>
         </form>
     </div>
-    <div style="margin:auto; width: 240px; height: 40px; margin-top: 50px; background-color: lightskyblue">Sign in with Google</div>
+    <div style="display:flex; margin:auto; margin-top: 20px; width:300px;">
+        Create an Arbor Woodshop account. <a th:href="@{/login/register}">Sign Up</a>
+    </div>
 
+    <!--
+    <div style="margin:auto; width: 240px; height: 40px; margin-top: 50px; background-color: lightskyblue">Sign in with Google</div>
+    -->
 
     <footer th:insert="~{_fragments/footer::footer}"></footer>
 

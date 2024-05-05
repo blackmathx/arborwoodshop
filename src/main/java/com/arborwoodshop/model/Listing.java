@@ -1,29 +1,31 @@
 package com.arborwoodshop.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class Item {
+public class Listing {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
     private String description;
     private Integer price;
+
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn
+    private User user;
+
+
+
     private String imageLink;
 
-    public Item(){ }
+    public Listing(){ }
 
-    public Item(String title, String description, Integer price, String imageLink) {
+    public Listing(String title, String description, Integer price) {
         this.title = title;
         this.description = description;
         this.price = price;
-        this.imageLink = imageLink;
     }
 
     public Long getId() {
@@ -58,6 +60,14 @@ public class Item {
         this.price = price;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getImageLink() {
         return imageLink;
     }
@@ -68,7 +78,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Listing{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

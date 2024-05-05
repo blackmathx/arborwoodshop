@@ -1,7 +1,7 @@
 package com.arborwoodshop.controller;
 
-import com.arborwoodshop.model.Item;
-import com.arborwoodshop.repository.ItemRepository;
+import com.arborwoodshop.model.Listing;
+import com.arborwoodshop.repository.ListingRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +19,10 @@ public class ViewController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final ItemRepository itemRepository;
+    private final ListingRepository listingRepo;
 
-    public ViewController(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
+    public ViewController(ListingRepository listingRepo) {
+        this.listingRepo = listingRepo;
         // TODO implement some sort of in memory caching
     }
 
@@ -35,27 +35,35 @@ public class ViewController {
     public String index(HttpServletRequest request, Model model) {
         logger.info("PAGE VIEW:/index " + request.getRemoteAddr());
 
-        List<Item> items = itemRepository.findAll();
+        List<Listing> listings = listingRepo.findAll();
 
-        model.addAttribute("items", items);
+        model.addAttribute("listings", listings);
         return "index";
     }
 
 
     // TODO remove /city mapping. blocked because there are no cities
     @GetMapping(value = {"/city", "/city/{city}"})
-    public String displayItemsByCity(HttpServletRequest request) {
+    public String displayListingsByCity(HttpServletRequest request) {
         logger.info("PAGE VIEW:/city " + request.getRemoteAddr());
         return "local-listings";
     }
 
-    @GetMapping(value = "/item/{id}")
-    public String displayItemById(HttpServletRequest request, Model model, @PathVariable Long id) {
-        logger.info("PAGE VIEW:/item/" + id + " " + request.getRemoteAddr());
+    @GetMapping(value = {"/marketplace/state/{state}"})
+    public String displayListingsByState(@PathVariable("state") String state, Model model){
+        // TODO get listings by state
+        model.addAttribute("subtitle", state);
+        return "local-listings";
+    }
 
-        Item item = itemRepository.findById(id).orElse(new Item());
-        model.addAttribute("item", item);
-        return "item";
+
+    @GetMapping(value = "/listing/{id}")
+    public String displayListingById(HttpServletRequest request, Model model, @PathVariable Long id) {
+        logger.info("PAGE VIEW:/listing/" + id + " " + request.getRemoteAddr());
+
+        Listing listing = listingRepo.findById(id).orElse(new Listing());
+        model.addAttribute("listing", listing);
+        return "listing";
     }
 
     @GetMapping(value = {"/about"})

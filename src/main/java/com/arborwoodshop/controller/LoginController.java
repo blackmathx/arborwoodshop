@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
 
-
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
@@ -44,8 +43,14 @@ public class LoginController {
 
     @PostMapping(path = "/register-user")
     public String addNewUser(@ModelAttribute("user") User user, Model model) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
+        /*
+         * TODO email verification
+         * tutorial: https://www.codejava.net/frameworks/spring-boot/email-verification-example
+         * and youtube vide at: https://www.youtube.com/watch?v=7mVTfnOIJO8
+         * steps are to add verificationCode to User class, update UserDetails, add JavaMail in SpringBoot,
+         *      update user registration for sending email,
+         */
+
 
         if(user.getEmail().isBlank() || user.getPassword().isBlank()){
             model.addAttribute("errorMessage", "Invalid email or password.");
@@ -58,10 +63,10 @@ public class LoginController {
 
         user.setUsername(null);
         user.setPassword(encoder.encode(user.getPassword()));
-        user.setRecordStatus("A");
-        user.setActiveDate(null);
-        user.setExpireDate(null);
-        user.setCreated(LocalDateTime.now());
+        user.setEnabled(true);
+        user.setMemberActiveDate(null);
+        user.setMemberExpireDate(null);
+        user.setMemberStatus(false);
         user.setRoles("ROLE_USER");
 
         userRepository.save(user);
@@ -82,14 +87,16 @@ public class LoginController {
             return "redirect:/admin/dashboard";
         }
 
-        logger.info(address + " " + userEmail);
+        logger.info("LOGGING IN: {} {}", address, userEmail);
+
         return "redirect:/user/dashboard";
     }
 
-//    @GetMapping(value = "/logout-url")
-//    public String logoutUrl() {
-//        System.out.println("logging out.............");
-//        return "index";
-//    }
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @GetMapping(value = "/account-logout")
+    public String logoutUrl(HttpServletRequest request) {
+        logger.info("LOGGING OUT: {}", request.getUserPrincipal().getName());
+        return "redirect:/logout";
+    }
 
 }

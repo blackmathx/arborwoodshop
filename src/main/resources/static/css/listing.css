@@ -1,6 +1,6 @@
 
 
-.viewItemSection {
+.viewListingSection {
 
 	margin: 10px;
 	flex-grow: 1;
@@ -10,25 +10,25 @@
 	background-color: rgb(236, 236, 236);
 }
 
-.viewItemCard {
+.viewListingCard {
 	background-color: rgb(207, 207, 207);
 }
 
-.viewItemCard__img {
+.viewListingCard__img {
 	margin: 100px 0px 20px 0px;
 	height: auto;
 	max-height: 400px;
 
 }
 
-.viewItemCard__description {
+.viewListingCard__description {
 	width: 70%;
 	margin: 20px 0px;
 }
 
 
 @media screen and (max-width: 1000px){
-	.viewItemCard__img {
+	.viewListingCard__img {
 		margin-top: 30px;
 	}
 }

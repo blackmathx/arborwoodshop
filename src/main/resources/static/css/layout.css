@@ -211,7 +211,7 @@ a:active {color: var(--pallete-activeLink-red);}
 	padding: 0px 70px;
 }
 
-.footer-item, .footer-item a{
+.footer-listing, .footer-listing a{
     line-height: 1.5rem;
 	color:white;
 }
@@ -220,7 +220,7 @@ a:active {color: var(--pallete-activeLink-red);}
 }
 
 @media screen and (max-width: 1300px){
-	.footer-item, .footer-item a {
+	.footer-listing, .footer-listing a {
 		line-height: 1.8rem;
 	}
 	#footer {

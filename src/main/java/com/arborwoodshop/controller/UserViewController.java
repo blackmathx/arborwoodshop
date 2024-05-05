@@ -1,6 +1,7 @@
 package com.arborwoodshop.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,13 @@ import java.security.Principal;
 public class UserViewController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping(value = {"", "/dashboard", "/saved-items"})
+    @GetMapping(value = {"", "/dashboard", "/saved-listings"})
     public String user(Model model, Principal principal) {
+
+        // Get SecurityUser for current user
+        Object o = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //System.out.println("Member status: " + ((SecurityUser) o).getMemberStatus());
+
         model.addAttribute("username", principal.getName());
         return "user/dashboard";
     }

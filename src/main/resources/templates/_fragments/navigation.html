@@ -6,7 +6,7 @@
     <div sec:authorize="isAuthenticated()">
         <a th:href="@{/user/messages}" class="account-link" id="account-link-messages">Messages</a>
         <a th:href="@{/user/dashboard}" class="account-link" >Dashboard</a>
-        <a th:href="@{/logout}" class="account-link" >Logout</a>
+        <a th:href="@{/login/account-logout}" class="account-link" >Logout</a>
     </div>
 </div>
 

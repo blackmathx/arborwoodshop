@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/layout.css}">
-    <link rel="stylesheet" href="css/local.css">
+    <link rel="stylesheet" th:href="@{/css/local.css}">
 
     <title>Arbor Woodshop | Fort Wayne</title>
 </head>
@@ -17,7 +17,7 @@
         <div id="site-title">
             <img src="icon.png" id="logo-image" />
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Fort&nbspWayne</span>
+            <span id="subtitle" th:text="${subtitle}"></span>
         </div>
         <div id="login-placeholder">
             <div th:insert="~{_fragments/navigation::account-navbar}"></div>
@@ -51,11 +51,11 @@
                 <input type="text" id="local_search-input" placeholder="Search your local marketplace" />
             </form>
 
-            <div id="local_item-content">
+            <div id="local_listing-content">
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/27.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/27.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -65,9 +65,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/25.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/25.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -76,9 +76,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/24.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -88,9 +88,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/45.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -99,9 +99,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/47.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -112,9 +112,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/19.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/19.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -125,9 +125,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/3.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/3.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -137,9 +137,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/44.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/44.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -148,9 +148,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/46.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/46.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -160,9 +160,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/47.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -171,9 +171,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/48.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/48.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -182,9 +182,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/49.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/49.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -193,33 +193,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/43.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/33.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/22.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/43.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -229,9 +205,33 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/34.jpg');">
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/33.jpg');">
+                        <div class="xyz"
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/22.jpg');">
+                        <div class="xyz"
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/34.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -240,9 +240,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/36.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/36.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -252,9 +252,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/22.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/22.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -263,9 +263,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/24.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -274,22 +274,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/31.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/29.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/31.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -300,20 +287,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/28.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/27.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/29.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -323,9 +299,33 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/25.jpg');">
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/28.jpg');">
+                        <div class="xyz"
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/27.jpg');">
+                        <div class="xyz"
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/25.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -334,9 +334,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/24.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -346,9 +346,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/66.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/66.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -357,9 +357,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/47.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -370,9 +370,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/19.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/19.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -383,9 +383,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/55.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/55.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -394,9 +394,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/43.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/43.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -406,9 +406,9 @@
                 </a>
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/22.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/22.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -417,9 +417,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/34.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/34.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -428,9 +428,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/45.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -439,22 +439,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end; background-image: url('image/65.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/37.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end; background-image: url('/image/65.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -465,9 +452,9 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/47.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/37.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -478,9 +465,22 @@
 
 
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/65.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
+                        <div class="xyz"
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/65.jpg');">
                         <div class="xyz"
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -489,9 +489,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/45.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
@@ -500,9 +500,9 @@
                     </div>
                 </a>
 
-                <a href="item.html">
-                    <div class="local_item-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('image/45.jpg');">
+                <a href="listing.html">
+                    <div class="local_listing-card"
+                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
                         <div class="xyz"
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>

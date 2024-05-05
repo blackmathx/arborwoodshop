@@ -27,6 +27,20 @@ public class SecurityUser implements UserDetails {
         return user.getEmail();
     }
 
+    // BO 5/4/24 Custom method to check member status. Appears to persist in SecurityContextHolder.getContext() at login
+    public boolean getMemberStatus(){
+        boolean flag = false;
+        String email = user.getEmail();
+        boolean isAdminUser = email.equals("admin@arborwoodshop.com");
+        if(isAdminUser){
+            flag = true;
+        }
+        if(!flag){
+            flag = user.getMemberStatus();
+        }
+        return flag;
+    }
+
     @Override
     public String getPassword() {
         return user.getPassword();
@@ -34,8 +48,7 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.stream(user
-                .getRoles()
+        return Arrays.stream(user.getRoles()
                 .split(","))
                 .map(SimpleGrantedAuthority::new)
                 .toList();
@@ -57,6 +70,8 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        // BO 5/4/24 Check account is enabled. was returning true;
+        return user.getEnabled();
     }
+
 }

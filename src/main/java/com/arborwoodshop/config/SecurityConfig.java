@@ -18,6 +18,10 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import java.io.IOException;
 
+
+/* Coding creation reference, dvega at https://www.youtube.com/watch?v=awcCiqBO36E
+ * titled Spring Security JPA Authentication in Spring Boot from 2023
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -34,14 +38,12 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable()) // without it the logout has to be a POST to /logout
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/user").authenticated()
+                        //.requestMatchers("/user").authenticated() // BO 5/4/24 Comment out bc the controller requires auth
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
                 .httpBasic(Customizer.withDefaults())
                 .userDetailsService(jpaUserDetailsService)
-
                 .logout((logout) -> logout.logoutSuccessUrl("/"))
-
                 .formLogin(form -> form.loginPage("/login")
                         // BO 5/3/24 Replaced deafultSuccessUrl with custom success handler
                         //.defaultSuccessUrl("/user/dashboard")

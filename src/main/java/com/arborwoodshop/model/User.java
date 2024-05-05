@@ -3,35 +3,47 @@ package com.arborwoodshop.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
-    private String password;
+
+    @Column(unique = true, nullable = false)
     private String email;
-    @Column(length = 1)
-    private String recordStatus;
-    private LocalDateTime activeDate;
-    private LocalDateTime expireDate;
-    private LocalDateTime created;
+
+    private String password;
+
+    @Column(nullable = false)
+    private Boolean enabled;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Listing> listings = new ArrayList<>();
+
+    private Boolean memberStatus;
+    private LocalDateTime memberActiveDate;
+    private LocalDateTime memberExpireDate;
+    private LocalDateTime createdDate;
     private String roles;
 
     public User(){}
 
-    public User(String username, String password, String email, String recordStatus, LocalDateTime activeDate, LocalDateTime expireDate, LocalDateTime created, String roles) {
+    public User(String username, String email, String password, Boolean enabled, LocalDateTime memberActiveDate, LocalDateTime memberExpireDate, Boolean memberStatus, String roles) {
         this.username = username;
-        this.password = password;
         this.email = email;
-        this.recordStatus = recordStatus;
-        this.activeDate = activeDate;
-        this.expireDate = expireDate;
-        this.created = created;
+        this.password = password;
+        this.enabled = enabled;
+
+        this.memberStatus = memberStatus;
+        this.memberActiveDate = memberActiveDate;
+        this.memberExpireDate = memberExpireDate;
+        this.createdDate = LocalDateTime.now();
         this.roles = roles;
     }
 
@@ -51,6 +63,13 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getPassword() {
         return password;
     }
@@ -59,44 +78,52 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
-    public String getRecordStatus() {
-        return recordStatus;
+    public List<Listing> getListings() {
+        return listings;
     }
 
-    public void setRecordStatus(String recordStatus) {
-        this.recordStatus = recordStatus;
+    public void setListings(List<Listing> listings) {
+        this.listings = listings;
     }
 
-    public LocalDateTime getActiveDate() {
-        return activeDate;
+    public Boolean getMemberStatus() {
+        return memberStatus;
     }
 
-    public void setActiveDate(LocalDateTime activeDate) {
-        this.activeDate = activeDate;
+    public void setMemberStatus(Boolean memberStatus) {
+        this.memberStatus = memberStatus;
     }
 
-    public LocalDateTime getExpireDate() {
-        return expireDate;
+    public LocalDateTime getMemberActiveDate() {
+        return memberActiveDate;
     }
 
-    public void setExpireDate(LocalDateTime expireDate) {
-        this.expireDate = expireDate;
+    public void setMemberActiveDate(LocalDateTime memberActiveDate) {
+        this.memberActiveDate = memberActiveDate;
     }
 
-    public LocalDateTime getCreated() {
-        return created;
+    public LocalDateTime getMemberExpireDate() {
+        return memberExpireDate;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
+    public void setMemberExpireDate(LocalDateTime memberExpireDate) {
+        this.memberExpireDate = memberExpireDate;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
     public String getRoles() {
@@ -111,12 +138,12 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return id.equals(user.id) && Objects.equals(username, user.username) && email.equals(user.email) && created.equals(user.created);
+        return id.equals(user.id) && Objects.equals(username, user.username) && email.equals(user.email) && createdDate.equals(user.createdDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, email, created);
+        return Objects.hash(id, username, email, createdDate);
     }
 
     @Override
@@ -126,10 +153,11 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", recordStatus='" + recordStatus + '\'' +
-                ", active=" + activeDate +
-                ", expires=" + expireDate +
-                ", created=" + created +
+                ", enabled='" + enabled + '\'' +
+                ", memberActiveDate=" + memberActiveDate +
+                ", memberExpireDate=" + memberExpireDate +
+                ", memberStatus=" + memberStatus +
+                ", created=" + createdDate +
                 ", roles='" + roles + '\'' +
                 '}';
     }

@@ -65,19 +65,18 @@
 	}
 }
 
-
 .category-title {
 	margin-left: 20px;
 	font-size:1.2rem;
 }
-.category-items {
+.category-listings {
 	border-top: 1px solid rgb(212, 212, 212);
 	padding: 10px 0px 8px 10px;
 	display: flex;
 	overflow: clip;
 	overflow-x: scroll;
 }
-.item-card {
+.listing-card {
 	color:rgb(158, 158, 158);
 	min-width: 310px;
 	height: 210px;

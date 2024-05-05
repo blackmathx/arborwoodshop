@@ -28,13 +28,13 @@
 	line-height: 1.3rem;
 }
 
-#local_item-content {
+#local_listing-content {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 3rem 2rem;
 }
 
-.local_item-card {
+.local_listing-card {
 	min-height: 220px;
 	background-color: rgba(232, 235, 232, 0.486);
 	outline: 2px solid rgb(218, 218, 218);
@@ -47,7 +47,7 @@
 }
 
 @media screen and (max-width: 1800px){
-	#local_item-content {
+	#local_listing-content {
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
@@ -58,7 +58,7 @@
 		padding: 3px 0px 3px 30px;
 		font-size: 1.1rem;
 	}
-	#local_item-content {
+	#local_listing-content {
 		gap: 1rem 1rem;
 	}
 }
@@ -82,10 +82,10 @@
 		line-height: 1.5rem;
 	}
 
-	#local_item-content {
+	#local_listing-content {
 		grid-template-columns: repeat(3, 1fr);
 	}
-	.local_item-card{
+	.local_listing-card{
 		height:180px;
 		margin:  3px 5px;
 	}
@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 670px){
 
-	#local_item-content {
+	#local_listing-content {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 0 0;
 	}

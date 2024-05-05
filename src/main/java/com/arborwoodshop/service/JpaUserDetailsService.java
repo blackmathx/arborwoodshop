@@ -20,13 +20,7 @@ public class JpaUserDetailsService implements UserDetailsService {
     }
 
 
-    // BO 5/1/24 Changed from username login to email login
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        return userRepository.findByUsername(username)
-//                .map(SecurityUser::new)
-//                .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
-//    }
+    // BO 5/1/24 Changed from login from username to email with fildByUsername to findByEmail and the parameter name
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -35,7 +29,5 @@ public class JpaUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Email not found: " + email));
 
     }
-
-
 
 }
