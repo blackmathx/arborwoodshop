@@ -34,7 +34,7 @@ public class User {
 
     public User(){}
 
-    public User(String username, String email, String password, Boolean enabled, LocalDateTime memberActiveDate, LocalDateTime memberExpireDate, Boolean memberStatus, String roles) {
+    public User(String username, String email, String password, Boolean enabled, LocalDateTime memberActiveDate, LocalDateTime memberExpireDate, LocalDateTime createdDate, Boolean memberStatus, String roles) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -43,7 +43,7 @@ public class User {
         this.memberStatus = memberStatus;
         this.memberActiveDate = memberActiveDate;
         this.memberExpireDate = memberExpireDate;
-        this.createdDate = LocalDateTime.now();
+        this.createdDate = createdDate;
         this.roles = roles;
     }
 

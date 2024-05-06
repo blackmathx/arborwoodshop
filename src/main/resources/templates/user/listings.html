@@ -15,7 +15,7 @@
 
     <header class="header">
         <div id="site-title">
-            <img src="icon.png" id="logo-image"/>
+            <!-- <img src="icon.png" id="logo-image"/> -->
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
@@ -32,51 +32,26 @@
         <section class="userSection content-flex-stretch">
             <h3>Current Listings</h3><br/>
 
-
-            <div th:text="${username}"></div>
-            <div th:each="listing : ${listings}">
+            <div class="userListingCard" th:each="listing : ${listings}">
+                <div class="userListingCard__img"></div>
                 <div th:text="${listing.title}"></div>
-                <div th:text="${listing.price}"></div>
-                <div th:text="${listing.description}"></div>
-
+                <div class="userListingCard__desc" th:text="${listing.description}"></div>
             </div>
 
-            <div class="userListingCard">
-                <div class="userListingCard__img">
 
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
-                </div>
-            </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
-
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                </div>
-            </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
-
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
-                    adipisicing elit. Magni ad voluptates libero.
-                </div>
-            </div>
-
+<!--            <div class="userListingCard">-->
+<!--                <div class="userListingCard__img"></div>-->
+<!--                <div class="userListingCard__desc">-->
+<!--                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.-->
+<!--                    consectetur adipisicing elit. Placeat.-->
+<!--                    consectetur adipisicing elit. Placeat.-->
+<!--                </div>-->
+<!--            </div>-->
 
         </section>
-
-
     </main>
 
     <footer id="footer" th:insert="~{_fragments/footer::footer}"></footer>
-
 
 </div> <!-- .page-container -->
 </body>

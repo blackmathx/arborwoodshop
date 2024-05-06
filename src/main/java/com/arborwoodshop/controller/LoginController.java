@@ -67,6 +67,7 @@ public class LoginController {
         user.setMemberActiveDate(null);
         user.setMemberExpireDate(null);
         user.setMemberStatus(false);
+        user.setCreatedDate(LocalDateTime.now());
         user.setRoles("ROLE_USER");
 
         userRepository.save(user);

@@ -25,10 +25,16 @@ public class ViewController {
         // TODO implement some sort of in memory caching for front page
     }
 
-//    @GetMapping("/")
-//    public String hold(Model model){
-//        return "hold";
-//    }
+    @GetMapping("/hold")
+    public String hold(Model model, HttpServletRequest request){
+
+        String visitor = request.getRemoteAddr();
+
+        if(!visitor.equals("73.102.183.240")){
+            logger.info("VISITOR:/index " + request.getRemoteAddr());
+        }
+        return "hold";
+    }
 
     @GetMapping(value = "/")
     public String index(HttpServletRequest request, Model model) {
@@ -39,12 +45,6 @@ public class ViewController {
         model.addAttribute("listings", listings);
         return "index";
     }
-
-    // TODO Delete /city route
-//    @GetMapping(value = {"/city", "/city/{city}"})
-//    public String displayListingsByCity(HttpServletRequest request) {
-//        return "local-listings";
-//    }
 
     @GetMapping(value = {"/marketplace/state/{state}"})
     public String displayListingsByState(@PathVariable("state") String state, Model model){
