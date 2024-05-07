@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/admin")
 public class AdminController {
 
+
+
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = {"", "/", "admin-dashboard"})
     public String admin() {

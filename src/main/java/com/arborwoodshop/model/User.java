@@ -26,23 +26,23 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Listing> listings = new ArrayList<>();
 
-    private Boolean memberStatus;
-    private LocalDateTime memberActiveDate;
-    private LocalDateTime memberExpireDate;
+    private Boolean sellerStatus;
+    private LocalDateTime sellerActiveDate;
+    private LocalDateTime sellerExpireDate;
     private LocalDateTime createdDate;
     private String roles;
 
     public User(){}
 
-    public User(String username, String email, String password, Boolean enabled, LocalDateTime memberActiveDate, LocalDateTime memberExpireDate, LocalDateTime createdDate, Boolean memberStatus, String roles) {
+    public User(String username, String email, String password, Boolean enabled, LocalDateTime sellerActiveDate, LocalDateTime sellerExpireDate, LocalDateTime createdDate, Boolean sellerStatus, String roles) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.enabled = enabled;
 
-        this.memberStatus = memberStatus;
-        this.memberActiveDate = memberActiveDate;
-        this.memberExpireDate = memberExpireDate;
+        this.sellerStatus = sellerStatus;
+        this.sellerActiveDate = sellerActiveDate;
+        this.sellerExpireDate = sellerExpireDate;
         this.createdDate = createdDate;
         this.roles = roles;
     }
@@ -94,28 +94,28 @@ public class User {
         this.listings = listings;
     }
 
-    public Boolean getMemberStatus() {
-        return memberStatus;
+    public Boolean getSellerStatus() {
+        return sellerStatus;
     }
 
-    public void setMemberStatus(Boolean memberStatus) {
-        this.memberStatus = memberStatus;
+    public void setSellerStatus(Boolean sellerStatus) {
+        this.sellerStatus = sellerStatus;
     }
 
-    public LocalDateTime getMemberActiveDate() {
-        return memberActiveDate;
+    public LocalDateTime getSellerActiveDate() {
+        return sellerActiveDate;
     }
 
-    public void setMemberActiveDate(LocalDateTime memberActiveDate) {
-        this.memberActiveDate = memberActiveDate;
+    public void setSellerActiveDate(LocalDateTime sellerActiveDate) {
+        this.sellerActiveDate = sellerActiveDate;
     }
 
-    public LocalDateTime getMemberExpireDate() {
-        return memberExpireDate;
+    public LocalDateTime getSellerExpireDate() {
+        return sellerExpireDate;
     }
 
-    public void setMemberExpireDate(LocalDateTime memberExpireDate) {
-        this.memberExpireDate = memberExpireDate;
+    public void setSellerExpireDate(LocalDateTime sellerExpireDate) {
+        this.sellerExpireDate = sellerExpireDate;
     }
 
     public LocalDateTime getCreatedDate() {
@@ -154,9 +154,9 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", enabled='" + enabled + '\'' +
-                ", memberActiveDate=" + memberActiveDate +
-                ", memberExpireDate=" + memberExpireDate +
-                ", memberStatus=" + memberStatus +
+                ", sellerActiveDate=" + sellerActiveDate +
+                ", sellerExpireDate=" + sellerExpireDate +
+                ", sellerStatus=" + sellerStatus +
                 ", created=" + createdDate +
                 ", roles='" + roles + '\'' +
                 '}';

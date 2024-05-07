@@ -36,18 +36,9 @@ public class SecurityUser implements UserDetails {
         return user.getId();
     }
 
-    // BO 5/4/24 Custom method to check member status. Appears to persist in SecurityContextHolder.getContext() at login
-    public boolean getMemberStatus(){
-        boolean flag = false;
-        String email = user.getEmail();
-        boolean isAdminUser = email.equals("admin@arborwoodshop.com");
-        if(isAdminUser){
-            flag = true;
-        }
-        if(!flag){
-            flag = user.getMemberStatus();
-        }
-        return flag;
+    // BO 5/4/24 Custom method to check seller status. Appears to persist in SecurityContextHolder.getContext() at login
+    public boolean getSellerStatus(){
+        return user.getSellerStatus();
     }
 
     @Override

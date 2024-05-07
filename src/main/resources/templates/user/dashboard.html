@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/user.css}">
 
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
     <header class="header">
         <div id="site-title">
-            <!-- <img src="icon.png" id="logo-image"/> -->
+            <img th:src="@{/image/logo.png}" id="logo-image"/>
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
@@ -29,35 +30,59 @@
 
         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
+        <section class="userSection content-flex-stretch" th:if="${isSeller}">
+            <h3>Current Listings</h3><br/>
 
-        <section class="userSection content-flex-stretch">
-            <h3>Saved Items</h3><br/>
-
-            <div class="userListingCard">
-                <div class="userListingCard__img">
-
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
-                </div>
+            <div class="userListingCard" th:each="listing : ${listings}">
+                <div class="userListingCard__img"></div>
+                <div th:text="${listing.title}"></div>
+                <div class="userListingCard__desc" th:text="${listing.description}"></div>
             </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
 
-                </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                    consectetur adipisicing elit. Placeat.
-                </div>
-            </div>
-            <div class="userListingCard">
-                <div class="userListingCard__img">
 
+            <!--            <div class="userListingCard">-->
+            <!--                <div class="userListingCard__img"></div>-->
+            <!--                <div class="userListingCard__desc">-->
+            <!--                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.-->
+            <!--                    consectetur adipisicing elit. Placeat.-->
+            <!--                    consectetur adipisicing elit. Placeat.-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+        </section>
+
+        <section class="userSection content-flex-stretch" th:if="${!isSeller}">
+            <h3>User Dashboard</h3><br/>
+
+            <p>Empty</p>
+
+            <div th:if="${false}">
+                <div class="userListingCard">
+                    <div class="userListingCard__img">
+
+                    </div>
+                    <div class="userListingCard__desc">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, cumque
+                    </div>
                 </div>
-                <div class="userListingCard__desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
-                    adipisicing elit. Magni ad voluptates libero.
+                <div class="userListingCard">
+                    <div class="userListingCard__img">
+
+                    </div>
+                    <div class="userListingCard__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.
+                        consectetur adipisicing elit. Placeat.
+                        consectetur adipisicing elit. Placeat.
+                    </div>
+                </div>
+                <div class="userListingCard">
+                    <div class="userListingCard__img">
+
+                    </div>
+                    <div class="userListingCard__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad voluptates libero.
+                        adipisicing elit. Magni ad voluptates libero.
+                    </div>
                 </div>
             </div>
 

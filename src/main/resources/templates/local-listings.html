@@ -6,7 +6,8 @@
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/local.css}">
 
-    <title>Arbor Woodshop | Fort Wayne</title>
+    <title th:text="'Arbor Woodshop | ' + ${subtitle}"></title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
     <header class="header">
         <div id="site-title">
-            <!-- <img src="icon.png" id="logo-image"/> -->
+            <img th:src="@{/image/logo.png}" id="logo-image"/>
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle" th:text="${subtitle}"></span>
         </div>
@@ -24,32 +25,30 @@
         </div>
     </header>
 
-    <!-- moto text -->
-    <div id="moto">
-        Wood crafted treasures. Local marketplace.
-    </div>
+    <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
     <main class="main_content content-footer-wrap local_mainContentPad">
 
         <nav id="left-nav-bar">
 
-            <h3 id="local_category-title">Shop by Category</h3>
-            <div class="local_categories">
-                <div class="category-tag"><a href="#">Furniture</a></div>
-                <div class="category-tag"><a href="#">Decorative</a></div>
-                <div class="category-tag"><a href="#">Storage</a></div>
-                <div class="category-tag"><a href="#">Outdoor Items</a></div>
-                <div class="category-tag"><a href="#">Games&nbsp&&nbspToys</a></div>
-                <div class="category-tag"><a href="#">Tools&nbsp&&nbspAccessories</a></div>
-                <div class="category-tag"><a href="#">Other</a></div>
-            </div>
+            <span th:if="${false}">
+                <!--
+                <h3 id="local_category-title">Shop by Category</h3>
+                <div class="local_categories">
+                    <div class="category-tag"><a href="#">Furniture</a></div>
+                    <div class="category-tag"><a href="#">Decorative</a></div>
+                    <div class="category-tag"><a href="#">Storage</a></div>
+                    <div class="category-tag"><a href="#">Outdoor Items</a></div>
+                    <div class="category-tag"><a href="#">Games&nbsp&&nbspToys</a></div>
+                    <div class="category-tag"><a href="#">Tools&nbsp&&nbspAccessories</a></div>
+                    <div class="category-tag"><a href="#">Other</a></div>
+                </div>
+                -->
+            </span>
 
         </nav>
 
         <section class="local_resultsContainer content-flex-stretch">
-            <form>
-                <input type="text" id="local_search-input" placeholder="Search your local marketplace" />
-            </form>
 
             <div id="local_listing-content">
 

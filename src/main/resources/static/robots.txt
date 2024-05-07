@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /service/
+Disallow: /image/
+Disallow: /marketplace/
+
+User-agent: claudebot
+Disallow: /

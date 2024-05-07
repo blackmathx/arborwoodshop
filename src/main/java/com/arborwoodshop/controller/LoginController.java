@@ -1,11 +1,14 @@
 package com.arborwoodshop.controller;
 
+import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model.User;
-import com.arborwoodshop.repository.UserRepository;
+import com.arborwoodshop.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,20 +17,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.time.LocalDateTime;
-
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final UserRepository userRepository;
     private final PasswordEncoder encoder;
+    private final UserService userService;
 
-    public LoginController(UserRepository userRepository, PasswordEncoder encoder) {
-        this.userRepository = userRepository;
+    public LoginController(PasswordEncoder encoder, UserService userService) {
         this.encoder = encoder;
+        this.userService = userService;
     }
 
     @GetMapping(value = {"", "/"})
@@ -56,21 +57,14 @@ public class LoginController {
             model.addAttribute("errorMessage", "Invalid email or password.");
             return "security/register";
         }
-        if(!userRepository.findByEmail(user.getEmail()).isEmpty()) {
+
+        if(userService.userExistsByEmail(user.getEmail())) {
             model.addAttribute("errorMessage", "User email already exists.");
             return "security/register";
         }
 
-        user.setUsername(null);
-        user.setPassword(encoder.encode(user.getPassword()));
-        user.setEnabled(true);
-        user.setMemberActiveDate(null);
-        user.setMemberExpireDate(null);
-        user.setMemberStatus(false);
-        user.setCreatedDate(LocalDateTime.now());
-        user.setRoles("ROLE_USER");
 
-        userRepository.save(user);
+        User savedUser = userService.create(user.getEmail(), encoder.encode(user.getPassword()));
 
         model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
         return "security/login";
@@ -79,24 +73,21 @@ public class LoginController {
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/login-success")
-    public String loginSuccess(HttpServletRequest request) {
-
-        String userEmail = request.getUserPrincipal().getName();
-        String address = request.getRemoteAddr();
-
-        if(userEmail.equals("admin@arborwoodshop.com")){
+    public String loginSuccess(HttpServletRequest request, @AuthenticationPrincipal SecurityUser securityUser) {
+        if(securityUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
             return "redirect:/admin/admin-dashboard";
         }
-
-        logger.info("LOGGING IN: {} {}", address, userEmail);
-
+        String email = securityUser.getUsername();
+        logger.info("LOGGING IN: {}", email);
         return "redirect:/user/dashboard";
     }
 
+
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/account-logout")
-    public String logoutUrl(HttpServletRequest request) {
-        logger.info("LOGGING OUT: {}", request.getUserPrincipal().getName());
+    public String logoutUrl(HttpServletRequest request, @AuthenticationPrincipal SecurityUser securityUser) {
+        String email = securityUser.getUsername();
+        logger.info("LOGGING OUT: {}", email);
         return "redirect:/logout";
     }
 

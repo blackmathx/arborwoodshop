@@ -14,6 +14,7 @@
 <!-- <script type="text/javascript" th:src="@{/js/api-test.js}"></script> -->
 
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -21,8 +22,11 @@
     <div class="website-alert">This is a maintenance message</div>
 
     <header class="header">
+
         <div id="site-title">
-            <!-- <img src="icon.png" id="logo-image"/> -->
+
+            <img th:src="@{/image/logo.png}" id="logo-image"/>
+
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
@@ -33,10 +37,7 @@
 
     </header>
 
-    <!-- moto text -->
-    <div id="moto">
-        Wood crafted treasures. Local marketplace.
-    </div>
+    <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
     <!-- location section -->
     <div id="location-section">

@@ -8,6 +8,7 @@
 
 
     <title>Arbor Woodshop | Login </title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 
     <header class="header">
         <div id="site-title">
-            <!-- <img src="icon.png" id="logo-image"/> -->
+            <img th:src="@{/image/logo.png}" id="logo-image"/>
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
             <span id="subtitle">Marketplace</span>
         </div>
@@ -29,9 +30,7 @@
         </div>
     </header>
 
-    <div id="moto">
-        Wood crafted treasures. Local marketplace.
-    </div>
+    <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
     <div style="display:flex; margin-top:100px;">
         <h2 style="margin:auto;">Account Login</h2><br />
