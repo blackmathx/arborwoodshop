@@ -2,6 +2,8 @@ package com.arborwoodshop.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Listing {
 
@@ -11,11 +13,22 @@ public class Listing {
     private String title;
     private String description;
     private Integer price;
+    private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
+    private String dimensions;
+    private Boolean deliveryAvailable;
+//    private String city;
+//    private String state;
+//    private String zipCode;
+//    private String canText;
+//    private String canEmail;
+//    private String phone;
+//    private String email;
+
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn
     private User user;
-
 
 
     private String imageLink;
@@ -74,6 +87,38 @@ public class Listing {
 
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public Boolean getDeliveryAvailable() {
+        return deliveryAvailable;
+    }
+
+    public void setDeliveryAvailable(Boolean deliveryAvailable) {
+        this.deliveryAvailable = deliveryAvailable;
     }
 
     @Override
