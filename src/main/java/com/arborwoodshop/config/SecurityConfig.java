@@ -1,6 +1,5 @@
 package com.arborwoodshop.config;
 
-import com.arborwoodshop.service.JpaUserDetailsService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -18,7 +17,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import java.io.IOException;
 
-
 /* Coding creation reference, dvega at https://www.youtube.com/watch?v=awcCiqBO36E
  * titled Spring Security JPA Authentication in Spring Boot from 2023
  */
@@ -27,10 +25,10 @@ import java.io.IOException;
 public class SecurityConfig {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final JpaUserDetailsService jpaUserDetailsService;
+    private final AppUserDetails appUserDetails;
 
-    public SecurityConfig(JpaUserDetailsService jpaUserDetailsService) {
-        this.jpaUserDetailsService = jpaUserDetailsService;
+    public SecurityConfig(AppUserDetails appUserDetails) {
+        this.appUserDetails = appUserDetails;
     }
 
     @Bean
@@ -42,7 +40,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
                 .httpBasic(Customizer.withDefaults())
-                .userDetailsService(jpaUserDetailsService)
+                .userDetailsService(appUserDetails)
                 .logout((logout) -> logout.logoutSuccessUrl("/"))
                 .formLogin(form -> form.loginPage("/login")
                         // BO 5/3/24 Replaced deafultSuccessUrl with custom success handler

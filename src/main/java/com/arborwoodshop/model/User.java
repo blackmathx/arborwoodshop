@@ -1,31 +1,15 @@
 package com.arborwoodshop.model;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Table(name = "users")
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
-
-    @Column(unique = true, nullable = false)
     private String email;
-
     private String password;
-
-    @Column(nullable = false)
     private Boolean enabled;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Listing> listings = new ArrayList<>();
-
     private Boolean sellerStatus;
     private LocalDateTime sellerActiveDate;
     private LocalDateTime sellerExpireDate;
@@ -39,7 +23,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.enabled = enabled;
-
         this.sellerStatus = sellerStatus;
         this.sellerActiveDate = sellerActiveDate;
         this.sellerExpireDate = sellerExpireDate;
@@ -84,14 +67,6 @@ public class User {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public List<Listing> getListings() {
-        return listings;
-    }
-
-    public void setListings(List<Listing> listings) {
-        this.listings = listings;
     }
 
     public Boolean getSellerStatus() {

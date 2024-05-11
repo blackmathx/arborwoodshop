@@ -1,22 +1,19 @@
 package com.arborwoodshop.model;
 
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "config_registry")
-public class ConfigurationRegistry {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ConfigRegistry {
+
     private Long id;
     private String name;
     private String type;
     private String value;
 
-    public ConfigurationRegistry() {
+    public ConfigRegistry() {
     }
 
-    public ConfigurationRegistry(String name, String type, String value) {
+    public ConfigRegistry(String name, String type, String value) {
         this.name = name;
         this.type = type;
         this.value = value;

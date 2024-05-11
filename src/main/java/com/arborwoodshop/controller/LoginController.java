@@ -1,8 +1,8 @@
 package com.arborwoodshop.controller;
 
+import com.arborwoodshop.data_access.UserRepo;
 import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model.User;
-import com.arborwoodshop.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +24,11 @@ public class LoginController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final PasswordEncoder encoder;
-    private final UserService userService;
+    private final UserRepo userRepo;
 
-    public LoginController(PasswordEncoder encoder, UserService userService) {
+    public LoginController(PasswordEncoder encoder, UserRepo userRepo) {
         this.encoder = encoder;
-        this.userService = userService;
+        this.userRepo = userRepo;
     }
 
     @GetMapping(value = {"", "/"})
@@ -52,24 +52,26 @@ public class LoginController {
          *      update user registration for sending email,
          */
 
-
-        if(user.getEmail().isBlank() || user.getPassword().isBlank()){
+        if(user.getEmail().isBlank() || user.getPassword().isBlank() || (!user.getEmail().contains("@"))){
             model.addAttribute("errorMessage", "Invalid email or password.");
             return "security/register";
         }
-
-        if(userService.userExistsByEmail(user.getEmail())) {
-            model.addAttribute("errorMessage", "User email already exists.");
+        if(userRepo.findByEmail(user.getEmail()) != null) {
+            model.addAttribute("errorMessage", "Email already exists.");
             return "security/register";
         }
 
-
-        User savedUser = userService.create(user.getEmail(), encoder.encode(user.getPassword()));
+        int i = userRepo.create(user.getEmail(), encoder.encode(user.getPassword()));
+        if(i == 1){
+            model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
+        } else {
+            model.addAttribute("errorMessage", "There was an error.");
+            return "security/register";
+        }
 
         model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
         return "security/login";
     }
-
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/login-success")
@@ -81,7 +83,6 @@ public class LoginController {
         logger.info("LOGGING IN: {}", email);
         return "redirect:/user/dashboard";
     }
-
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping(value = "/account-logout")

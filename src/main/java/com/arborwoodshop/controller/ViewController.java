@@ -1,5 +1,8 @@
 package com.arborwoodshop.controller;
 
+import com.arborwoodshop.data_access.ListingRepo;
+import com.arborwoodshop.data_access.MessageRepo;
+import com.arborwoodshop.model.Listing;
 import com.arborwoodshop.model.SecurityUser;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -9,16 +12,21 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @EnableMethodSecurity
 public class ViewController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final ListingRepo listingRepo;
+    private final MessageRepo messageRepo;
 
-    public ViewController() {
-        // TODO implement some sort of in memory caching for front page
+    public ViewController(ListingRepo listingRepo, MessageRepo messageRepo) {
+        this.listingRepo = listingRepo;
+        this.messageRepo = messageRepo;
     }
 
     @GetMapping("/hold")
@@ -31,26 +39,39 @@ public class ViewController {
     public String index(HttpServletRequest request, Model model, @AuthenticationPrincipal SecurityUser securityUser) {
         boolean isSeller = securityUser != null && securityUser.getSellerStatus();
         model.addAttribute("isSeller", isSeller);
-
         return "index";
     }
 
-    @GetMapping(value = {"/marketplace/state/{state}"})
-    public String displayListingsByState(@PathVariable("state") String state, Model model, @AuthenticationPrincipal SecurityUser securityUser){
+    @GetMapping(value = {"/marketplace/browse"})
+    public String displayListingsByState(Model model, @AuthenticationPrincipal SecurityUser securityUser){
+
+        List<Listing> listings = listingRepo.findAll();
         boolean isSeller = securityUser != null && securityUser.getSellerStatus();
+
+        model.addAttribute("listings", listings);
         model.addAttribute("isSeller", isSeller);
-        model.addAttribute("subtitle", state);
+
         return "local-listings";
     }
 
-    @GetMapping(value = "/marketplace/listing/{id}")
-    public String displayListingById(HttpServletRequest request, Model model, @PathVariable Long id, @AuthenticationPrincipal SecurityUser securityUser) {
+    @GetMapping(value = "/marketplace/browse/listing")
+    public String displayListingById(Model model, @RequestParam("listing") Long id, @AuthenticationPrincipal SecurityUser securityUser) {
+        Listing listing = listingRepo.findById(id);
 
         boolean isSeller = securityUser != null && securityUser.getSellerStatus();
+
+        model.addAttribute("listing", listing);
         model.addAttribute("isSeller", isSeller);
         return "listing";
     }
 
+//    @PostMapping(value = "/marketplace/listing/{id}/message")
+//    public String sendMessage(Model model, Message message, @AuthenticationPrincipal SecurityUser securityUser){
+//        int i = messageRepo.create(message);
+//        boolean isSeller = securityUser != null && securityUser.getSellerStatus();
+//        model.addAttribute("isSeller", isSeller);
+//        return "listing";
+//    }
 
     @GetMapping(value = "/become-a-seller")
     public String userBecomeSeller(Model model, @AuthenticationPrincipal SecurityUser securityUser) {
@@ -58,7 +79,6 @@ public class ViewController {
         model.addAttribute("isSeller", isSeller);
         return "become-a-seller";
     }
-
 
     /* ----------------- Service Pages ----------------------------------------------- */
     @GetMapping(value = {"/service/about"})

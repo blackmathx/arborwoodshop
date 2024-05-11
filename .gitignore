@@ -1,4 +1,5 @@
 
+data.sql
 
 target/
 !.mvn/wrapper/maven-wrapper.jar

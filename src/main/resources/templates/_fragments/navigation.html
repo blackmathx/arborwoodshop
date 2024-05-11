@@ -1,7 +1,7 @@
 <div th:fragment="account-navbar">
     <div sec:authorize="isAnonymous()">
         <a th:href="@{/become-a-seller}" class="account-link" >Become&nbspa&nbspSeller</a>
-        <a th:href="@{/login}" class="account-link">Login</a>
+        <a th:href="@{/login}" class="account-link">Sign in</a>
     </div>
     <div sec:authorize="isAuthenticated()">
         <a th:if="${isSeller}" th:href="@{/user/messages}" class="account-link" id="account-link-messages">Messages</a>

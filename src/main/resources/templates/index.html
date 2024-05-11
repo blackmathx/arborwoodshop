@@ -28,7 +28,7 @@
             <img th:src="@{/image/logo.png}" id="logo-image"/>
 
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Marketplace</span>
+            <span id="subtitle">Fort&nbspWayne</span>
         </div>
 
         <div id="login-placeholder">
@@ -39,68 +39,15 @@
 
     <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
+    <a style="width: 100px; margin:auto; align-items: center;" th:href="@{/marketplace/browse}">Visit the Marketplace</a>
+
     <!-- location section -->
-    <div id="location-section">
-        <div>
-            <a th:href="@{/marketplace/state/Alabama}">Alabama</a><br/>
-            <a th:href="@{/marketplace/state/Alaska}">Alaska</a><br/>
-            <a th:href="@{/marketplace/state/Arizona}">Arizona</a><br/>
-            <a th:href="@{/marketplace/state/Arkansas}">Arkansas</a><br/>
-            <a th:href="@{/marketplace/state/California}">California</a><br/>
-            <a th:href="@{/marketplace/state/Colorado}">Colorado</a><br/>
-            <a th:href="@{/marketplace/state/Connecticut}">Connecticut</a><br/>
-            <a th:href="@{/marketplace/state/Delaware}">Delaware</a><br/>
-            <a th:href="@{/marketplace/state/Florida}">Florida</a><br/>
-            <a th:href="@{/marketplace/state/Georgia}">Georgia</a><br/>
-        </div>
-        <div>
-            <a th:href="@{/marketplace/state/Hawaii}">Hawaii</a><br/>
-            <a th:href="@{/marketplace/state/Idaho}">Idaho</a><br/>
-            <a th:href="@{/marketplace/state/Illinois}">Illinois</a><br/>
-            <a th:href="@{/marketplace/state/Indiana}">Indiana</a><br/>
-            <a th:href="@{/marketplace/state/Iowa}">Iowa</a><br/>
-            <a th:href="@{/marketplace/state/Kansas}">Kansas</a><br/>
-            <a th:href="@{/marketplace/state/Kentucky}">Kentucky</a><br/>
-            <a th:href="@{/marketplace/state/Louisiana}">Louisiana</a><br/>
-            <a th:href="@{/marketplace/state/Maine}">Maine</a><br/>
-            <a th:href="@{/marketplace/state/Maryland}">Maryland</a><br/>
-        </div>
-        <div>
-            <a th:href="@{/marketplace/state/Massachusetts}">Massachusetts</a><br/>
-            <a th:href="@{/marketplace/state/Michigan}">Michigan</a><br/>
-            <a th:href="@{/marketplace/state/Minnesota}">Minnesota</a><br/>
-            <a th:href="@{/marketplace/state/Mississippi}">Mississippi</a><br/>
-            <a th:href="@{/marketplace/state/Missouri}">Missouri</a><br/>
-            <a th:href="@{/marketplace/state/Montana}">Montana</a><br/>
-            <a th:href="@{/marketplace/state/Nebraska}">Nebraska</a><br/>
-            <a th:href="@{/marketplace/state/Nevada}">Nevada</a><br/>
-            <a th:href="@{/marketplace/state/New%20Hampshire}">New&nbspHampshire</a><br/>
-            <a th:href="@{/marketplace/state/New%20Jersey}">New&nbspJersey</a><br/>
-        </div>
-        <div>
-            <a th:href="@{/marketplace/state/New%20Mexico}">New&nbspMexico</a><br/>
-            <a th:href="@{/marketplace/state/New%20York}">New&nbspYork</a><br/>
-            <a th:href="@{/marketplace/state/North%20Carolina}">North&nbspCarolina</a><br/>
-            <a th:href="@{/marketplace/state/North%20Dakota}">North&nbspDakota</a><br/>
-            <a th:href="@{/marketplace/state/Ohio}">Ohio</a><br/>
-            <a th:href="@{/marketplace/state/Oklahoma}">Oklahoma</a><br/>
-            <a th:href="@{/marketplace/state/Oregon}">Oregon</a><br/>
-            <a th:href="@{/marketplace/state/Pennsylvania}">Pennsylvania</a><br/>
-            <a th:href="@{/marketplace/state/Rhode%20Island}">Rhode&nbspIsland</a><br/>
-            <a th:href="@{/marketplace/state/South%20Carolina}">South&nbspCarolina</a><br/>
-        </div>
-        <div>
-            <a th:href="@{/marketplace/state/South%20Dakota}">South&nbspDakota</a><br/>
-            <a th:href="@{/marketplace/state/Tennessee}">Tennessee</a><br/>
-            <a th:href="@{/marketplace/state/Texas}">Texas</a><br/>
-            <a th:href="@{/marketplace/state/Utah}">Utah</a><br/>
-            <a th:href="@{/marketplace/state/Vermont}">Vermont</a><br/>
-            <a th:href="@{/marketplace/state/Virginia}">Virginia</a><br/>
-            <a th:href="@{/marketplace/state/Washington}">Washington</a><br/>
-            <a th:href="@{/marketplace/state/West%20Virginia}">West&nbspVirginia</a><br/>
-            <a th:href="@{/marketplace/state/Wisconsin}">Wisconsin</a><br/>
-            <a th:href="@{/marketplace/state/Wyoming}">Wyoming</a><br/>
-        </div>
+    <div id="location-section" th:if="${false}">
+        <div><a th:href="@{/marketplace/state/alabama}">Alabama</a><br/></div>
+        <div><a th:href="@{/marketplace/state/hawaii}">Hawaii</a><br/></div>
+        <div><a th:href="@{/marketplace/state/massachusetts}">Massachusetts</a><br/></div>
+        <div><a th:href="@{/marketplace/state/new%20mexico}">New&nbspMexico</a><br/></div>
+        <div><a th:href="@{/marketplace/state/south%20dakota}">South&nbspDakota</a><br/></div>
     </div>
 
 

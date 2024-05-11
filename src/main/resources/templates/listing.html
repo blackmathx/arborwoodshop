@@ -17,7 +17,7 @@
     <header class="header">
         <div id="site-title">
             <img th:src="@{/image/logo.png}" id="logo-image"/>
-            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
+            <span><span id="title">Arbor Woodshop</span></span>
             <span id="subtitle">Fort&nbspWayne</span>
         </div>
 
@@ -34,16 +34,13 @@
 
             <!-- TODO add listing contact information to the messages-->
             <div class="viewListingCard">
-
                 <img
                         class="viewListingCard__img"
                         style="background-color: gray;"
                         src="/image/45.jpg"
                 >
-                <p>$120</p>
-                <p class="viewListingCard__description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nulla molestiae, rerum ipsa commodi laudantium dolores esse a illum illo et praesentium harum.
-                </p>
+                <p th:text="${listing.price}"></p>
+                <p class="viewListingCard__description" th:text="${listing.description}"></p>
             </div>
 
         </section>

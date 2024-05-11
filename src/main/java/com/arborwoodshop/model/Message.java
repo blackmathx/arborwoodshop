@@ -1,33 +1,37 @@
 package com.arborwoodshop.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class Message {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
-
-    private String from;
-
+    private String contactEmail;
+    private String contactPhone;
     private String message;
-    public Message(){}
-    public Message(String from, String message){
-        this.from = from;
+    private Long userId;
 
-        this.message = message;
+
+    public Long getId() {
+        return id;
     }
 
-    public String getFrom() {
-        return from;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
 
     public String getMessage() {
         return message;
@@ -35,5 +39,13 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

@@ -51,11 +51,12 @@ a:active {color: var(--pallete-activeLink-red);}
 #logo-image {
 	width: 50px; height: 40px;
 	padding-right: 10px;
+	display: none;
 }
 #title {
 
 }
-#site-title a {
+#site-title #title {
 	text-decoration: none;
 	color:black;
 	padding-right: 3px;

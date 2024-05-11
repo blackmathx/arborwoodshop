@@ -1,45 +1,25 @@
 package com.arborwoodshop.model;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
-@Entity
 public class Listing {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Long userId;
     private String title;
     private String description;
     private Integer price;
+    private String state;
+    private String city;
+    private String zipcode;
+    private String dimensions;
+    private Boolean canText;
+    private String phone;
+    private Boolean canEmail;
+    private String email;
+    private Boolean deliveryAvailable;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
-    private String dimensions;
-    private Boolean deliveryAvailable;
-//    private String city;
-//    private String state;
-//    private String zipCode;
-//    private String canText;
-//    private String canEmail;
-//    private String phone;
-//    private String email;
 
-
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn
-    private User user;
-
-
-    private String imageLink;
-
-    public Listing(){ }
-
-    public Listing(String title, String description, Integer price) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-    }
 
     public Long getId() {
         return id;
@@ -47,6 +27,14 @@ public class Listing {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -73,20 +61,76 @@ public class Listing {
         this.price = price;
     }
 
-    public User getUser() {
-        return user;
+    public String getState() {
+        return state;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getImageLink() {
-        return imageLink;
+    public String getCity() {
+        return city;
     }
 
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public Boolean getCanText() {
+        return canText;
+    }
+
+    public void setCanText(Boolean canText) {
+        this.canText = canText;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Boolean getCanEmail() {
+        return canEmail;
+    }
+
+    public void setCanEmail(Boolean canEmail) {
+        this.canEmail = canEmail;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Boolean getDeliveryAvailable() {
+        return deliveryAvailable;
+    }
+
+    public void setDeliveryAvailable(Boolean deliveryAvailable) {
+        this.deliveryAvailable = deliveryAvailable;
     }
 
     public LocalDateTime getCreatedDate() {
@@ -105,22 +149,6 @@ public class Listing {
         this.updatedDate = updatedDate;
     }
 
-    public String getDimensions() {
-        return dimensions;
-    }
-
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public Boolean getDeliveryAvailable() {
-        return deliveryAvailable;
-    }
-
-    public void setDeliveryAvailable(Boolean deliveryAvailable) {
-        this.deliveryAvailable = deliveryAvailable;
-    }
-
     @Override
     public String toString() {
         return "Listing{" +
@@ -128,8 +156,7 @@ public class Listing {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", imageLink='" + imageLink + '\'' +
+                ", createdDate=" + createdDate +
                 '}';
     }
-
 }

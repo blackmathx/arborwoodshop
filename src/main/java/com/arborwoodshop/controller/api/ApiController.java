@@ -5,14 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class RestApiController {
+public class ApiController {
 
     public record Something (String something){}
 
     @GetMapping("api/testing")
-    public Something findall(){
+    public Something list(){
         System.out.println("api/testing");
-        Something sth = new Something("hello!");
-        return sth;
+        return new Something("hello arbor woodshop!");
     }
 }
