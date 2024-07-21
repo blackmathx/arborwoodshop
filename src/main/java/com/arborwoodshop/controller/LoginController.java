@@ -71,6 +71,7 @@ public class LoginController {
 
         model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
         return "security/login";
+
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the craftsmanship of nearby artisans with our local marketplace. Find and
-        acquire stunning wood crafted pieces from talented local makers in your area. Explore a diverse collection from
-        creative and skilled woodworkers right in your community.">
-    <meta name="keywords" content="Woodcraft Marketplace, Woodworking Marketplace, Custom Wood Products, Local Marketplace">
+    <meta name="description" content="Discover wood craft artisans at a local marketplace.">
+    <meta name="keywords" content="Hand Crafted Marketplace, Woodworking Marketplace, Custom Products, Local Marketplace">
 
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
@@ -28,7 +26,7 @@
             <img th:src="@{/image/logo.png}" id="logo-image"/>
 
             <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Fort&nbspWayne</span>
+            <span id="subtitle">Indiana</span>
         </div>
 
         <div id="login-placeholder">
@@ -37,126 +35,118 @@
 
     </header>
 
-    <div id="moto">Wood crafted treasures. Local marketplace.</div>
-
-    <a style="width: 100px; margin:auto; align-items: center;" th:href="@{/marketplace/browse}">Visit the Marketplace</a>
-
-    <!-- location section -->
-    <div id="location-section" th:if="${false}">
-        <div><a th:href="@{/marketplace/state/alabama}">Alabama</a><br/></div>
-        <div><a th:href="@{/marketplace/state/hawaii}">Hawaii</a><br/></div>
-        <div><a th:href="@{/marketplace/state/massachusetts}">Massachusetts</a><br/></div>
-        <div><a th:href="@{/marketplace/state/new%20mexico}">New&nbspMexico</a><br/></div>
-        <div><a th:href="@{/marketplace/state/south%20dakota}">South&nbspDakota</a><br/></div>
-    </div>
-
-
-
-    <!-- advertisment row -->
-    <section id="local_adRow">
-        <div class="local_adCard local_adCard-bdrRight">
-            <h1 style="text-align:center; padding-bottom:10px;">Local Marketplace</h1>
-            <p>
-                Discover the craftsmanship of nearby artisans with our local marketplace. Find and acquire
-                stunning wood crafted pieces from talented local makers in your area. Explore a diverse
-                collection, championing the creativity and skill of woodworkers right in your community.
-            </p>
-        </div>
-        <div class="local_adCard local_adCard-bdrRight">
-            <h1 style="text-align:center; padding-bottom:10px;">Shop Woodcrafted Treasures</h1>
-            <p>
-                Embark on a journey of exploration through our platform, where you'll find
-                a myriad of unique woodcrafted treasures from artisans in your vicinity. From
-                elegant furniture to intricately carved decor pieces, uncover the finest
-                craftsmanship and support local talent—all at your fingertips.
-            </p>
-        </div>
-        <div class="local_adCard">
-            <h1 style="text-align:center; padding-bottom:10px;">Become A Seller</h1>
-            <p>
-                Elevate your passion for craftsmanship by becoming a seller through our monthly
-                membership. Seamlessly transition from buyer to entrepreneur, showcasing your own
-                wood crafted creations to a community eager to discover and support local talent.
-            </p>
-        </div>
-    </section>
-
+<!--    <a style="width: 100px; margin:auto; align-items: center;" th:href="@{/marketplace/browse}">Visit the Marketplace</a>-->
 
 
     <main id="index_main-content" class="content-footer-wrap">
 
-        <section>
-            <div class="category-title">Furniture</div>
-            <div class="category-listings">
-                <div class="listing-card" style="  background-image: url('/image/5.jpg');">
+        <!-- location section -->
+        <div class="card-section">
 
+            <div class="top-card main-top-card">
+                <div class="card-title-wrap">
+                    <div class="card-title-a">Wood&nbspcrafted&nbsptreasures.</div>
+                    <div class="card-title-b">Local&nbspmarketplace.</div>
                 </div>
-                <div class="listing-card" style="  background-image: url('/image/6.jpg');">
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/7.jpg');">
+                <p>
+                    Discover the craftsmanship of nearby artisans with our local marketplace. Find and acquire
+                    stunning wood crafted pieces from talented local makers in your area. Explore a diverse
+                    collection, championing the creativity and skill of woodworkers right in your community.
+                </p>
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/8.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/9.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/10.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/11.jpg');">
-
-                </div>
+                <a class="main-card-mkplace" th:href="@{/marketplace/browse}">View the marketplace</a>
             </div>
-        </section>
-        <section>
-            <div class="category-title">Signs</div>
-            <div class="category-listings">
-                <div class="listing-card" style="  background-image: url('/image/1.jpg');">
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/2.jpg');">
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/3.jpg');">
+            <div class="top-card become-seller-card">
+                <h2>Become a seller</h2>
+                <p>
+                    Elevate your passion for craftsmanship by becoming a seller through our monthly membership.
+                    Seamlessly transition from buyer to entrepreneur, showcasing your own wood crafted creations
+                    to a community eager to discover and support local talent.
+                </p>
+                <a class="become-seller-link" th:href="@{/become-a-seller}">learn more</a>
+            </div>
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/4.jpg');">
 
-                </div>
+        </div>
+
+
+
+
+
+
+
+
+        <section class="seller-offer-wrapper" >
+
+            <div style="display:flex; justify-content: space-between; padding-bottom: 20px;">
+                <div class="category-title"><span style="font-size: 1.3rem;">Seller Offers</span></div>
+                <span><a class="view-all-link" th:href="@{/marketplace/browse}" >view all</a></span>
+            </div>
+            <div class="offer-card-wrapper">
+
+
+                <a th:href="@{/marketplace/browse}" class="local_item-card-link">
+                    <div class="local_item-card" style="background-image: url('image/31.jpg');">
+                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px);border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+                <a th:href="@{/marketplace/browse}" class="local_item-card-link">
+                    <div class="local_item-card" style="background-image: url('image/7.jpg');">
+                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-x">
+                    <div class="local_item-card" style="background-image: url('image/41.jpg');" >
+                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-y">
+                    <div class="local_item-card"style="background-image: url('image/42.jpg');">
+                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-z">
+                    <div class="local_item-card"style="background-image: url('image/27.jpg');">
+                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
 
             </div>
-        </section>
-        <section>
-            <div class="category-title">Tables</div>
-            <div class="category-listings">
-                <div class="listing-card" style="  background-image: url('/image/42.jpg');">
 
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/49.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/43.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/33.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/48.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/41.jpg');">
-
-                </div>
-                <div class="listing-card" style="  background-image: url('/image/33.jpg');">
-
-                </div>
-
-            </div>
         </section>
 
+
+
+        <div class="seek-sellers">
+            <h2 style="font-size: 3rem; font-weight: bold; margin:30px;">Seeking Suppliers</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, adipisci nobis. Non quo, assumenda
+                illum veritatis labore omnis alias quam eum aperiam beatae eos repudiandae iusto deserunt debitis?
+                Quas, laudantium. <a class="become-seller-link" th:href="@{/become-a-seller}">become a seller</a>
+            </p>
+        </div>
     </main>
 
 
