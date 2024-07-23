@@ -6,7 +6,10 @@ target/
 logs/
 
 
+### Frontent
+/src/main/frontend/node_modules/
 
+ 
 HELP.md
 
 !**/src/main/**/target/
