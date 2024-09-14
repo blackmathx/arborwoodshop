@@ -6,30 +6,32 @@
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/local.css}">
 
+    <link rel="stylesheet" th:href="@{/main.css}" />
+
     <title>Arbor Woodshop | Indiana</title>
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
-<div class="page-container">
-    <div class="website-alert">This is a maintenance message</div>
+<div class="relative min-h-[100vh]">
+<div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
 
-    <header class="header">
-        <div id="site-title">
-            <img th:src="@{/image/logo.png}" id="logo-image"/>
-            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Indiana</span>
+    <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
+        <div id="" class="block text-2xl font-bold">
+            <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
+            <span><a th:href="@{/}" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
+            <span class="text-mossgreen font-xs align-bottom">Indiana</span>
         </div>
-        <div id="login-placeholder">
+        <div id="flex self-end mb-4">
             <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
     </header>
 
     <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
-    <main class="main_content content-footer-wrap local_mainContentPad">
+    <main class="block w-full m-0 lg:flex lg:m-auto lg:w-[95%] mt-1 pb-80 xl:pb-14 2xl:pb-20">
 
-        <nav id="left-nav-bar">
+        <nav class="min-h-0 py-1 px-2.5 block mt-1 lg:flex lg:flex-col min-w-[240px] lg:mt-5 lg:pt-8 pl-8 bg-gray-100">
 
             <span th:if="${false}">
                 <!--
@@ -48,7 +50,7 @@
 
         </nav>
 
-        <section class="local_resultsContainer content-flex-stretch">
+        <section class="pl-8 grow pr-0 2xl:pr-[200px]"> <!--content-flex-stretch-->
 
             <div id="local_listing-content">
 
@@ -56,10 +58,10 @@
                     <!----- LISTINGS ------>
 <!--------------------------------------------------------------------------------------------------------------------->
                 <a th:each="listing : ${listings}" th:href="@{/marketplace/browse/listing(listing=${listing.id})}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/27.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/27.jpg');"><!--local_listing-card-->
+                        <div
+                             style="padding:2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b th:text="'$' + ${listing.price}"></b></h4>
                             <p th:text="${listing.title}"></p>
                         </div>
@@ -69,9 +71,9 @@
 <!--------------------------------------------------------------------------------------------------------------------->
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/27.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/27.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -81,9 +83,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/25.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/25.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -92,9 +94,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/24.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -104,9 +106,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/45.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -115,9 +117,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/47.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -128,9 +130,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/19.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/19.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -141,9 +143,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/3.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/3.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -153,9 +155,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/44.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/44.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -164,9 +166,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/46.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/46.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -176,9 +178,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/47.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -187,9 +189,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/48.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/48.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -198,9 +200,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/49.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/49.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -209,9 +211,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/43.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/43.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -222,9 +224,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/33.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/33.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -233,9 +235,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/22.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/22.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -245,9 +247,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/34.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/34.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -256,9 +258,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/36.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/36.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -268,9 +270,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/22.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/22.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -279,9 +281,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/24.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -290,22 +292,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/31.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/29.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/31.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -316,20 +305,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/28.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/27.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/29.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -338,10 +316,34 @@
                 </a>
 
 
+
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/25.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/28.jpg');">
+                        <div
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a th:href="@{/marketplace/browse/listing?listing=3}">
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/27.jpg');">
+                        <div
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a th:href="@{/marketplace/browse/listing?listing=3}">
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/25.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -350,9 +352,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/24.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/24.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -362,9 +364,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/66.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/66.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -373,9 +375,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/47.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -386,9 +388,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/19.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/19.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -399,9 +401,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/55.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/55.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -410,9 +412,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/43.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/43.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -422,9 +424,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/22.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/22.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -433,9 +435,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/34.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/34.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -444,9 +446,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/45.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -455,22 +457,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end; background-image: url('/image/65.jpg');">
-                        <div class="xyz"
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/37.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/65.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -481,9 +470,9 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/47.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/37.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -494,9 +483,22 @@
 
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/65.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/47.jpg');">
+                        <div
+                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a th:href="@{/marketplace/browse/listing?listing=3}">
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/65.jpg');">
+                        <div
                              style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -505,9 +507,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/45.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -516,9 +518,9 @@
                 </a>
 
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="local_listing-card"
-                         style="display:flex; align-items: flex-end;  background-image: url('/image/45.jpg');">
-                        <div class="xyz"
+                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
+                         style="background-image: url('/image/45.jpg');">
+                        <div
                              style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
@@ -538,7 +540,7 @@
 
     </main>
 
-    <footer id="footer"  th:insert="~{_fragments/footer::footer}"></footer>
+    <footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
 
 </div> <!-- .page-container -->
 </body>

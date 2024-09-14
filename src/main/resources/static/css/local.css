@@ -1,10 +1,14 @@
 
+/*
  .local_mainContentPad {
 	margin-top: 5px;
  }
+
 .local_resultsContainer {
 	padding-left: 30px;
 }
+*/
+/*
 #left-nav-bar {
 	display:flex;
 	flex-direction: column;
@@ -17,6 +21,7 @@
 	background: rgb(230, 230, 230);
 	/* min-height: 930px; */
 }
+*/
 .local_categories {
 	margin: 10px 0;
 	display: flex;
@@ -58,13 +63,14 @@
 	}
 }
 @media screen and (max-width: 1000px){
-
+/*
 	#left-nav-bar {
 		min-height: 0;
 		padding: 5px 10px;
         display: block;
         margin-top: 5px;
 	}
+*/
 	#local_category-title {
 		/* display: none; */
 		font-size: 1rem;

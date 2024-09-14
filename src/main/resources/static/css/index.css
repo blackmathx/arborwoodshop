@@ -3,14 +3,14 @@
 
 
 
-
+/*
 #index_main-content {
 	max-width: 1300px;
 	margin:auto;
 	width:80%;
 }
-
-
+*/
+/*
 .card-section{
 	margin:auto;
 	margin-top: 50px;
@@ -18,7 +18,9 @@
 	display:flex;
 	min-height: 300px;
 }
+*/
 
+/*
 .top-card {
 	background-color: #F5F5F5;
 	padding: 50px;
@@ -26,6 +28,8 @@
 	border-radius: 9px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+*/
+/*
 .card-title-wrap {
 	font-size: 1.6rem;
 }
@@ -36,9 +40,14 @@
 .card-title-b {
 	display:inline;
 }
+*/
+/*
 .main-top-card p {
 	padding: 40px 0px;
 }
+*/
+
+/*
 .main-card-mkplace{
 	font-size: 1.4rem;
 	float:right;
@@ -47,16 +56,16 @@
 .main-card-mkplace:hover {
 	text-decoration: underline;
 }
+*/
 
-
-
-
+/*
 .become-seller-card > h2{
 	text-align: center;
 }
 .become-seller-card p{
 	padding: 40px 0px;
 }
+
 .become-seller-link {
 	float:right;
 	text-decoration: none;
@@ -64,32 +73,22 @@
 .become-seller-link:hover {
 	text-decoration: underline;
 }
+*/
 
-
-
-
-
-
-
-
-
-.view-all-link {
-	text-decoration: none;
-}
-.view-all-link:hover {
-	text-decoration: underline;
-}
 
 
 /****************    **************************************************/
+/*
 .local_item-card-link {
+
 	background-color: #F5F5F5;
 	padding: 10px;
+	padding: 3px;
 	border-radius: 9px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	padding: 3px;
 }
-
+*/
+/*
 .local_item-card {
 	display:flex;
 	align-items: flex-end;
@@ -104,22 +103,15 @@
 	background-position: center top;
 
 }
-
-.seller-offer-wrapper {
-	width: 95%;
-	margin: 40px auto;
-}
-
-
+*/
 
 .offer-card-wrapper {
 	display:grid;
 	grid-template-columns: repeat(5, auto);
 	margin-bottom: 70px;
 	gap: 15px 30px;
-
 }
-
+/*
 .offer-card {
 	background-color: #f7f7f7;
 	border-radius: 9px;
@@ -139,25 +131,32 @@
 	border-radius: 9px;
 
 }
+*/
 
 @media screen and (max-width: 470px){
-
+/*
 	.card-section {
 		margin: 20px 0px;
 	}
+
 	.offer-card-x {
 		display:none;
 	}
+	*/
 }
 
 /* 700px and smaller */
 @media screen and (max-width: 770px){
+	/*
 	.top-card {
 		padding: 30px;
 	}
+	*/
+	/*
 	.main-top-card p {
 		padding: 20px 0px;
 	}
+
 	.card-title-a{
 		padding-left: 0px;
 		display:block;
@@ -170,42 +169,53 @@
 	.become-seller-card {
 		display:none;
 	}
-
+	*/
+/*
 	.seller-offer-wrapper  {
 		width: 100%;
 	}
+	*/
 	.offer-card-wrapper {
 		grid-template-columns: repeat(2, auto);
 		gap: 15px 20px;
 	}
+	/*
 	.offer-card-y {
 		display:none;
 	}
+	*/
 }
 
 @media screen and (max-width: 1350px){
+/*
 	#index_main-content {
 		width:100%;
 	}
+*/
+/*
 	.local_item-card {
 		min-height:240px;
 	}
+
 	.seller-offer-wrapper  {
 		width: 95%;
 
 	}
+	*/
 	.offer-card-wrapper {
 		grid-template-columns: repeat(4, auto);
 		gap: 15px 20px;
 	}
-
+/*
 	.offer-card-z {
 		display:none;
 	}
+
 	.seek-sellers {
 		border-radius: 0px;
 		width: 100%;
 	}
+	*/
 
 
 }
@@ -213,9 +223,11 @@
 
 
 /* override */
+/*
 .content-footer-wrap {
 	padding-bottom: calc(var(--footer-height) + 30px);
 }
+*/
 
 
 

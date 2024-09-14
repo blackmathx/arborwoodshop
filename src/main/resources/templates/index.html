@@ -14,126 +14,113 @@
 <!-- <script type="text/javascript" th:src="@{/js/api-test.js}"></script> -->
 
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
+
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
-<div class="page-container">
-    <div class="website-alert">This is a maintenance message</div>
+<div class="relative min-h-[100vh]">
+    <div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
 
-    <header class="header">
-
-        <div id="site-title">
-
-            <img th:src="@{/image/logo.png}" id="logo-image"/>
-
-            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Indiana</span>
+    <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
+        <div id="" class="block text-2xl font-bold">
+            <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
+            <span><a th:href="@{/}" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
+            <span class="text-mossgreen font-xs align-bottom">Indiana</span>
         </div>
-
-        <div id="login-placeholder">
+        <div id="flex self-end mb-4">
             <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
-
     </header>
 
-<!--    <a style="width: 100px; margin:auto; align-items: center;" th:href="@{/marketplace/browse}">Visit the Marketplace</a>-->
+    <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
-    <div class="bg-red-500">testingtestingtesting</div>
-    <main id="index_main-content" class="content-footer-wrap">
+    <main class="w-full xl:w-[85%] max-w-[1350px] m-auto pb-80 xl:pb-12 2xl:pb-40">
 
         <!-- location section -->
-        <div class="card-section">
+        <div class="flex min-h-[300px] mx-5 my-0 sm:mt-[50px] sm:mb-[70px] sm:mx-auto">
 
-            <div class="top-card main-top-card">
-                <div class="card-title-wrap">
-                    <div class="card-title-a">Wood&nbspcrafted&nbsptreasures.</div>
-                    <div class="card-title-b">Local&nbspmarketplace.</div>
+
+            <div class="p-7 md:p-12 m-3  rounded-lg shadow-2xl outline outline-1 outline-verylightblue">
+                <div class="text-2xl">
+                    <div class="pl-0 block md:inline md:pl-7">Wood&nbspcrafted&nbsptreasures.</div>
+                    <div class="block pl-20 md:pl-0 md:inline">Local&nbspmarketplace.</div>
                 </div>
 
-                <p>
+                <p class="py-5 px-0 md:py-10">
                     Discover the craftsmanship of nearby artisans with our local marketplace. Find and acquire
                     stunning wood crafted pieces from talented local makers in your area. Explore a diverse
                     collection, championing the creativity and skill of woodworkers right in your community.
                 </p>
 
-                <a class="main-card-mkplace" th:href="@{/marketplace/browse}">View the marketplace</a>
+                <a class="text-2xl float-right no-underline hover:underline" th:href="@{/marketplace/browse}">View the marketplace</a>
             </div>
 
 
-            <div class="top-card become-seller-card">
-                <h2>Become a seller</h2>
-                <p>
+            <div class="p-7 md:p-12 m-3  rounded-lg shadow-2xl hidden md:block outline outline-1 outline-verylightblue">
+                <h2 class="text-2xl text -center">Become a seller</h2>
+                <p class="py-5 px-0 md:py-10">
                     Elevate your passion for craftsmanship by becoming a seller through our monthly membership.
                     Seamlessly transition from buyer to entrepreneur, showcasing your own wood crafted creations
                     to a community eager to discover and support local talent.
                 </p>
-                <a class="become-seller-link" th:href="@{/become-a-seller}">learn more</a>
+                <a class="float-right no-underline hover:underline" th:href="@{/become-a-seller}">learn more</a>
             </div>
-
 
         </div>
 
 
+        <section class="my-0 mx-6">
 
-
-
-
-
-
-        <section class="seller-offer-wrapper" >
-
-            <div style="display:flex; justify-content: space-between; padding-bottom: 20px;">
-                <div class="category-title"><span style="font-size: 1.3rem;">Seller Offers</span></div>
-                <span><a class="view-all-link" th:href="@{/marketplace/browse}" >view all</a></span>
+            <div class="flex justify-between pb-4" >
+                <div class="text-xl">Seller Offers</div>
+                <div><a class="no-underline hover:underline" th:href="@{/marketplace/browse}" >view all</a></div>
             </div>
+
+
             <div class="offer-card-wrapper">
-
-
-                <a th:href="@{/marketplace/browse}" class="local_item-card-link">
-                    <div class="local_item-card" style="background-image: url('image/31.jpg');">
-                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px);border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2">
+                    <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/31.jpg');">
+                        <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px);border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
                         </div>
                     </div>
                 </a>
-                <a th:href="@{/marketplace/browse}" class="local_item-card-link">
-                    <div class="local_item-card" style="background-image: url('image/7.jpg');">
-                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2">
+                    <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/7.jpg');">
+                        <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
                         </div>
                     </div>
                 </a>
-                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-x">
-                    <div class="local_item-card" style="background-image: url('image/41.jpg');" >
-                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-y">
-                    <div class="local_item-card"style="background-image: url('image/42.jpg');">
-                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden sm:block "><!-- offer-card-x -->
+                    <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/41.jpg');" >
+                        <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
                         </div>
                     </div>
                 </a>
 
-                <a th:href="@{/marketplace/browse}" class="local_item-card-link offer-card-z">
-                    <div class="local_item-card"style="background-image: url('image/27.jpg');">
-                        <div class="xyz" style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden md:block"><!-- offer-card-y -->
+                    <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/42.jpg');">
+                        <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
                             <p>Hand Crafted Table</p>
                         </div>
                     </div>
                 </a>
 
-
+                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden xl:block "><!--offer-card-z-->
+                    <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/27.jpg');">
+                        <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
+                            <h4><b>$100</b></h4>
+                            <p>Hand Crafted Table</p>
+                        </div>
+                    </div>
+                </a>
 
             </div>
 
@@ -141,20 +128,21 @@
 
 
 
-        <div class="seek-sellers">
-            <h2 style="font-size: 3rem; font-weight: bold; margin:30px;">Seeking Suppliers</h2>
-            <p>
+        <div class="text-xl  m-auto mt-8 shadow-2xl rounded-md p-4 min-h-[300px] outline outline-1 outline-verylightblue">
+            <h2 class="text-5xl font-bold m-4">Seeking Suppliers</h2>
+            <p class="py-4">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, adipisci nobis. Non quo, assumenda
                 illum veritatis labore omnis alias quam eum aperiam beatae eos repudiandae iusto deserunt debitis?
-                Quas, laudantium. <a class="become-seller-link" th:href="@{/become-a-seller}">become a seller</a>
+                Quas, laudantium.
+                <a class="float-right no-underline hover:underline" th:href="@{/become-a-seller}">become a seller</a>
             </p>
         </div>
     </main>
 
 
-    <footer th:insert="~{_fragments/footer::footer}"></footer>
+    <footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
 
-</div> <!-- .page-container -->
+</div>
 
 </body>
 

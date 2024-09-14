@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/layout.css}">
 
+    <link rel="stylesheet" th:href="@{/main.css}" />
+
     <title>Arbor Woodshop | About</title>
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
-<div class="page-container">
-    <div class="website-alert">This is a maintenance message</div>
+<div class="relative min-h-[100vh]">
+<div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
 
-    <header class="header">
-        <div id="site-title">
-            <img th:src="@{/image/logo.png}" id="logo-image"/>
-            <span><a th:href="@{/}" id="title">Arbor Woodshop</a></span>
-            <span id="subtitle">Indiana</span>
+    <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
+
+        <div id="" class="block text-2xl font-bold">
+            <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
+            <span><a th:href="@{/}" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
+            <span class="text-mossgreen font-xs align-bottom">Indiana</span>
+        </div>
+
+        <div id="flex self-end mb-4">
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
         </div>
 
     </header>
 
-    <main class="servicePages content-footer-wrap">
+    <main class="servicePages  pb-80 xl:pb-12 2xl:pb-7">
         <h1>About Arbor Woodshop</h1>
         <pre>
 Welcome to Arbor Woodshop, the local marketplace for wood crafted treasures! Founded in 2024 by [Creator], our platform was born out of a passion for woodworking
@@ -62,7 +69,7 @@ Thank you for being a part of our journey as we celebrate the art of woodworking
     </main>
 
 
-    <footer th:insert="~{_fragments/footer::footer}"></footer>
+    <footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
 
 
 </div> <!-- .page-container -->

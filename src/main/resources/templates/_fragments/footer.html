@@ -1,11 +1,13 @@
 
 
-<div  th:fragment="footer" id="footer">
-    <div class="footer_links">
-        <div class="footer-listing"><a th:href="@{/service/about}">about</a></div>
-        <div class="footer-listing"><a th:href="@{/service/avoiding-scams}">avoiding scams</a></div>
-        <div class="footer-listing"><a th:href="@{/service/abuse}">abuse</a></div>
-        <div class="footer-listing"><a th:href="@{/service/terms-of-use}">terms of use</a></div>
+
+
+<div  th:fragment="footer" class="flex justify-between pt-4">
+    <div class="min-w-[600px] flex justify-between py-0 px-16">
+        <div class="text-white leading-6"><a th:href="@{/service/about}" class="hover:underline">about</a></div>
+        <div class="text-white leading-6"><a th:href="@{/service/avoiding-scams}" class="hover:underline">avoiding scams</a></div>
+        <div class="text-white leading-6"><a th:href="@{/service/abuse}" class="hover:underline">abuse</a></div>
+        <div class="text-white leading-6"><a th:href="@{/service/terms-of-use}" class="hover:underline">terms of use</a></div>
     </div>
-    <div class="footer-listing footer_copyright">&#169; 2024 ArborWoodshop</div>
+    <div class="text-gray-600 leading-6 my-0 mx-16">&#169; 2024 ArborWoodshop</div>
 </div>
