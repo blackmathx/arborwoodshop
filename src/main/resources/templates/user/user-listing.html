@@ -8,13 +8,13 @@
 
     <link rel="stylesheet" th:href="@{/main.css}" />
 
-    <title>Arbor Woodshop | Listings</title>
+    <title>Arbor Woodshop | Listing</title>
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
 <div class="relative min-h-[100vh]">
-<div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
+    <div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
     <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
         <div id="" class="block text-2xl font-bold">
             <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
@@ -32,24 +32,25 @@
         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
         <section class="userSection  pl-8 grow pr-0 2xl:pr-[200px]"<!--content-flex-stretch-->
-            <h3>Current Listings</h3><br/>
+        <h3 class="font-bold"> Listing</h3><br/>
 
-            <div class="userListingCard" th:each="listing : ${listings}">
-                <div class="userListingCard__img"></div>
-                <div th:text="${listing.title}"></div>
-                <div class="userListingCard__desc" th:text="${listing.description}"></div>
-            </div>
+            <div th:utext="${listing.title}"></div>
+            <div th:utext="${listing.price}"></div>
 
+<!--                    <div class="userListingCard">-->
+<!--                        <div class="userListingCard__img"></div>-->
+<!--                        <div class="userListingCard__desc">-->
+<!--                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.-->
+<!--                            consectetur adipisicing elit. Placeat.-->
+<!--                            consectetur adipisicing elit. Placeat.-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-<!--            <div class="userListingCard">-->
-<!--                <div class="userListingCard__img"></div>-->
-<!--                <div class="userListingCard__desc">-->
-<!--                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat.-->
-<!--                    consectetur adipisicing elit. Placeat.-->
-<!--                    consectetur adipisicing elit. Placeat.-->
-<!--                </div>-->
-<!--            </div>-->
+        <form th:action="@{/user/listings/{id}(id=${listing.listingId})}" method="POST">
+            <input class="border-2 px-2 py-1 bg-blue-100 rounded hover:bg-blue-300" type="submit" value="Delete">
+        </form>
 
+        <a href="#">Edit</a>
         </section>
     </main>
 

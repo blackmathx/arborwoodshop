@@ -27,18 +27,17 @@ public class SecurityUser implements UserDetails {
         return user.getEmail();
     }
     @Override  public boolean isEnabled() {
-        // BO 5/4/24 Check account is enabled. was returning true;
         return user.getEnabled();
     }
 
     // BO 5/5/24 Return user id
     public Long getId(){
-        return user.getId();
+        return user.getUserId();
     }
 
-    // BO 5/4/24 Custom method to check seller status. Appears to persist in SecurityContextHolder.getContext() at login
-    public boolean getSellerStatus(){
-        return user.getSellerStatus();
+    // BO 5/4/24 Custom method to check seller active. Appears to persist in SecurityContextHolder.getContext() at login
+    public boolean getSellerActive(){
+        return user.getSellerActive();
     }
 
     @Override

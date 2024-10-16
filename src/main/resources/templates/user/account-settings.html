@@ -30,8 +30,8 @@
 
         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
-        <section class="userSection  pl-8 grow pr-0 2xl:pr-[200px]"<!--content-flex-stretch-->
-            <h3>Profile Settings</h3><br/>
+        <section class="userSection  pl-8 grow pr-0 2xl:pr-[200px]">
+            <h3 class="font-bold">Account Settings</h3><br/>
 
 
             <form action="#">
@@ -39,10 +39,10 @@
                 <input id="myin" type="text" size=30 disabled value="Timmy Von Others"><br/>
 
                 <label>email</label><br/>
-                <input id="myin" type="text" size=30 disabled value="timmyvon19@gmail.com"><br/>
+                <input class="border-2" type="text" size=30 disabled th:value="${username}"><br/>
 
                 <label>password</label><br/>
-                <input id="myin" type="password" size=30 disabled value="qwerhgfjlkjsddgf"><br/>
+                <input type="password" size=30 disabled value="qwerhgfjlkjsddgf"><br/>
 
                 <input type="submit" onclick="save()" id="submit-btn" style="display:none" value="submit">
                 <button id="edit-btn" onclick="able()">Edit Preferences</button>

@@ -2,19 +2,19 @@ package com.arborwoodshop.model;
 
 public class Message {
 
-    private Long id;
+    private Long messageId;
     private String contactEmail;
     private String contactPhone;
     private String message;
     private Long userId;
 
 
-    public Long getId() {
-        return id;
+    public Long getMessageId() {
+        return messageId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMessageId(Long messageId) {
+        this.messageId = messageId;
     }
 
     public String getContactEmail() {

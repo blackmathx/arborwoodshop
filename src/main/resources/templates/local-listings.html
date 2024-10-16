@@ -57,19 +57,22 @@
 <!--------------------------------------------------------------------------------------------------------------------->
                     <!----- LISTINGS ------>
 <!--------------------------------------------------------------------------------------------------------------------->
-                <a th:each="listing : ${listings}" th:href="@{/marketplace/browse/listing(listing=${listing.id})}">
+                <a th:each="listing : ${listings}" th:href="@{/marketplace/browse/listing(listing=${listing.listingId})}">
                     <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/27.jpg');"><!--local_listing-card-->
-                        <div
-                             style="padding:2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
+                         th:style="'background-image:url(' + ${listing.imageOne} + ');'">
+<!--                         style="background-image: url('/image/27.jpg');">&lt;!&ndash;local_listing-card&ndash;&gt;-->
+                        <div style="padding:2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
                             <h4><b th:text="'$' + ${listing.price}"></b></h4>
                             <p th:text="${listing.title}"></p>
                         </div>
                     </div>
                 </a>
-<!--------------------------------------------------------------------------------------------------------------------->
-<!--------------------------------------------------------------------------------------------------------------------->
 
+
+<!--------------------------------------------------------------------------------------------------------------------->
+                <!----- FAKE LISTINGS -->
+<!--------------------------------------------------------------------------------------------------------------------->
+                <!--
                 <a th:href="@{/marketplace/browse/listing?listing=3}">
                     <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
                          style="background-image: url('/image/27.jpg');">
@@ -528,7 +531,7 @@
                     </div>
                 </a>
 
-
+                --> <!-- END FAKE LISTINGS -->
 
             </div>
         </section>

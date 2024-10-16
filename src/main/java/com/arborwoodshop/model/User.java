@@ -3,14 +3,15 @@ package com.arborwoodshop.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+// TODO add a field for admin to deactivate/remove the user and it's listings
 public class User {
 
-    private Long id;
+    private Long userId;
     private String username;
     private String email;
     private String password;
     private Boolean enabled;
-    private Boolean sellerStatus;
+    private Boolean sellerActive;
     private LocalDateTime sellerActiveDate;
     private LocalDateTime sellerExpireDate;
     private LocalDateTime createdDate;
@@ -18,24 +19,24 @@ public class User {
 
     public User(){}
 
-    public User(String username, String email, String password, Boolean enabled, LocalDateTime sellerActiveDate, LocalDateTime sellerExpireDate, LocalDateTime createdDate, Boolean sellerStatus, String roles) {
+    public User(String username, String email, String password, Boolean enabled, LocalDateTime sellerActiveDate, LocalDateTime sellerExpireDate, LocalDateTime createdDate, Boolean sellerActive, String roles) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.enabled = enabled;
-        this.sellerStatus = sellerStatus;
+        this.sellerActive = sellerActive;
         this.sellerActiveDate = sellerActiveDate;
         this.sellerExpireDate = sellerExpireDate;
         this.createdDate = createdDate;
         this.roles = roles;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -69,12 +70,12 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Boolean getSellerStatus() {
-        return sellerStatus;
+    public Boolean getSellerActive() {
+        return sellerActive;
     }
 
-    public void setSellerStatus(Boolean sellerStatus) {
-        this.sellerStatus = sellerStatus;
+    public void setSellerActive(Boolean sellerActive) {
+        this.sellerActive = sellerActive;
     }
 
     public LocalDateTime getSellerActiveDate() {
@@ -113,25 +114,25 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return id.equals(user.id) && Objects.equals(username, user.username) && email.equals(user.email) && createdDate.equals(user.createdDate);
+        return userId.equals(user.userId) && Objects.equals(username, user.username) && email.equals(user.email) && createdDate.equals(user.createdDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, email, createdDate);
+        return Objects.hash(userId, username, email, createdDate);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", enabled='" + enabled + '\'' +
+                ", sellerActive=" + sellerActive +
                 ", sellerActiveDate=" + sellerActiveDate +
                 ", sellerExpireDate=" + sellerExpireDate +
-                ", sellerStatus=" + sellerStatus +
                 ", created=" + createdDate +
                 ", roles='" + roles + '\'' +
                 '}';

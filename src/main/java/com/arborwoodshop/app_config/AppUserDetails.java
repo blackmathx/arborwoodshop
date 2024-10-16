@@ -1,6 +1,6 @@
-package com.arborwoodshop.config;
+package com.arborwoodshop.app_config;
 
-import com.arborwoodshop.data_access.UserRepo;
+import com.arborwoodshop.persistence.UserRepo;
 import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model.User;
 import org.slf4j.Logger;
@@ -20,8 +20,10 @@ public class AppUserDetails implements UserDetailsService {
         this.userRepo = userRepo;
     }
 
+
+    // TODO remove comments on this junk
     // BO 5/9/24 Changed to the JDBC implementation
-    // BO 5/1/24 Changed from login from username to email with fildByUsername to findByEmail and the parameter name
+    // BO 5/1/24 Changed from login from username to email with findByUsername to findByEmail and the parameter name
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepo.findByEmail(email);

@@ -1,6 +1,6 @@
 package com.arborwoodshop.controller;
 
-import com.arborwoodshop.data_access.UserRepo;
+import com.arborwoodshop.persistence.UserRepo;
 import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model.User;
 import jakarta.servlet.http.HttpServletRequest;
@@ -46,6 +46,7 @@ public class LoginController {
     public String addNewUser(@ModelAttribute("user") User user, Model model) {
         /*
          * TODO email verification
+         *  // TODO add comments to the jira ticket
          * tutorial: https://www.codejava.net/frameworks/spring-boot/email-verification-example
          * and youtube vide at: https://www.youtube.com/watch?v=7mVTfnOIJO8
          * steps are to add verificationCode to User class, update UserDetails, add JavaMail in SpringBoot,
@@ -61,8 +62,8 @@ public class LoginController {
             return "security/register";
         }
 
-        int i = userRepo.create(user.getEmail(), encoder.encode(user.getPassword()));
-        if(i == 1){
+        int rows = userRepo.create(user.getEmail(), encoder.encode(user.getPassword()));
+        if(rows == 1){
             model.addAttribute("registrationSuccess", "Your account has been created! Please login.");
         } else {
             model.addAttribute("errorMessage", "There was an error.");
@@ -81,6 +82,13 @@ public class LoginController {
             return "redirect:/admin/admin-dashboard";
         }
         String email = securityUser.getUsername();
+
+//        logger.trace("A TRACE Message");
+//        logger.debug("A DEBUG Message");
+//        logger.info("An INFO Message");
+//        logger.warn("A WARN Message");
+//        logger.error("An ERROR Message");
+
         logger.info("LOGGING IN: {}", email);
         return "redirect:/user/dashboard";
     }

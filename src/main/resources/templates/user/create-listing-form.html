@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/user.css}">
+    <link rel="stylesheet" th:href="@{/main.css}" />
+    <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+</head>
+<body>
+<div class="relative min-h-[100vh]">
+<div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
+
+    <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
+        <div id="" class="block text-2xl font-bold">
+            <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
+            <span><a th:href="@{/}" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
+            <span class="text-mossgreen font-xs align-bottom">Indiana</span>
+        </div>
+        <div id="flex self-end mb-4">
+            <div th:insert="~{_fragments/navigation::account-navbar}"></div>
+        </div>
+    </header>
+
+    <main class="user_mainContent  pb-80 xl:pb-12 2xl:pb-7">
+
+        <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
+
+        <section  class="userSection  pl-8 grow pr-0 2xl:pr-[200px]">
+
+            <h3 class="font-bold">Create Listing</h3>
+            <br/>
+
+
+<!--            <form id="imageForm">-->
+<!--                <input id="imageInput" type="file" accept="image/*">-->
+<!--                <button class="border-2 px-2 py-1 bg-blue-500 rounded" type="submit">Upload</button>-->
+<!--            </form>-->
+
+
+
+
+
+
+
+            <form id="createListingForm" action="create-listing" method="POST">
+                <!--
+                Customize the button example    https://tudip.com/blog-post/style-file-upload-browse-button/
+                Resize images on the client side before upload   https://stackoverflow.com/questions/2434458/image-resizing-client-side-with-javascript-before-upload-to-the-server
+                -->
+
+
+
+                <input type="hidden" id="city" name="city" th:value="${listing.city}">
+
+                <div class="font-bold" th:utext="${listing.city}"></div><br/>
+
+                <label for="title">Title</label><br/>
+                <input class="border-2" name="title" id="title" type="text" size="40" th:value="${listing.title}">
+                <br/><br/>
+                <label for="location">Location</label><br/>
+                <input type="text" name="location" id="location" class="border-2">
+                <br/><br/>
+
+
+                <div class="inline-block">
+                    <img id="imagePreviewOne" class="block outline outline-dashed outline-1" src="#" alt="" width="125" height="125" />
+                    <a class="block" onclick="removeImageOne()">Remove</a>
+                    <input id="imageInputOne" class="block" type="file" onchange="img1()">
+                </div>
+                <div class="inline-block">
+                    <img id="imagePreviewTwo" class="block outline outline-dashed outline-1" src="#" alt="" width="125" height="125" />
+                    <a class="block" onclick="removeImageTwo()">Remove</a>
+                    <input id="imageInputTwo" class="block" type="file" onchange="img2()">
+                </div>
+                <div class="inline-block">
+                    <img id="imagePreviewThree" class="block outline outline-dashed outline-1" src="#" alt="" width="125" height="125" />
+                    <a class="block" onclick="removeImageThree()">Remove</a>
+                    <input id="imageInputThree" class="block" type="file" onchange="img3()">
+                </div>
+
+                <br/>
+
+
+                <input type="hidden" id="imageOne" name="imageOne" value="">
+                <input type="hidden" id="imageTwo" name="imageTwo" value="">
+                <input type="hidden" id="imageThree" name="imageThree" value="">
+
+
+                <br/>
+
+
+
+                <label for="price">Price</label><br/>
+                <input class="border-2" name="price" id="price" type="text"><br/><br/>
+                <label for="description">Description</label><br/>
+                <textarea class="border-2" name="description" id="description" rows="6" cols="70"> </textarea>
+                <br/><br/>
+                <input class="border-2 px-2 py-1 bg-blue-100 rounded hover:bg-blue-300" type="submit" value="submit">
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
+
+
+</div> <!-- .page-container -->
+
+<script type="text/javascript" th:src="@{/js/user-create-listing.1.0.js}"></script>
+
+
+</body>
+
+</html>

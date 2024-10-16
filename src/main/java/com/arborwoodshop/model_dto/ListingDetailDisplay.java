@@ -1,12 +1,16 @@
-package com.arborwoodshop.model;
+package com.arborwoodshop.model_dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-
-// TODO add fields to flag the listing and for admin to block/remove the listing
-public class Listing {
+/*
+    Used to display in two cases, where both contain title, desc, price, location, all image urls, etc
+    1. The listing detail when someone clicks on the item to view it
+    2. When the user adds a new listing. It needs all this information added at input time
+ */
+public class ListingDetailDisplay {
     private Long listingId;
+    private Long listingImagesId;
     private Long userId;
     private String title;
     private String description;
@@ -21,7 +25,9 @@ public class Listing {
     private Boolean deliveryAvailable;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
-
+    private String imageOne;
+    private String imageTwo;
+    private String imageThree;
 
     public Long getListingId() {
         return listingId;
@@ -29,6 +35,14 @@ public class Listing {
 
     public void setListingId(Long listingId) {
         this.listingId = listingId;
+    }
+
+    public Long getListingImagesId() {
+        return listingImagesId;
+    }
+
+    public void setListingImagesId(Long listingImagesId) {
+        this.listingImagesId = listingImagesId;
     }
 
     public Long getUserId() {
@@ -143,14 +157,27 @@ public class Listing {
         this.updatedDate = updatedDate;
     }
 
-    @Override
-    public String toString() {
-        return "Listing{" +
-                "id=" + listingId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", createdDate=" + createdDate +
-                '}';
+    public String getImageOne() {
+        return imageOne;
+    }
+
+    public void setImageOne(String imageOne) {
+        this.imageOne = imageOne;
+    }
+
+    public String getImageTwo() {
+        return imageTwo;
+    }
+
+    public void setImageTwo(String imageTwo) {
+        this.imageTwo = imageTwo;
+    }
+
+    public String getImageThree() {
+        return imageThree;
+    }
+
+    public void setImageThree(String imageThree) {
+        this.imageThree = imageThree;
     }
 }

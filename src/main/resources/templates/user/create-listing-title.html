@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/user.css}">
-
     <link rel="stylesheet" th:href="@{/main.css}" />
-
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
-
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
-
 <body>
 <div class="relative min-h-[100vh]">
-<div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
+    <div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
+
     <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
         <div id="" class="block text-2xl font-bold">
             <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
@@ -29,31 +26,23 @@
 
     <main class="user_mainContent  pb-80 xl:pb-12 2xl:pb-7">
 
-         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
+        <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
+
+        <section  class="userSection  pl-8 grow pr-0 2xl:pr-[200px]">
+
+            <h3 class="font-bold">Create Listing</h3>
+            <br/>
 
 
-        <section  class="userSection  pl-8 grow pr-0 2xl:pr-[200px]"<!--content-flex-stretch-->
-            <h3>New Listing</h3>
 
-            <br/><br/>
-            <form action="create-listing" method="POST">
 
-<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
-<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
-<!--                <img style="min-width: 140px; height: 140px; margin-right:10px; background-color: rgb(230, 230, 230);"/>-->
-
+            <form id="createListingTitleForm" action="create-listing-form" method="POST">
+                <input type="hidden" name="city" id="city" th:value="*{city}">
+                <label for="title">Title</label><br/>
+                <input class="border-2" name="title" id="title" type="text" size="40">
                 <br/><br/>
+                <input class="border-2 px-2 py-1 bg-blue-100 rounded hover:bg-blue-300" type="submit" value="submit">
 
-                <label for="title">title</label><br/>
-                <input name="title" type="text" size="40"><br/>
-
-                <label for="price">price</label><br/>
-                <input name="price" type="text"><br/>
-
-                <label>description</label><br/>
-                <textarea name="description" rows="6" cols="70"></textarea><br/>
-
-                <input type="submit" value="submit">
             </form>
 
         </section>
@@ -64,6 +53,8 @@
 
 
 </div> <!-- .page-container -->
+
+
 </body>
 
 </html>

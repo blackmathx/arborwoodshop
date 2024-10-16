@@ -1,4 +1,4 @@
-package com.arborwoodshop.config;
+package com.arborwoodshop.app_config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -43,6 +43,8 @@ public class SecurityConfig {
                 .userDetailsService(appUserDetails)
                 .logout((logout) -> logout.logoutSuccessUrl("/"))
                 .formLogin(form -> form.loginPage("/login")
+
+                        // TODO  remove these junk comments
                         // BO 5/3/24 Replaced deafultSuccessUrl with custom success handler
                         //.defaultSuccessUrl("/user/dashboard")
                         .successHandler(new AuthenticationSuccessHandler() {

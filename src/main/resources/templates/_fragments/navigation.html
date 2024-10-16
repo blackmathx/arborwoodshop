@@ -14,7 +14,7 @@
 
 
 <div   th:fragment="user-navbar"  class="user_navBarLinks">
-    <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/listings}">Your&nbspListings</a></div>
+    <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/dashboard}">Dashboard</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/messages}">Messages</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/listings/create-listing}">List&nbspAn&nbspItem</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/manage-subscription}">Manage&nbspSubscription</a></div>

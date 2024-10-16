@@ -680,6 +680,10 @@ video {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .inline {
   display: inline;
 }
@@ -799,6 +803,11 @@ video {
 .bg-blue-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100 {
@@ -997,6 +1006,10 @@ video {
   outline-style: solid;
 }
 
+.outline-dashed {
+  outline-style: dashed;
+}
+
 .outline-1 {
   outline-width: 1px;
 }
@@ -1025,6 +1038,11 @@ video {
 
 .visited\:text-black:visited {
   color: rgb(0 0 0 );
+}
+
+.hover\:bg-blue-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
 }
 
 .hover\:underline:hover {

@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/layout.css}">
-    <link rel="stylesheet" th:href="@{/css/listing.css}">
+    <meta name="description" content="Discover wood craft artisans at a local marketplace.">
+    <meta name="keywords" content="Hand Crafted Marketplace, Woodworking Marketplace, Custom Products, Local Marketplace">
 
+
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/main.css}" />
+
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
-
 <body>
 <div class="relative min-h-[100vh]">
+
     <div class="bg-yellow-500 min-h-10 hidden">This is a maintenance message</div>
 
     <header class="border-0 border-b-2 p-4 min-h-0 lg:flex lg:justify-between lg:min-h-[80px] lg:py-6 lg:px-28">
         <div id="" class="block text-2xl font-bold">
             <img class="inline align-top relative p-0 w-[45px] h-[40px]" th:src="@{/image/logo.png}" />
-            <span><a th:href="@{/}" href="#" onclick="event.preventDefault();" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
+            <span><a th:href="@{/}" class="text-black visited:text-black no-underline text-4xl">Arbor Woodshop</a></span>
             <span class="text-mossgreen font-xs align-bottom">Indiana</span>
         </div>
         <div id="flex self-end mb-4">
@@ -29,28 +33,24 @@
 
     <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
-    <div class="block w-full m-0 lg:flex lg:m-auto lg:w-[95%] pb-80 xl:pb-12 2xl:pb-7">
+    <main class="w-full xl:w-[85%] max-w-[1350px] m-auto pb-80 xl:pb-12 2xl:pb-40">
 
-        <section class="viewListingSection">
+    <div>
+        <ul>
+            <li ><a th:href="@{/marketplace/browse?city=bloomington}">Bloomington</a></li>
+            <li ><a th:href="@{/marketplace/browse?city=fort-wayne}">Fort Wayne</a></li>
+            <li ><a th:href="@{/marketplace/browse?city=indianapolis}">Indianapolis</a></li>
+        </ul>
 
-            <!-- TODO add listing contact information to the messages-->
-            <div class="viewListingCard">
-                <img class="viewListingCard__img"
-                        style="background-color: gray;"
-                        th:src="${listing.imageOne}"
-                >
-                <p th:text="${listing.price}"></p>
-                <p class="viewListingCard__description" th:text="${listing.description}"></p>
 
-            </div>
-
-        </section>
     </div>
+    </main>
 
-    <footer class="absolute min-h-[80px] w-full bottom-0"  th:insert="~{_fragments/footer::footer}"></footer>
 
+<footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
 
-</div> <!-- .page-container -->
+</div>
+
 </body>
 
 </html>
