@@ -41,7 +41,9 @@
                 <div class="userListingCard" th:each="listing : ${listings}">
                     <a class="flex" th:href="@{/user/listings/{id}(id=${listing.listingId})}">
 
-                        <div class="userListingCard__img"></div>
+                        <div class="userListingCard__img">
+                            <img id="imagePreviewOne" class="block outline outline-dashed outline-1" th:src="@{${listing.imageOne}}" alt="" width="125" height="125" />
+                        </div>
                         <div th:text="${listing.title}"></div>
                         <div class="userListingCard__desc" th:text="${listing.price}"></div>
                     </a>

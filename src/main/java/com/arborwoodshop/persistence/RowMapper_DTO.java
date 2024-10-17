@@ -3,6 +3,7 @@ package com.arborwoodshop.persistence;
 
 import com.arborwoodshop.model_dto.ListingDetailDisplay;
 import com.arborwoodshop.model_dto.ListingDisplay;
+import com.arborwoodshop.model_dto.MessageDetail;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -56,4 +57,20 @@ class ListingDetailDisplayMapper implements RowMapper<ListingDetailDisplay> {
     }
 }
 
+
+class MessageDetailMapper implements RowMapper<MessageDetail> {
+    public MessageDetail mapRow(ResultSet rs, int rowNum) throws SQLException {
+        MessageDetail message = new MessageDetail();
+        message.setMessageUser_messageId(rs.getLong("message_user_id"));
+        message.setMessageUser_fromUserId(rs.getLong("from_user_id"));
+        message.setMessageUser_toUserId(rs.getLong("to_user_id"));
+        message.setMessageUser_messageId(rs.getLong("xref_message_id"));
+        message.setMessageUser_listingId(rs.getLong("listing_id"));
+        message.setMessageId(rs.getLong("message_id"));
+        message.setMessage(rs.getString("message"));
+        message.setRecordStatus(rs.getString("record_status").charAt(0));
+        message.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));
+        return message;
+    }
+}
 

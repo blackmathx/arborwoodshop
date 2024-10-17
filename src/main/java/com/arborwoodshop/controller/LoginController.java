@@ -89,7 +89,7 @@ public class LoginController {
 //        logger.warn("A WARN Message");
 //        logger.error("An ERROR Message");
 
-        logger.info("LOGGING IN: {}", email);
+        logger.debug("LOGGING IN: {}", email);
         return "redirect:/user/dashboard";
     }
 
@@ -97,7 +97,7 @@ public class LoginController {
     @GetMapping(value = "/account-logout")
     public String logoutUrl(HttpServletRequest request, @AuthenticationPrincipal SecurityUser securityUser) {
         String email = securityUser.getUsername();
-        logger.info("LOGGING OUT: {}", email);
+        logger.debug("LOGGING OUT: {}", email);
         return "redirect:/logout";
     }
 

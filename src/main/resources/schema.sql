@@ -1,5 +1,7 @@
-USE `arborwoodshop-dev`;
 
+
+
+USE `arborwoodshop-dev`;
 
 drop table if exists message;
 drop table if exists listing_images;
@@ -40,17 +42,6 @@ create table listing (
     foreign key (user_id) references users(id)
 );
 
-create table message (
-    message_id int unsigned not null auto_increment,
-    user_id int unsigned not null,
-    contact_email varchar(255),
-    contact_phone varchar(255),
-    message varchar(255),
-    primary key (message_id),
-    foreign key (user_id) references users(id)
-);
-
-
 create table listing_images (
     listing_images_id int unsigned not null auto_increment,
     listing_id int unsigned not null,
@@ -61,6 +52,26 @@ create table listing_images (
     foreign key (listing_id) references listing(listing_id)
 );
 
+create table message_user_xref (
+    message_user_id int unsigned not null auto_increment,
+    from_user_id int unsigned not null,
+    to_user_id int unsigned not null,
+    messge_id int unsigned not null,
+    listing_id int unsigned,
+    primary key (message_user_id)
+)
+
+create table message (
+    message_id int unsigned not null auto_increment,
+    message varchar(255),
+    record_status char(1),
+    created_at datetime,
+    primary key (message_id)
+);
+
+
+
+
 
 
 -- changed all id fields to <table>_id
@@ -70,3 +81,5 @@ create table listing_images (
 -- location: added location varchar(255)
 -- alter table `arborwoodshop-dev`.listing modify price decimal(15,2);
 -- users table. seller_status to seller_active
+-- message table. remove user_id, email, phone fields. Added created_at
+-- created table message_user_xref

@@ -34,6 +34,25 @@
         <section class="userSection  pl-8 grow pr-0 2xl:pr-[200px]"<!--content-flex-stretch-->
         <h3 class="font-bold"> Listing</h3><br/>
 
+
+
+            <div class="inline-block">
+                <img id="imagePreviewOne" class="block" th:src="@{${listing.imageOne}}" alt="" width="125" height="125" />
+<!--                <a class="block" onclick="removeImageOne()">Remove</a>-->
+<!--                <input id="imageInputOne" class="block" type="file" onchange="img1()">-->
+            </div>
+            <div class="inline-block">
+                <img id="imagePreviewTwo" class="block" th:src="@{${listing.imageTwo}}" alt="" width="125" height="125" />
+<!--                <a class="block" onclick="removeImageTwo()">Remove</a>-->
+<!--                <input id="imageInputTwo" class="block" type="file" onchange="img2()">-->
+            </div>
+            <div class="inline-block">
+                <img id="imagePreviewThree" class="block" th:src="@{${listing.imageThree}}" alt="" width="125" height="125" />
+<!--                <a class="block" onclick="removeImageThree()">Remove</a>-->
+<!--                <input id="imageInputThree" class="block" type="file" onchange="img3()">-->
+            </div>
+
+
             <div th:utext="${listing.title}"></div>
             <div th:utext="${listing.price}"></div>
 
@@ -50,7 +69,6 @@
             <input class="border-2 px-2 py-1 bg-blue-100 rounded hover:bg-blue-300" type="submit" value="Delete">
         </form>
 
-        <a href="#">Edit</a>
         </section>
     </main>
 

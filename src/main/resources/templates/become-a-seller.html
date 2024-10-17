@@ -31,33 +31,36 @@
 
   <main class="user_mainContent  pb-80 xl:pb-12 2xl:pb-7">
 
-<!--    <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>-->
-
-
-
     <section  class="userSection  pl-8 grow pr-0 2xl:pr-[200px]"<!--content-flex-stretch-->
 
 
       <h1>Become A Seller</h1>
       <br/>
-      <p style="width:350px; ">$1.99 per month! </p>
-      <br/><br/>
 
-
-      <h3>$1.99 a month</h3><br/>
-      <p>$1.99 per month for 5 active listings.</p>
-      <p>$8.99 per month for unlimited listings.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus temporibus animi harum esse reprehenderit? Minus laudantium, placeat ipsum praesentium explicabo suscipit quis officiis!</p>
-      <button>1 Month</button>
-      <br/><br/><br/>
-      <h3>1 year subscription. $19.99</h3><br/>
       <p>Lorem ipsum temporibus animi harum esse reprehenderit? Minus laudantium, placeat ipsum praesentium explicabo suscipit quis officiis!</p>
-      <button>Subscribe</button>
+
       <br/>
 
+
+      <div style="display:flex; margin-top:100px;">
+        <h2 style="margin:auto;">Create an Account</h2>
+      </div>
+
+
+      <div style="display:flex; margin:auto; margin-top: 20px; width:300px;color:red" th:if="${errorMessage != null}" th:text="${errorMessage}"></div>
+
+
+      <div style="display:flex; margin-top:20px;">
+        <form style="margin:auto;" action="register-user" method="POST">
+          <label>email</label><br/>
+          <input class="border-2" type="text" size="40" name="email"><br/>
+          <label>password</label><br/>
+          <input class="border-2" type="password" size="40" name="password"><br/>
+          <button class="px-2 mt-2 py-1 bg-blue-100 rounded"  type="submit">Submit</button>
+        </form>
+      </div>
+
     </section>
-
-
 
   </main>
 

@@ -30,17 +30,56 @@
     <div id="moto">Wood crafted treasures. Local marketplace.</div>
 
     <div class="block w-full m-0 lg:flex lg:m-auto lg:w-[95%] pb-80 xl:pb-12 2xl:pb-7">
-
         <section class="viewListingSection">
 
-            <!-- TODO add listing contact information to the messages-->
+
+
             <div class="viewListingCard">
+                <div class="font-bold" th:utext="${listing.title}"></div>
+                <div th:utext="${listing.location}"></div>
                 <img class="viewListingCard__img"
                         style="background-color: gray;"
                         th:src="${listing.imageOne}"
                 >
+
+                <img th:if="${listing.imageTwo != null && !#strings.isEmpty(listing.imageTwo)}" class="inline" th:src="@{${listing.imageTwo}}" alt="" width="125" height="125" />
+                <img th:if="${listing.imageThree != null && !#strings.isEmpty(listing.imageThree)}" class="inline" th:src="@{${listing.imageThree}}" alt="" width="125" height="125" />
+
                 <p th:text="${listing.price}"></p>
                 <p class="viewListingCard__description" th:text="${listing.description}"></p>
+
+
+                <div sec:authorize="isAnonymous()">
+                    <button id="myAnonymousBtn" class="mx-2 my-2 bg-blue-100 rounded">Sign up to contact user</button>
+                    <button id="myBtn" hidden></button>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <button id="myAnonymousBtn" hidden></button>
+                    <button id="myBtn" class="mx-2 my-2 bg-blue-100 rounded">Send a message</button>
+                </div>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div id="modal-form">
+                            <form id="sendMesageForm" action="/message" method="POST">
+
+                                <input type="hidden" id="fromUserId" name="fromUserId" value="99">
+                                <input type="hidden" id="toUserId" name="toUserId" th:value="${listing.userId}">
+                                <input type="hidden" id="listingId" name="listingId" th:value="${listing.listingId}">
+
+                                <p>From: YourUsername</p><br>
+                                <p th:utext="'Title: ' + ${listing.title}"></p><br>
+                                <label for="message">Message</label><br/>
+                                <textarea class="border-2" rows="4" cols="50" id="message" name="message"></textarea><br><br>
+                                <input class="px-2 mt-2 py-1 bg-blue-100 rounded" type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 
@@ -48,7 +87,44 @@
     </div>
 
     <footer class="absolute min-h-[80px] w-full bottom-0"  th:insert="~{_fragments/footer::footer}"></footer>
+    <script>
+        // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var anonBtn = document.getElementById("myAnonymousBtn");
 
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {  modal.style.display = "block"; }
+        span.onclick = function() { modal.style.display = "none"; }
+        anonBtn.onclick = function() { alert("sign up"); }
+
+        window.onclick = function(event) {
+          if (event.target == modal) {  modal.style.display = "none"; }
+        }
+
+        const sendMesageForm = document.getElementById("sendMesageForm")
+
+        sendMesageForm.addEventListener("submit", async event => {
+
+            event.preventDefault();
+
+            let res = await fetch('http://localhost:8080/message', {
+                method: 'POST',
+                body: JSON.stringify({
+                    fromUserId: document.getElementById("fromUserId").value,
+                    toUserId: document.getElementById("toUserId").value,
+                    listingId: document.getElementById("listingId").value,
+                    message: document.getElementById("message").value
+                })
+            });
+            modal.style.display = "none";
+            alert("message sent");
+
+        })
+
+    </script>
 
 </div> <!-- .page-container -->
 </body>

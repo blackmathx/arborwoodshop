@@ -1,40 +1,30 @@
-package com.arborwoodshop.controller;
+package com.arborwoodshop.controller_api;
 
+import com.arborwoodshop.persistence.MessageRepo;
 import com.arborwoodshop.service.S3Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-public class UserControllerAPI {
+public class AppControllerAPI {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public record Something (String something){}
-
     private final S3Service s3Service;
-
+    private final MessageRepo messageRepo;
     @Value("${spring.profiles.active}")
     private String environment;
 
-    public UserControllerAPI(S3Service s3Service){
+    public AppControllerAPI(S3Service s3Service, MessageRepo messageRepo){
         this.s3Service = s3Service;
+        this.messageRepo = messageRepo;
     }
 
 
-//    @GetMapping("api/testing")
-//    public Something list(){
-//        System.out.println("api/testing");
-//        return new Something("hello arbor woodshop!");
-//    }
 
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
@@ -59,9 +49,22 @@ public class UserControllerAPI {
             return "null";
         }
 
-        return s3Service.generatePresignedUrl(type);
+        String statePath = "IN";
+        String cityPath = "FORT-WAYNE";
+        return s3Service.generatePresignedUrl(statePath, cityPath, type);
     }
 
+
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @CrossOrigin(origins = "*")
+    @PostMapping("/message")
+    public void sendMessage(@RequestBody String requestBody){
+
+        System.out.println(requestBody);
+
+        messageRepo.create(4L, 3L, 19L, "api created at " + System.currentTimeMillis());
+        System.out.println("MESSAGE SENT...");
+    }
 
 
 }

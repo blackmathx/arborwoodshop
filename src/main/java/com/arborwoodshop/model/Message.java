@@ -1,13 +1,17 @@
 package com.arborwoodshop.model;
 
+import java.time.LocalDateTime;
+
 public class Message {
 
     private Long messageId;
-    private String contactEmail;
-    private String contactPhone;
     private String message;
-    private Long userId;
+    private char record_status;
+    private LocalDateTime created_at;
 
+    public Message(){
+
+    }
 
     public Long getMessageId() {
         return messageId;
@@ -15,22 +19,6 @@ public class Message {
 
     public void setMessageId(Long messageId) {
         this.messageId = messageId;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
-    }
-
-    public String getContactPhone() {
-        return contactPhone;
-    }
-
-    public void setContactPhone(String contactPhone) {
-        this.contactPhone = contactPhone;
     }
 
     public String getMessage() {
@@ -41,11 +29,19 @@ public class Message {
         this.message = message;
     }
 
-    public Long getUserId() {
-        return userId;
+    public char isRecord_status() {
+        return record_status;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setRecord_status(char record_status) {
+        this.record_status = record_status;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 }

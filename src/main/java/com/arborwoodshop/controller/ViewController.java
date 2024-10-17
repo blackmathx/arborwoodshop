@@ -109,14 +109,14 @@ public class ViewController {
         return "listing";
     }
 
-
-    @PostMapping(value = "/marketplace/listing/{id}/message")
-    public String sendMessage(Model model, Message message, @AuthenticationPrincipal SecurityUser securityUser){
-        int i = messageRepo.create(message);
-        boolean isSeller = securityUser != null && securityUser.getSellerActive();
-        model.addAttribute("isSeller", isSeller);
-        return "listing";
-    }
+    // TODO unused???
+//    @PostMapping(value = "/marketplace/listing/{id}/message")
+//    public String sendMessage(Model model, Message message, @AuthenticationPrincipal SecurityUser securityUser){
+//       // int i = messageRepo.create(message);
+//        boolean isSeller = securityUser != null && securityUser.getSellerActive();
+//        model.addAttribute("isSeller", isSeller);
+//        return "listing";
+//    }
 
 
     @GetMapping(value = "/become-a-seller")

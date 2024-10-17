@@ -42,7 +42,7 @@ public class UserRepo {
     }
 
     public int create(String email, String password) {
-        return jdbcTemplate.update(CREATE_USER, null, email, password, 1, 0, null, null, LocalDateTime.now(), "ROLE_USER");
+        return jdbcTemplate.update(CREATE_USER, null, email, password, 1, 1, null, null, LocalDateTime.now(), "ROLE_USER");
     }
 
 

@@ -48,14 +48,4 @@ class ListingMapper implements RowMapper<Listing> {
     }
 }
 
-class MessageMapper implements RowMapper<Message> {
-    public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Message message = new Message();
-        message.setMessageId(rs.getLong("message_id"));
-        message.setMessage(rs.getString("message"));
-        message.setContactEmail(rs.getString("contact_email"));
-        message.setContactPhone(rs.getString("contact_phone"));
-        message.setUserId(rs.getLong("user_id"));
-        return message;
-    }
-}
+

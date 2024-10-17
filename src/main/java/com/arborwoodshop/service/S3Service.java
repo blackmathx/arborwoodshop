@@ -20,9 +20,9 @@ public class S3Service {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
-    public String generatePresignedUrl(String fileType){
+    public String generatePresignedUrl(String statePath, String cityPath, String fileType){
         String type = fileType.substring(fileType.indexOf("/") + 1);
-        String filename = "image" + System.currentTimeMillis() + "." + type;
+        String filename = statePath + "/" + cityPath + "/" + "image" + System.currentTimeMillis() + "." + type;
 
         try (S3Presigner presigner = S3Presigner.create()) {
             PutObjectRequest objectRequest = PutObjectRequest.builder()

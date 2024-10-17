@@ -1,6 +1,6 @@
 <div th:fragment="account-navbar">
     <div sec:authorize="isAnonymous()">
-        <a th:href="@{/become-a-seller}" class="account-link" >Become&nbspa&nbspSeller</a>
+<!--        <a th:href="@{/become-a-seller}" class="account-link" >Become&nbspa&nbspSeller</a>-->
         <a th:href="@{/login}" class="account-link">Sign in</a>
     </div>
     <div sec:authorize="isAuthenticated()">
@@ -17,9 +17,7 @@
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/dashboard}">Dashboard</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/messages}">Messages</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/listings/create-listing}">List&nbspAn&nbspItem</a></div>
-    <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/manage-subscription}">Manage&nbspSubscription</a></div>
     <div class="user-links"><a th:href="@{/user/account-settings}">Account&nbspSettings</a></div>
-    <div th:if="${!isSeller}" class="user-links"><a th:href="@{/become-a-seller}">Become&nbspa&nbspSeller</a></div>
 
 </div>
 
