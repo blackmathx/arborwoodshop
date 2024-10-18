@@ -18,8 +18,8 @@ public class AppControllerAPI {
 
     private final S3Service s3Service;
     private final MessageRepo messageRepo;
-    @Value("${spring.profiles.active}")
-    private String environment;
+//    @Value("${spring.profiles.active}")
+//    private String environment;
 
     public AppControllerAPI(S3Service s3Service, MessageRepo messageRepo){
         this.s3Service = s3Service;
@@ -62,8 +62,8 @@ public class AppControllerAPI {
     @PostMapping("/message")
     public void sendMessage(@RequestBody String requestBody){
 
-        String regex = "\\{|\\}";
-        requestBody = requestBody.replaceAll(regex, "");
+        //String regex = "\\{|\\}";
+        requestBody = requestBody.replaceAll("[{}]", "");
 
         String[] str = requestBody.split(",");
         String fromUserId = str[0].substring(str[0].indexOf(":") + 2, str[0].length()-1);
@@ -71,9 +71,10 @@ public class AppControllerAPI {
         String listingId = str[2].substring(str[2].indexOf(":") + 2, str[2].length()-1);
         String message = str[3].substring(str[3].indexOf(":") + 2, str[3].length()-1);
 
-        //System.out.println(fromUserId + ", " + toUserId + ", " + listingId + ", " + message);
+        System.out.println(fromUserId + ", " + toUserId + ", " + listingId + ", " + message);
 
         messageRepo.create(Long.valueOf(fromUserId), Long.valueOf(toUserId), Long.valueOf(listingId), message);
+        //messageRepo.create(Long.valueOf("3"), Long.valueOf("4"), Long.valueOf("19"), "test");
 
     }
 

@@ -17,15 +17,15 @@ public class MessageRepo {
 
     String FIND_MESSAGES_FOR_USER_ID = """
         SELECT
-            xref.message_user_id,
-            xref.message_id AS xref_message_id,
-            xref.from_user_id,
-            xref.to_user_id,
-            xref.listing_id,
+            message_user_xref.message_user_id,
+            message_user_xref.message_id AS xref_message_id,
+            message_user_xref.from_user_id,
+            message_user_xref.to_user_id,
+            message_user_xref.listing_id,
             message.message_id, message.message, message.record_status, message.created_at
-        FROM message_user_xref AS xref
-        LEFT JOIN message ON xref.message_id = message.message_id
-        WHERE xref.to_user_id = ?
+        FROM message_user_xref
+        LEFT JOIN message ON message_user_xref.message_id = message.message_id
+        WHERE to_user_id = ?
         AND record_status = 'A'
         """;
 

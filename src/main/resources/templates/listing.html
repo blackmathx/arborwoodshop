@@ -51,12 +51,12 @@
 
                 <div th:unless="${userId} == ${listing.userId}">
                     <div sec:authorize="isAnonymous()">
-                        <button id="myAnonymousBtn" class="mx-2 my-2 bg-blue-100 rounded">Sign up to contact user</button>
+                        <button id="myAnonymousBtn" class="px-1 py-1 mx-2 my-2 bg-blue-100 rounded">Send a message - Sign in</button>
                         <button id="myBtn" hidden></button>
                     </div>
                     <div sec:authorize="isAuthenticated()">
                         <button id="myAnonymousBtn" hidden></button>
-                        <button id="myBtn" class="mx-2 my-2 bg-blue-100 rounded">Send a message</button>
+                        <button id="myBtn" class="px-1 py-1 mx-2 my-2 bg-blue-100 rounded">Send a message</button>
                     </div>
                 </div>
 

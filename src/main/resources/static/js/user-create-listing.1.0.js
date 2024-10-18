@@ -10,7 +10,7 @@ createListingForm.addEventListener("submit", async event => {
     var imageOnePath = "";
     var imageTwoPath = "";
     var imageThreePath = "";
-    const allowImageUploads = false;
+    const allowImageUploads = true;
 
     if(!allowImageUploads){
         imageOnePath = "http://localhost:8080/image/default3.jpg";

@@ -39,7 +39,7 @@ create table listing (
     created_date datetime,
     updated_date datetime,
     primary key (listing_id),
-    foreign key (user_id) references users(id)
+    foreign key (user_id) references users(user_id)
 );
 
 create table listing_images (
@@ -59,7 +59,7 @@ create table message_user_xref (
     messge_id int unsigned not null,
     listing_id int unsigned,
     primary key (message_user_id)
-)
+);
 
 create table message (
     message_id int unsigned not null auto_increment,

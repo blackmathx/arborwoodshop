@@ -64,7 +64,7 @@ class MessageDetailMapper implements RowMapper<MessageDetail> {
         message.setMessageUser_messageId(rs.getLong("message_user_id"));
         message.setMessageUser_fromUserId(rs.getLong("from_user_id"));
         message.setMessageUser_toUserId(rs.getLong("to_user_id"));
-        message.setMessageUser_messageId(rs.getLong("xref_message_id"));
+        message.setMessageUser_messageId(rs.getLong("message_user_xref.xref_message_id"));
         message.setMessageUser_listingId(rs.getLong("listing_id"));
         message.setMessageId(rs.getLong("message_id"));
         message.setMessage(rs.getString("message"));
