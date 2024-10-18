@@ -53,8 +53,7 @@ public class MessageRepo {
 
 
     public List<MessageDetail> findMessagesForUserId(Long user_id){
-        List<MessageDetail> messages = jdbcTemplate.query(FIND_MESSAGES_FOR_USER_ID, new MessageDetailMapper(), user_id);
-        return messages;
+        return jdbcTemplate.query(FIND_MESSAGES_FOR_USER_ID, new MessageDetailMapper(), user_id);
     }
 
     public int create(Long fromUserId, Long toUserId, Long listingId, String message){
@@ -70,7 +69,7 @@ public class MessageRepo {
         }, keyHolder);
 
         long createdMessageId = Objects.requireNonNull(keyHolder.getKey()).longValue();
-        System.out.println(createdMessageId);
+
         // insert into message_user_xref
         return jdbcTemplate.update(CREATE_MESSAGE_USER_XREF, fromUserId, toUserId, createdMessageId, listingId);
 

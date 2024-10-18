@@ -49,13 +49,15 @@
                 <p class="viewListingCard__description" th:text="${listing.description}"></p>
 
 
-                <div sec:authorize="isAnonymous()">
-                    <button id="myAnonymousBtn" class="mx-2 my-2 bg-blue-100 rounded">Sign up to contact user</button>
-                    <button id="myBtn" hidden></button>
-                </div>
-                <div sec:authorize="isAuthenticated()">
-                    <button id="myAnonymousBtn" hidden></button>
-                    <button id="myBtn" class="mx-2 my-2 bg-blue-100 rounded">Send a message</button>
+                <div th:unless="${userId} == ${listing.userId}">
+                    <div sec:authorize="isAnonymous()">
+                        <button id="myAnonymousBtn" class="mx-2 my-2 bg-blue-100 rounded">Sign up to contact user</button>
+                        <button id="myBtn" hidden></button>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <button id="myAnonymousBtn" hidden></button>
+                        <button id="myBtn" class="mx-2 my-2 bg-blue-100 rounded">Send a message</button>
+                    </div>
                 </div>
 
                 <!-- The Modal -->
@@ -66,7 +68,7 @@
                         <div id="modal-form">
                             <form id="sendMesageForm" action="/message" method="POST">
 
-                                <input type="hidden" id="fromUserId" name="fromUserId" value="99">
+                                <input type="hidden" id="fromUserId" name="fromUserId" th:value="${userId}">
                                 <input type="hidden" id="toUserId" name="toUserId" th:value="${listing.userId}">
                                 <input type="hidden" id="listingId" name="listingId" th:value="${listing.listingId}">
 

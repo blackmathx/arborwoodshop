@@ -103,7 +103,9 @@ public class ViewController {
 
         ListingDetailDisplay listing = listingRepo.findListingDetailItemById(listingId);
         boolean isSeller = securityUser != null && securityUser.getSellerActive();
+        Long userId = securityUser != null ? securityUser.getId() : null;
 
+        model.addAttribute("userId", userId);
         model.addAttribute("listing", listing);
         model.addAttribute("isSeller", isSeller);
         return "listing";

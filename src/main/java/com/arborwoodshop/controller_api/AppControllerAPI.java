@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+
 
 @RestController
 public class AppControllerAPI {
@@ -60,10 +62,19 @@ public class AppControllerAPI {
     @PostMapping("/message")
     public void sendMessage(@RequestBody String requestBody){
 
-        System.out.println(requestBody);
+        String regex = "\\{|\\}";
+        requestBody = requestBody.replaceAll(regex, "");
 
-        messageRepo.create(4L, 3L, 19L, "api created at " + System.currentTimeMillis());
-        System.out.println("MESSAGE SENT...");
+        String[] str = requestBody.split(",");
+        String fromUserId = str[0].substring(str[0].indexOf(":") + 2, str[0].length()-1);
+        String toUserId = str[1].substring(str[1].indexOf(":") + 2, str[1].length()-1);
+        String listingId = str[2].substring(str[2].indexOf(":") + 2, str[2].length()-1);
+        String message = str[3].substring(str[3].indexOf(":") + 2, str[3].length()-1);
+
+        //System.out.println(fromUserId + ", " + toUserId + ", " + listingId + ", " + message);
+
+        messageRepo.create(Long.valueOf(fromUserId), Long.valueOf(toUserId), Long.valueOf(listingId), message);
+
     }
 
 
