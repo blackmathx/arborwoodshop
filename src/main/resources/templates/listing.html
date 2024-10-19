@@ -7,6 +7,10 @@
     <link rel="stylesheet" th:href="@{/css/listing.css}">
 
     <link rel="stylesheet" th:href="@{/main.css}" />
+
+    <script sec:authorize="isAuthenticated()" th:inline="javascript">var apiUrl = /*[[${api_url}]]*/;</script>
+    <script defer type="text/javascript" th:src="@{/js/listing-send-message.1.0.js}"></script>
+
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
@@ -89,44 +93,7 @@
     </div>
 
     <footer class="absolute min-h-[80px] w-full bottom-0"  th:insert="~{_fragments/footer::footer}"></footer>
-    <script>
-        // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var anonBtn = document.getElementById("myAnonymousBtn");
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function() {  modal.style.display = "block"; }
-        span.onclick = function() { modal.style.display = "none"; }
-        anonBtn.onclick = function() { alert("sign up"); }
-
-        window.onclick = function(event) {
-          if (event.target == modal) {  modal.style.display = "none"; }
-        }
-
-        const sendMesageForm = document.getElementById("sendMesageForm")
-
-        sendMesageForm.addEventListener("submit", async event => {
-
-            event.preventDefault();
-
-            let res = await fetch('http://localhost:8080/message', {
-                method: 'POST',
-                body: JSON.stringify({
-                    fromUserId: document.getElementById("fromUserId").value,
-                    toUserId: document.getElementById("toUserId").value,
-                    listingId: document.getElementById("listingId").value,
-                    message: document.getElementById("message").value
-                })
-            });
-            modal.style.display = "none";
-            alert("message sent");
-
-        })
-
-    </script>
 
 </div> <!-- .page-container -->
 </body>

@@ -20,7 +20,7 @@ class UserMapper implements RowMapper<User> {
         user.setSellerActive(rs.getBoolean("seller_active"));
         user.setSellerActiveDate(rs.getObject("seller_active_date", LocalDateTime.class));
         user.setSellerExpireDate(rs.getObject("seller_expire_date", LocalDateTime.class));
-        user.setCreatedDate(rs.getObject("created_date", LocalDateTime.class));
+        user.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));
         user.setRoles(rs.getString("roles"));
         return user;
     };
@@ -42,8 +42,8 @@ class ListingMapper implements RowMapper<Listing> {
         listing.setEmail(rs.getString("email"));
         listing.setDeliveryAvailable(rs.getBoolean("delivery_available"));
         listing.setShippingAvailable(rs.getBoolean("shipping_available"));
-        listing.setCreatedDate(rs.getObject("created_date", LocalDateTime.class));
-        listing.setUpdatedDate(rs.getObject("updated_date", LocalDateTime.class));
+        listing.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));
+        listing.setUpdatedAt(rs.getObject("updated_at", LocalDateTime.class));
         return listing;
     }
 }

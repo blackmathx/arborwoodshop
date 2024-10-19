@@ -22,10 +22,11 @@ public class MessageRepo {
             message_user_xref.from_user_id,
             message_user_xref.to_user_id,
             message_user_xref.listing_id,
-            message.message_id, message.message, message.record_status, message.created_at
+            message.message_id AS message_message_id,
+            message.message, message.record_status, message.created_at
         FROM message_user_xref
         LEFT JOIN message ON message_user_xref.message_id = message.message_id
-        WHERE to_user_id = ?
+        WHERE message_user_xref.to_user_id = ?
         AND record_status = 'A'
         """;
 

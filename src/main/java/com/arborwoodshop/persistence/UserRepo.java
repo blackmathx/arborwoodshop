@@ -11,15 +11,15 @@ import java.time.LocalDateTime;
 public class UserRepo {
 
     private final String FIND_BY_USER_ID = """
-        SELECT user_id, username, email, password, enabled, seller_active, created_date, seller_active_date, seller_expire_date, roles 
+        SELECT user_id, username, email, password, enabled, seller_active, created_at, seller_active_date, seller_expire_date, roles
         FROM users WHERE user_id = ?
         """;
     private final String FIND_BY_USER_EMAIL = """
-        SELECT user_id, username, email, password, enabled, seller_active, created_date, seller_active_date, seller_expire_date, roles 
+        SELECT user_id, username, email, password, enabled, seller_active, created_at, seller_active_date, seller_expire_date, roles
         FROM users WHERE email = ?
         """;
     private final String CREATE_USER = """
-        INSERT INTO users (username, email, password, enabled, seller_active, seller_active_date, seller_expire_date, created_date, roles) 
+        INSERT INTO users (username, email, password, enabled, seller_active, seller_active_date, seller_expire_date, created_at, roles)
         VALUES (?,?,?,?,?,?,?,?,?)
         """;
 

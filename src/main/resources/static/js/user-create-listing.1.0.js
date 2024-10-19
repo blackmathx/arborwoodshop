@@ -10,78 +10,82 @@ createListingForm.addEventListener("submit", async event => {
     var imageOnePath = "";
     var imageTwoPath = "";
     var imageThreePath = "";
-    const allowImageUploads = true;
 
-    if(!allowImageUploads){
-        imageOnePath = "http://localhost:8080/image/default3.jpg";
-        imageTwoPath = "http://localhost:8080/image/default4.jpg";
-        imageThreePath = "http://localhost:8080/image/default5.jpg";
-        document.getElementById("imageOne").value = imageOnePath;
-        document.getElementById("imageTwo").value = imageTwoPath;
-        document.getElementById("imageThree").value = imageThreePath;
-    }
+    const allowImageUploads = false;
 
     if(!listingValidation()){
+
         const fileOne = document.getElementById("imageInputOne").files[0];
-        if(fileOne != null && allowImageUploads){
+
+        if(fileOne != null){
 
             var fileOneType = fileOne.type;
             var fileOneSize = fileOne.size;
-            const url = await fetch("/user/api/get-upload-url?type=" + fileOneType + "&size=" + fileOneSize).then(res => res.text());
 
-            if(url != "null"){
-                const result = await fetch(url, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': fileOneType },
-                    body: fileOne
-                });
+            if(allowImageUploads){
+                const url = await fetch("/user/api/get-upload-url?type=" + fileOneType + "&size=" + fileOneSize).then(res => res.text());
 
-                if(result.status === 200){
-                    //console.log("upload successful");
-                }  else {
-                    const errorText = await result.text(); // Extract the response body as text
-                    console.log("Error:", result.status, result.statusText, errorText); // Log status, statusText, and body
+                if(url != "null"){
+                    const result = await fetch(url, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': fileOneType },
+                        body: fileOne
+                    });
+
+                    if(result.status === 200){
+                        //console.log("upload successful");
+                    }  else {
+                        const errorText = await result.text(); // Extract the response body as text
+                        console.log("Error:", result.status, result.statusText, errorText); // Log status, statusText, and body
+                    }
+
+                    // parse image url
+                    let imageUrl = url.split('?')[0];
+                    imageOnePath = imageUrl;
                 }
-
-                // parse image url
-                let imageUrl = url.split('?')[0];
-                imageOnePath = imageUrl;
+            } else {
+                imageOnePath = "http://localhost:8080/image/default3.jpg";
             }
         }
 
         const fileTwo = document.getElementById("imageInputTwo").files[0];
-        if(fileTwo != null && allowImageUploads){
+        if(fileTwo != null){
 
-            var fileTwoType = fileTwo.type;
-            var fileTwoSize = fileTwo.size;
+            if(allowImageUploads){
+                var fileTwoType = fileTwo.type;
+                var fileTwoSize = fileTwo.size;
 
-            const url = await fetch("/user/api/get-upload-url?type=" + fileTwoType + "&size=" + fileTwoSize).then(res => res.text());
+                const url = await fetch("/user/api/get-upload-url?type=" + fileTwoType + "&size=" + fileTwoSize).then(res => res.text());
 
-            if(url != "null"){
-                const result = await fetch(url, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': fileTwoType },
-                    body: fileTwo
-                });
+                if(url != "null"){
+                    const result = await fetch(url, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': fileTwoType },
+                        body: fileTwo
+                    });
 
-                if(result.status === 200){
-                    //console.log("upload successful")
-                }  else {
-                    const errorText = await result.text(); // Extract the response body as text
-                    console.log("Error:", result.status, result.statusText, errorText); // Log status, statusText, and body
+                    if(result.status === 200){
+                        //console.log("upload successful")
+                    }  else {
+                        const errorText = await result.text(); // Extract the response body as text
+                        console.log("Error:", result.status, result.statusText, errorText); // Log status, statusText, and body
+                    }
+
+                    let imageUrl = url.split('?')[0];
+                    imageTwoPath = imageUrl;
                 }
-
-                let imageUrl = url.split('?')[0];
-                imageTwoPath = imageUrl;
+            } else {
+                imageTwoPath = "http://localhost:8080/image/default4.jpg";
             }
         }
 
         const fileThree = document.getElementById("imageInputThree").files[0]
-        if(fileThree != null && allowImageUploads){
+        if(fileThree != null){
 
             var fileThreeType = fileThree.type;
             var fileThreeSize = fileThree.size;
 
+            if(allowImageUploads){
             const url = await fetch("/user/api/get-upload-url?type=" + fileThreeType + "&size=" + fileThreeSize).then(res => res.text());
 
             if(url != "null"){
@@ -100,6 +104,9 @@ createListingForm.addEventListener("submit", async event => {
 
                 let imageUrl = url.split('?')[0];
                 imageThreePath = imageUrl;
+            }
+            } else {
+                imageThreePath = "http://localhost:8080/image/default5.jpg";
             }
         }
 

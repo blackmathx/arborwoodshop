@@ -3,10 +3,10 @@ package com.arborwoodshop.controller;
 import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model_dto.ListingDetailDisplay;
 import com.arborwoodshop.persistence.ListingRepo;
-import com.arborwoodshop.persistence.MessageRepo;
 import com.arborwoodshop.service.S3Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -23,6 +23,9 @@ public class UserListingsController {
 
     private final ListingRepo listingRepo;
     private final S3Service s3Service;
+
+    @Value("${spring.profiles.active}")
+    private String environment;
 
     public UserListingsController(ListingRepo listingRepo, S3Service s3Service) {
         this.listingRepo = listingRepo;
@@ -42,12 +45,6 @@ public class UserListingsController {
     @PostMapping(value = "/create-listing-title")
     public String createListingTitle(@ModelAttribute("city") String city, Model model, @AuthenticationPrincipal SecurityUser securityUser) {
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
         model.addAttribute("city", city);
         model.addAttribute("isSeller", securityUser.getSellerActive());
         model.addAttribute("username", securityUser.getUsername());
@@ -57,14 +54,6 @@ public class UserListingsController {
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @PostMapping(value = "/create-listing-form")
     public String userCreateListing(ListingDetailDisplay listing, Model model, @AuthenticationPrincipal SecurityUser securityUser) {
-
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        logger.debug("LISTING: TITLE {}, CITY {}", listing.getTitle(), listing.getCity());
 
         model.addAttribute("listing", listing);
         model.addAttribute("isSeller", securityUser.getSellerActive());
@@ -83,7 +72,7 @@ public class UserListingsController {
         }
 
         Long userId = securityUser.getId();
-        listing.setCreatedDate(LocalDateTime.now());
+        listing.setCreatedAt(LocalDateTime.now());
         listing.setUserId(userId);
 
         // Hardcoded/Default values for fields not yet in use

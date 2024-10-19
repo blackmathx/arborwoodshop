@@ -47,8 +47,8 @@ class ListingDetailDisplayMapper implements RowMapper<ListingDetailDisplay> {
         listing.setEmail(rs.getString("email"));
         listing.setShippingAvailable(rs.getBoolean("shipping_available"));
         listing.setDeliveryAvailable(rs.getBoolean("delivery_available"));
-        listing.setCreatedDate(rs.getObject("created_date", LocalDateTime.class));
-        listing.setUpdatedDate(rs.getObject("updated_date", LocalDateTime.class));
+        listing.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));
+        listing.setUpdatedAt(rs.getObject("updated_at", LocalDateTime.class));
         listing.setImageOne(rs.getString("image_one"));
         listing.setImageTwo(rs.getString("image_two"));
         listing.setImageThree(rs.getString("image_three"));
@@ -64,9 +64,9 @@ class MessageDetailMapper implements RowMapper<MessageDetail> {
         message.setMessageUser_messageId(rs.getLong("message_user_id"));
         message.setMessageUser_fromUserId(rs.getLong("from_user_id"));
         message.setMessageUser_toUserId(rs.getLong("to_user_id"));
-        message.setMessageUser_messageId(rs.getLong("message_user_xref.xref_message_id"));
+        message.setMessageUser_messageId(rs.getLong("xref_message_id"));
         message.setMessageUser_listingId(rs.getLong("listing_id"));
-        message.setMessageId(rs.getLong("message_id"));
+        message.setMessageId(rs.getLong("message_message_id"));
         message.setMessage(rs.getString("message"));
         message.setRecordStatus(rs.getString("record_status").charAt(0));
         message.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));

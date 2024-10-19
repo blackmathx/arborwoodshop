@@ -17,7 +17,7 @@ create table users (
     seller_active bit(1),
     seller_active_date datetime,
     seller_expire_date datetime,
-    created_date datetime,
+    created_at datetime,
     roles varchar(100),
     primary key (user_id)
 );
@@ -36,8 +36,8 @@ create table listing (
     email varchar(255),
     delivery_available bit(1),
     shipping_available bit(1),
-    created_date datetime,
-    updated_date datetime,
+    created_at datetime,
+    updated_at datetime,
     primary key (listing_id),
     foreign key (user_id) references users(user_id)
 );
@@ -56,7 +56,7 @@ create table message_user_xref (
     message_user_id int unsigned not null auto_increment,
     from_user_id int unsigned not null,
     to_user_id int unsigned not null,
-    messge_id int unsigned not null,
+    message_id int unsigned not null,
     listing_id int unsigned,
     primary key (message_user_id)
 );
@@ -74,12 +74,6 @@ create table message (
 
 
 
--- changed all id fields to <table>_id
--- added listing_images table
--- rebuilt messages, listing_images from sql
--- location: removed can_email, can_text, dimensions
--- location: added location varchar(255)
--- alter table `arborwoodshop-dev`.listing modify price decimal(15,2);
--- users table. seller_status to seller_active
--- message table. remove user_id, email, phone fields. Added created_at
--- created table message_user_xref
+-- listing - created_date to created_at
+-- users - created_date to created_at
+--

@@ -11,8 +11,6 @@
 
     <link rel="stylesheet" th:href="@{/main.css}" />
 
-<!-- <script type="text/javascript" th:src="@{/js/api-test.js}"></script> -->
-
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
@@ -53,7 +51,7 @@
                     collection, championing the creativity and skill of woodworkers right in your community.
                 </p>
 
-                <a class="text-2xl float-right no-underline hover:underline" th:href="@{/marketplace/browse}">View the marketplace</a>
+                <a class="text-2xl float-right no-underline hover:underline" th:href="@{/marketplace/browse/site}">View the marketplace</a>
             </div>
 
 
@@ -74,12 +72,12 @@
 
             <div class="flex justify-between pb-4" >
                 <div class="text-xl">Seller Offers</div>
-                <div><a class="no-underline hover:underline" th:href="@{/marketplace/browse}" >view all</a></div>
+                <div><a class="no-underline hover:underline" th:href="@{/marketplace/browse/site}" >view all</a></div>
             </div>
 
 
             <div class="offer-card-wrapper">
-                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2">
+                <a th:href="@{/marketplace/browse/site}" class=" shadow-2xl rounded-md p-2">
                     <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/31.jpg');">
                         <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px);border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
@@ -87,7 +85,7 @@
                         </div>
                     </div>
                 </a>
-                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2">
+                <a th:href="@{/marketplace/browse/site}" class=" shadow-2xl rounded-md p-2">
                     <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/7.jpg');">
                         <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
@@ -95,7 +93,7 @@
                         </div>
                     </div>
                 </a>
-                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden sm:block "><!-- offer-card-x -->
+                <a th:href="@{/marketplace/browse/site}" class=" shadow-2xl rounded-md p-2 hidden sm:block "><!-- offer-card-x -->
                     <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/41.jpg');" >
                         <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
@@ -104,7 +102,7 @@
                     </div>
                 </a>
 
-                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden md:block"><!-- offer-card-y -->
+                <a th:href="@{/marketplace/browse/site}" class=" shadow-2xl rounded-md p-2 hidden md:block"><!-- offer-card-y -->
                     <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/42.jpg');">
                         <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>
@@ -113,7 +111,7 @@
                     </div>
                 </a>
 
-                <a th:href="@{/marketplace/browse}" class=" shadow-2xl rounded-md p-2 hidden xl:block "><!--offer-card-z-->
+                <a th:href="@{/marketplace/browse/site}" class=" shadow-2xl rounded-md p-2 hidden xl:block "><!--offer-card-z-->
                     <div class="flex items-end w-[90%] my-3 mx-auto min-h-[240px] xl:min-h-[300px] rounded outline outline-1 outline-verylightblue bg-gray bg-no-repeat bg-contain bg-top" style="background-image: url('image/27.jpg');">
                         <div style="padding: 2px 16px; color:black; backdrop-filter: blur(2px); border-radius:5px; background-color:rgba(232, 235, 232, 0.185); ">
                             <h4><b>$100</b></h4>

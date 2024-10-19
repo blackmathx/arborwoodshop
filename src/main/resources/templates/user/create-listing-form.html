@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/user.css}">
     <link rel="stylesheet" th:href="@{/main.css}" />
+    <script defer type="text/javascript" th:src="@{/js/user-create-listing.1.0.js}"></script>
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
     <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
 </head>
@@ -25,23 +26,11 @@
     </header>
 
     <main class="user_mainContent  pb-80 xl:pb-12 2xl:pb-7">
-
         <nav id="user_leftNavBar" th:insert="~{_fragments/navigation::user-navbar}"></nav>
 
         <section  class="userSection  pl-8 grow pr-0 2xl:pr-[200px]">
 
-            <h3 class="font-bold">Create Listing</h3>
-            <br/>
-
-
-<!--            <form id="imageForm">-->
-<!--                <input id="imageInput" type="file" accept="image/*">-->
-<!--                <button class="border-2 px-2 py-1 bg-blue-500 rounded" type="submit">Upload</button>-->
-<!--            </form>-->
-
-
-
-
+            <h3 class="font-bold">Create Listing</h3><br>
 
 
 
@@ -50,8 +39,6 @@
                 Customize the button example    https://tudip.com/blog-post/style-file-upload-browse-button/
                 Resize images on the client side before upload   https://stackoverflow.com/questions/2434458/image-resizing-client-side-with-javascript-before-upload-to-the-server
                 -->
-
-
 
                 <input type="hidden" id="city" name="city" th:value="${listing.city}">
 
@@ -112,7 +99,6 @@
 
 </div> <!-- .page-container -->
 
-<script type="text/javascript" th:src="@{/js/user-create-listing.1.0.js}"></script>
 
 
 </body>

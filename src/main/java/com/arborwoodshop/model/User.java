@@ -14,12 +14,12 @@ public class User {
     private Boolean sellerActive;
     private LocalDateTime sellerActiveDate;
     private LocalDateTime sellerExpireDate;
-    private LocalDateTime createdDate;
+    private LocalDateTime createdAt;
     private String roles;
 
     public User(){}
 
-    public User(String username, String email, String password, Boolean enabled, LocalDateTime sellerActiveDate, LocalDateTime sellerExpireDate, LocalDateTime createdDate, Boolean sellerActive, String roles) {
+    public User(String username, String email, String password, Boolean enabled, LocalDateTime sellerActiveDate, LocalDateTime sellerExpireDate, LocalDateTime createdAt, Boolean sellerActive, String roles) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -27,7 +27,7 @@ public class User {
         this.sellerActive = sellerActive;
         this.sellerActiveDate = sellerActiveDate;
         this.sellerExpireDate = sellerExpireDate;
-        this.createdDate = createdDate;
+        this.createdAt = createdAt;
         this.roles = roles;
     }
 
@@ -94,12 +94,12 @@ public class User {
         this.sellerExpireDate = sellerExpireDate;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getRoles() {
@@ -114,12 +114,12 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return userId.equals(user.userId) && Objects.equals(username, user.username) && email.equals(user.email) && createdDate.equals(user.createdDate);
+        return userId.equals(user.userId) && Objects.equals(username, user.username) && email.equals(user.email) && createdAt.equals(user.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, username, email, createdDate);
+        return Objects.hash(userId, username, email, createdAt);
     }
 
     @Override
@@ -133,7 +133,7 @@ public class User {
                 ", sellerActive=" + sellerActive +
                 ", sellerActiveDate=" + sellerActiveDate +
                 ", sellerExpireDate=" + sellerExpireDate +
-                ", created=" + createdDate +
+                ", createdAt=" + createdAt +
                 ", roles='" + roles + '\'' +
                 '}';
     }

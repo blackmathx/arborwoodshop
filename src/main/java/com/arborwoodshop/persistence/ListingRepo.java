@@ -20,7 +20,7 @@ public class ListingRepo {
             SELECT * FROM listing WHERE listing_id = ?
             """;
     String CREATE_LISTING = """
-        INSERT INTO listing (title, description, price, state, city, location, created_date, delivery_available, shipping_available, user_id)
+        INSERT INTO listing (title, description, price, state, city, location, created_at, delivery_available, shipping_available, user_id)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """;
     String DELETE_LISTING_IMAGES = """
@@ -57,7 +57,7 @@ public class ListingRepo {
         SELECT
             listing.listing_id, listing.user_id, listing.title, listing.description, listing.price, listing.state, listing.city,
             listing.location, listing.zipcode, listing.phone, listing.email, listing.shipping_available, listing.delivery_available,
-            listing.created_date, listing.updated_date,
+            listing.created_at, listing.updated_at,
             images.listing_images_id, images.image_one, images.image_two, images.image_three
         FROM listing
         LEFT JOIN listing_images AS images
@@ -88,7 +88,7 @@ public class ListingRepo {
             ps.setString(4, listing.getState());
             ps.setString(5, listing.getCity());
             ps.setString(6, listing.getLocation());
-            ps.setObject(7, listing.getCreatedDate());
+            ps.setObject(7, listing.getCreatedAt());
             ps.setBoolean(8, listing.getDeliveryAvailable());
             ps.setBoolean(9, listing.getShippingAvailable());
             ps.setLong(10, listing.getUserId());
