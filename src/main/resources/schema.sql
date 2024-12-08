@@ -27,6 +27,7 @@ create table listing (
     user_id int unsigned not null,
     title varchar(100),
     description varchar(255),
+    category varchar(255),
     price decimal(15,2),
     state varchar(255),
     city varchar(255),
@@ -76,4 +77,4 @@ create table message (
 
 -- listing - created_date to created_at
 -- users - created_date to created_at
---
+-- add category to listing

@@ -1,10 +1,11 @@
 <div th:fragment="account-navbar">
     <div sec:authorize="isAnonymous()">
-<!--        <a th:href="@{/become-a-seller}" class="account-link" >Become&nbspa&nbspSeller</a>-->
+        <a th:href="@{/user/listings/create-listing}" class="account-link">Sell</a>
         <a th:href="@{/login}" class="account-link">Sign in</a>
     </div>
     <div sec:authorize="isAuthenticated()">
         <a th:if="${isSeller}" th:href="@{/user/messages}" class="account-link" id="account-link-messages">Messages</a>
+        <a th:href="@{/user/listings/create-listing}" class="account-link">Sell</a>
         <a th:href="@{/user/dashboard}" class="account-link" >Dashboard</a>
         <a th:href="@{/login/account-logout}" class="account-link" >Logout</a>
     </div>
@@ -18,7 +19,6 @@
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/messages}">Messages</a></div>
     <div th:if="${isSeller}" class="user-links"><a th:href="@{/user/listings/create-listing}">List&nbspAn&nbspItem</a></div>
     <div class="user-links"><a th:href="@{/user/account-settings}">Account&nbspSettings</a></div>
-
 </div>
 
 

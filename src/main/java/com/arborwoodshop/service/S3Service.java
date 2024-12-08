@@ -6,14 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
-import software.amazon.awssdk.services.s3.model.S3Exception;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.*;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.PresignedPutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
 
 import java.time.Duration;
+import java.util.List;
 
 @Service
 public class S3Service {
@@ -32,7 +31,7 @@ public class S3Service {
                     .build();
 
             PutObjectPresignRequest presignRequest = PutObjectPresignRequest.builder()
-                    .signatureDuration(Duration.ofMinutes(3))  // The URL expires in 3 minutes.
+                    .signatureDuration(Duration.ofMinutes(10))  // The URL expires in 3 minutes.
                     .putObjectRequest(objectRequest)
                     .build();
 
@@ -67,7 +66,25 @@ public class S3Service {
             }
         }
 
+    }
 
+
+    public static void listBuckets() {
+        Region region = Region.US_EAST_2;
+        S3Client s3 = S3Client.builder()
+                .region(region)
+                .build();
+
+        try {
+            ListBucketsResponse response = s3.listBuckets();
+            List<Bucket> bucketList = response.buckets();
+            bucketList.forEach(bucket -> {
+                System.out.println("Bucket Name: " + bucket.name());
+            });
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
     }
 
 

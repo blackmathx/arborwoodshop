@@ -9,7 +9,26 @@
     <link rel="stylesheet" th:href="@{/main.css}" />
 
     <title>Arbor Woodshop | Indiana</title>
-    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/image/favicon.ico}">
+<link rel="icon" type="image/png" sizes="32x32" th:href="@{/image/favicon.ico}">
+<link rel="shortcut icon" th:href="@{/image/favicon.ico}">
+
+<style>
+    #local_search-input {
+        border-radius: 20px;
+        border: none;
+        outline: 1px solid rgb(210, 210, 210);
+        padding: 7px 7px 7px 30px;
+        margin: 5px 0px;
+        color: rgb(68, 68, 68);
+        background-color: rgb(250, 250, 250);
+        width: 97%;
+        font-size: 1.2rem;
+        background: rgb(240, 240, 240);
+    }
+</style>
+
+
 </head>
 
 <body>
@@ -33,24 +52,31 @@
 
         <nav class="min-h-0 py-1 px-2.5 block mt-1 lg:flex lg:flex-col min-w-[240px] lg:mt-5 lg:pt-8 pl-8 bg-gray-100">
 
-            <span th:if="${false}">
-                <!--
-                <h3 id="local_category-title">Shop by Category</h3>
-                <div class="local_categories">
-                    <div class="category-tag"><a href="#">Furniture</a></div>
-                    <div class="category-tag"><a href="#">Decorative</a></div>
-                    <div class="category-tag"><a href="#">Storage</a></div>
-                    <div class="category-tag"><a href="#">Outdoor Items</a></div>
-                    <div class="category-tag"><a href="#">Games&nbsp&&nbspToys</a></div>
-                    <div class="category-tag"><a href="#">Tools&nbsp&&nbspAccessories</a></div>
-                    <div class="category-tag"><a href="#">Other</a></div>
-                </div>
-                -->
+            <span > <!--th:if="${false}">-->
+
+                <h3 class="font-bold" id="local_category-title">Shop by Category</h3>
+                <ul>
+                    <li th:each="index : ${#numbers.sequence(0, #arrays.length(categoriesLinks)-1)}" class="mt-2">
+                        <a th:href="@{'/marketplace/browse?category=' + ${categoriesLinks[index]} + '&site=' + ${site}}"
+                           th:text="${categoriesDisplay[index]}" class=""></a>
+                    </li>
+
+                </ul>
             </span>
 
         </nav>
 
-        <section class="pl-8 grow pr-0 2xl:pr-[200px]"> <!--content-flex-stretch-->
+        <section class="pl-8 grow pr-0 2xl:pr-[180px]"> <!--content-flex-stretch-->
+
+            <form class="block">
+                <input type="text"
+                       style="padding:7px 7px 7px 30px; margin-top:13px;border-radius:20px;outline:1px solid rgb(210, 210, 210);background-color:rgb(250,250,250); font-size:1.2rem;"
+                       class="w-full"
+                       placeholder="Search your local marketplace" />
+            </form>
+
+
+
 
             <div id="local_listing-content">
 
@@ -191,345 +217,6 @@
                     </div>
                 </a>
 
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/48.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/49.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/43.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/33.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/22.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/34.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/36.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/22.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/24.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/31.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/29.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/28.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/27.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/25.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/24.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/66.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/47.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/19.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/55.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/43.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/22.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/34.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/45.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/65.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/37.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/47.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/65.jpg');">
-                        <div
-                             style=" color:rgb(37, 37, 37); backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/45.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a th:href="@{/marketplace/browse/listing?listing=3}">
-                    <div class="flex items-end min-h-[180px] my-1 mx-1.5 lg:min-h-[220px] bg-gray-100 lg:m-2.5 pt-1 pr-0 pb-0 pl-1 bg-top bg-contain bg-no-repeat"
-                         style="background-image: url('/image/45.jpg');">
-                        <div
-                             style="padding: 2px 16px; color:black; backdrop-filter: grayscale(80%);background-color: rgba(255, 255, 255, 0.5);">
-                            <h4><b>$100</b></h4>
-                            <p>Hand Crafted Table</p>
-                        </div>
-                    </div>
-                </a>
 
                 --> <!-- END FAKE LISTINGS -->
 
@@ -537,8 +224,24 @@
         </section>
 
 
+<!--        <nav class="min-h-0 py-1 px-2.5 block mt-1 lg:flex lg:flex-col min-w-[240px] lg:mt-5 lg:pt-8 pl-8 bg-gray-100">-->
+        <!--              style="min-width:100px; padding-top: 30px; background-color: rgb(255, 255, 255);"-->
 
-        <!-- <nav id="right-nav-bar" style="min-width:100px; padding-top: 30px; background-color: rgb(255, 255, 255);">			</nav> -->
+        <nav class="lg:mt-5 lg:pt-8 2xl:ml-2 pl-8 w-80 min-w-[240px] bg-gray-100">
+             <h3 class="font-bold">Near by</h3>
+             <ul>
+                 <li class="mt-2"><a href="/marketplace/browse?site=bloomington">Bloomington</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=evansville">Evansville</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=fort_wayne">Fort Wayne</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=indianapolis">Indianapolis</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=kokomo">Kokomo</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=lafayette_west_lafayette">Lafayette/West Lafayette</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=muncie_anderson">Muncie/Anderson</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=richmond">Richmond</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=south_bend_michiana">South Bend/Michiana</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=terre_haute">Terre Haute</a></li>
+             </ul>
+         </nav>
 
 
     </main>

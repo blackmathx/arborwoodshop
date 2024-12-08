@@ -14,6 +14,7 @@ public class ListingDetailDisplay {
     private Long userId;
     private String title;
     private String description;
+    private String category;
     private BigDecimal price;
     private String state;
     private String city;
@@ -67,6 +68,14 @@ public class ListingDetailDisplay {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public BigDecimal getPrice() {

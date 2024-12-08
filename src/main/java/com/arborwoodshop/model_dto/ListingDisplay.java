@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public class ListingDisplay {
     private Long listingId;
     private String title;
+    private String category;
     private BigDecimal price;
     private String location;
     private String imageOne;
@@ -30,6 +31,14 @@ public class ListingDisplay {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public BigDecimal getPrice() {

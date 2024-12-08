@@ -19,6 +19,7 @@ class ListingDisplayMapper implements RowMapper<ListingDisplay> {
         listing.setListingId(rs.getLong("listing_id"));
         listing.setTitle(rs.getString("title"));
         listing.setPrice(rs.getBigDecimal("price"));
+        listing.setCategory(rs.getString("category"));
         listing.setLocation(rs.getString("location"));
         listing.setImageOne(rs.getString("image_one"));
         listing.setImageTwo(rs.getString("image_two"));
@@ -38,6 +39,7 @@ class ListingDetailDisplayMapper implements RowMapper<ListingDetailDisplay> {
         listing.setUserId(rs.getLong("user_id"));
         listing.setTitle(rs.getString("title"));
         listing.setDescription(rs.getString("description"));
+        listing.setCategory(rs.getString("category"));
         listing.setPrice(rs.getBigDecimal("price"));
         listing.setState(rs.getString("state"));
         listing.setCity(rs.getString("city"));

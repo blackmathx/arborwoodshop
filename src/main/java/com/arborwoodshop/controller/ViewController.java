@@ -4,6 +4,8 @@ import com.arborwoodshop.model_dto.ListingDetailDisplay;
 import com.arborwoodshop.model_dto.ListingDisplay;
 import com.arborwoodshop.persistence.ListingRepo;
 import com.arborwoodshop.model.SecurityUser;
+import com.arborwoodshop.service.EnumOfCategory;
+import com.arborwoodshop.service.EnumOfLocation;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,6 +46,9 @@ public class ViewController {
     public String index(Model model, @AuthenticationPrincipal SecurityUser securityUser) {
 
         boolean isSeller = securityUser != null && securityUser.getSellerActive();
+
+        model.addAttribute("categoriesDisplay", EnumOfCategory.getListOfCategoriesForDisplay());
+        model.addAttribute("categoriesLinks", EnumOfCategory.getListOfCategoriesForLinks());
         model.addAttribute("isSeller", isSeller);
         return "index";
     }
@@ -56,7 +62,7 @@ public class ViewController {
         if(request.getCookies() != null) {
             for (Cookie c : request.getCookies()) {
                 if (c.getName().equals("site")) {
-                    return "redirect:/marketplace/browse?site=" + c.getValue();
+                    return "redirect:/marketplace/browse?site=" + c.getValue().toLowerCase();
                 }
             }
         }
@@ -66,39 +72,52 @@ public class ViewController {
 
     @GetMapping(value = {"/marketplace/browse"})
     public String displayListingsByState(@RequestParam(name="site", required=false) String siteUrlParam,
+                @RequestParam(name="category", required=false) String categoryUrlParam,
                 HttpServletRequest request, HttpServletResponse response,
                 Model model, @AuthenticationPrincipal SecurityUser securityUser){
 
-        // TODO fix the naming of variables between city and city-from-cookie
         String siteCookieValue = null;
 
-        if(siteUrlParam == null){
+        EnumOfLocation siteEnum = null;
+
+        if(siteUrlParam == null ||  siteUrlParam.equals("null")){
+            System.out.println("siteUrlParam is null!!!");
             if(request.getCookies() != null) {
                 for (Cookie c : request.getCookies()) {
                     if (c.getName().equals("site")) {
                         siteCookieValue = c.getValue();
+                        siteEnum = EnumOfLocation.valueOf(siteCookieValue);
                     }
                 }
             }
             if(siteCookieValue == null){
-                logger.debug("location parameters is null. redirecting");
+                System.out.println("Site cookie value is null, redirecting!!!!");
+                logger.debug("siteCookieValue is null. redirecting");
                 return "redirect:/marketplace/browse/site";
             }
         } else {
-            // get location
+            siteEnum = EnumOfLocation.valueOf(siteUrlParam.toUpperCase());
 
-            // set cookie to new location
-            Cookie siteCookie = new Cookie("site", siteUrlParam);
+            Cookie siteCookie = new Cookie("site", siteEnum.name());
             siteCookie.setMaxAge(86400 * 365);
             response.addCookie(siteCookie);
+
         }
 
 
-        // TODO query for listings from the city that is selected
-        List<ListingDisplay> listings = listingRepo.findListingDisplayItems();
+
+        List<ListingDisplay> listings = null;
+        if(categoryUrlParam != null){
+            listings = listingRepo.findListingDisplayItemsBySite(siteEnum, EnumOfCategory.valueOf(categoryUrlParam.toUpperCase()));
+        } else {
+            listings = listingRepo.findListingDisplayItemsBySite(siteEnum);
+        }
 
         boolean isSeller = securityUser != null && securityUser.getSellerActive();
 
+        model.addAttribute("site", siteEnum.name().toLowerCase());
+        model.addAttribute("categoriesLinks", EnumOfCategory.getListOfCategoriesForLinks());
+        model.addAttribute("categoriesDisplay", EnumOfCategory.getListOfCategoriesForDisplay());
         model.addAttribute("listings", listings);
         model.addAttribute("isSeller", isSeller);
 
@@ -129,13 +148,6 @@ public class ViewController {
 //        return "listing";
 //    }
 
-
-    @GetMapping(value = "/become-a-seller")
-    public String userBecomeSeller(Model model, @AuthenticationPrincipal SecurityUser securityUser) {
-        boolean isSeller = securityUser != null && securityUser.getSellerActive();
-        model.addAttribute("isSeller", isSeller);
-        return "become-a-seller";
-    }
 
 
 

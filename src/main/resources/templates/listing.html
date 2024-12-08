@@ -13,7 +13,9 @@
 
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
 
-    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/image/favicon.ico}">
+<link rel="icon" type="image/png" sizes="32x32" th:href="@{/image/favicon.ico}">
+<link rel="shortcut icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -41,10 +43,7 @@
             <div class="viewListingCard">
                 <div class="font-bold" th:utext="${listing.title}"></div>
                 <div th:utext="${listing.location}"></div>
-                <img class="viewListingCard__img"
-                        style="background-color: gray;"
-                        th:src="${listing.imageOne}"
-                >
+                <img class="viewListingCard__img" style="background-color: gray;" th:src="${listing.imageOne}">
 
                 <img th:if="${listing.imageTwo != null && !#strings.isEmpty(listing.imageTwo)}" class="inline" th:src="@{${listing.imageTwo}}" alt="" width="125" height="125" />
                 <img th:if="${listing.imageThree != null && !#strings.isEmpty(listing.imageThree)}" class="inline" th:src="@{${listing.imageThree}}" alt="" width="125" height="125" />

@@ -3,6 +3,8 @@ package com.arborwoodshop.persistence;
 import com.arborwoodshop.model.Listing;
 import com.arborwoodshop.model_dto.ListingDetailDisplay;
 import com.arborwoodshop.model_dto.ListingDisplay;
+import com.arborwoodshop.service.EnumOfCategory;
+import com.arborwoodshop.service.EnumOfLocation;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -20,7 +22,7 @@ public class ListingRepo {
             SELECT * FROM listing WHERE listing_id = ?
             """;
     String CREATE_LISTING = """
-        INSERT INTO listing (title, description, price, state, city, location, created_at, delivery_available, shipping_available, user_id)
+        INSERT INTO listing (title, description, category, price, state, city, location, created_at, delivery_available, shipping_available, user_id)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """;
     String DELETE_LISTING_IMAGES = """
@@ -38,33 +40,39 @@ public class ListingRepo {
         """;
     String FIND_LISTING_DISPLAY_ITEMS_BY_USER_ID = """
         SELECT
-            listing.listing_id, listing.title, listing.price, listing.location,
+            listing.listing_id, listing.title, listing.category, listing.price, listing.location,
             images.image_one, images.image_two, images.image_three
         FROM listing
         LEFT JOIN listing_images AS images
         ON listing.listing_id = images.listing_id
         WHERE listing.user_id = ?
         """;
-    String FIND_LISTING_DISPLAY_ITEMS = """
+    String FIND_LISTING_DISPLAY_ITEMS_BY_SITE = """
         SELECT
-            listing.listing_id, listing.title, listing.price, listing.location,
+            listing.listing_id, listing.title, listing.category, listing.price, listing.location, listing.city,
             images.image_one, images.image_two, images.image_three
         FROM listing
         LEFT JOIN listing_images AS images
         ON listing.listing_id = images.listing_id
+        WHERE listing.city = ?
         """;
-    String FIND_LISTING_DETAIL_ITEM_BY_ID = """
+    String FIND_LISTING_DISPLAY_ITEMS_BY_SITE_AND_CAT = """
         SELECT
-            listing.listing_id, listing.user_id, listing.title, listing.description, listing.price, listing.state, listing.city,
-            listing.location, listing.zipcode, listing.phone, listing.email, listing.shipping_available, listing.delivery_available,
-            listing.created_at, listing.updated_at,
-            images.listing_images_id, images.image_one, images.image_two, images.image_three
+            listing.listing_id, listing.title, listing.category, listing.price, listing.location, listing.city,
+            images.image_one, images.image_two, images.image_three
         FROM listing
         LEFT JOIN listing_images AS images
         ON listing.listing_id = images.listing_id
+        WHERE listing.city = ?
+        AND listing.category = ?
+        """;
+    String FIND_LISTING_DETAIL_ITEM_BY_ID = """
+        SELECT
+            * FROM listing
+        JOIN listing_images AS images
+        ON listing.listing_id = images.listing_id
         WHERE listing.listing_id = ?
         """;
-
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -84,14 +92,15 @@ public class ListingRepo {
             PreparedStatement ps = connection.prepareStatement(CREATE_LISTING, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, listing.getTitle());
             ps.setString(2, listing.getDescription());
-            ps.setBigDecimal(3, listing.getPrice());
-            ps.setString(4, listing.getState());
-            ps.setString(5, listing.getCity());
-            ps.setString(6, listing.getLocation());
-            ps.setObject(7, listing.getCreatedAt());
-            ps.setBoolean(8, listing.getDeliveryAvailable());
-            ps.setBoolean(9, listing.getShippingAvailable());
-            ps.setLong(10, listing.getUserId());
+            ps.setString(3, listing.getCategory());
+            ps.setBigDecimal(4, listing.getPrice());
+            ps.setString(5, listing.getState());
+            ps.setString(6, listing.getCity());
+            ps.setString(7, listing.getLocation());
+            ps.setObject(8, listing.getCreatedAt());
+            ps.setBoolean(9, listing.getDeliveryAvailable());
+            ps.setBoolean(10, listing.getShippingAvailable());
+            ps.setLong(11, listing.getUserId());
             return ps;
         }, keyHolder);
 
@@ -113,8 +122,11 @@ public class ListingRepo {
         return jdbcTemplate.query(FIND_LISTING_DISPLAY_ITEMS_BY_USER_ID, new ListingDisplayMapper(), userId);
 
     }
-    public List<ListingDisplay> findListingDisplayItems(){
-        return jdbcTemplate.query(FIND_LISTING_DISPLAY_ITEMS, new ListingDisplayMapper());
+    public List<ListingDisplay> findListingDisplayItemsBySite(EnumOfLocation siteEnum){
+        return jdbcTemplate.query(FIND_LISTING_DISPLAY_ITEMS_BY_SITE, new ListingDisplayMapper(), siteEnum.name());
+    }
+    public List<ListingDisplay> findListingDisplayItemsBySite(EnumOfLocation siteEnum, EnumOfCategory categoryEnum){
+        return jdbcTemplate.query(FIND_LISTING_DISPLAY_ITEMS_BY_SITE_AND_CAT, new ListingDisplayMapper(), siteEnum.name(), categoryEnum.name());
     }
 
     public ListingDetailDisplay findListingDetailItemById(Long listingId){

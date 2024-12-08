@@ -9,7 +9,9 @@
     <link rel="stylesheet" th:href="@{/main.css}" />
 
     <title>Arbor Woodshop | Messages</title>
-    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/image/favicon.ico}">
+<link rel="icon" type="image/png" sizes="32x32" th:href="@{/image/favicon.ico}">
+<link rel="shortcut icon" th:href="@{/image/favicon.ico}">
 </head>
 
 <body>
@@ -37,14 +39,7 @@
                 <li th:utext="'<a>[delete] </a>' + ${message.message}"></li>
             </ul>
             <br><br>
-            <p>
-            <ul>
-                <li>provide messaging in app</li>
-                <li>provide anonymous p2p texting</li>
-                <li>provide anonymous p2p emailing</li>
-                <li>show seller phone/email to users</li>
-            </ul>
-            </p>
+
 
         </section>
 

@@ -33,6 +33,7 @@ class ListingMapper implements RowMapper<Listing> {
         listing.setUserId(rs.getLong("user_id"));
         listing.setTitle(rs.getString("title"));
         listing.setDescription(rs.getString("description"));
+        listing.setCategory(rs.getString("category"));
         listing.setPrice(rs.getBigDecimal("price"));
         listing.setState(rs.getString("state"));
         listing.setCity(rs.getString("city"));

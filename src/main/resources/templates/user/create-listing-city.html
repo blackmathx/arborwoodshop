@@ -7,7 +7,9 @@
     <link rel="stylesheet" th:href="@{/css/user.css}">
     <link rel="stylesheet" th:href="@{/main.css}" />
     <title>Arbor Woodshop | Wood crafted treasures. Local marketplace.</title>
-    <link rel="icon" type="image/x-icon" th:href="@{/image/favicon.ico}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/image/favicon.ico}">
+<link rel="icon" type="image/png" sizes="32x32" th:href="@{/image/favicon.ico}">
+<link rel="shortcut icon" th:href="@{/image/favicon.ico}">
 </head>
 <body>
 <div class="relative min-h-[100vh]">
@@ -35,7 +37,7 @@
 
 
 
-            <form id="createListingCityForm" action="create-listing-title" method="POST">
+            <form id="createListingCityForm" action="create-listing-title" method="GET">
 
                 <label for="city">City</label>
                 <select id="city" name="city" class="border-2 margin-2">

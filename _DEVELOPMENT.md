@@ -13,8 +13,8 @@ Setup Development Environment
     server.shutdown=graceful
     spring.lifecycle.timeout-per-shutdown-phase=20s
     
-    ##### log path for default SpringBoot logging
-    logging.file.name=logs/application.log
+    ##### log path
+    logging.file.name=/home/ec2-user/logs/application.log
     
     ##### set the log file max size before rotating
     logging.file.max-size=1MB

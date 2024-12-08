@@ -3,6 +3,7 @@ package com.arborwoodshop.controller;
 import com.arborwoodshop.model.SecurityUser;
 import com.arborwoodshop.model_dto.ListingDetailDisplay;
 import com.arborwoodshop.persistence.ListingRepo;
+import com.arborwoodshop.service.EnumOfLocation;
 import com.arborwoodshop.service.S3Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,13 +37,14 @@ public class UserListingsController {
     @GetMapping(value = "/create-listing")
     public String createListingCity(Model model, @AuthenticationPrincipal SecurityUser securityUser) {
 
+
         model.addAttribute("isSeller", securityUser.getSellerActive());
         model.addAttribute("username", securityUser.getUsername());
         return "user/create-listing-city";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @PostMapping(value = "/create-listing-title")
+    @GetMapping(value = "/create-listing-title")
     public String createListingTitle(@ModelAttribute("city") String city, Model model, @AuthenticationPrincipal SecurityUser securityUser) {
 
         model.addAttribute("city", city);
@@ -78,8 +80,8 @@ public class UserListingsController {
         // Hardcoded/Default values for fields not yet in use
         listing.setDeliveryAvailable(false);
         listing.setShippingAvailable(false);
-        listing.setState("IN");
-
+        listing.setState(String.valueOf(EnumOfLocation.IN));
+        listing.setCity(String.valueOf(EnumOfLocation.FORT_WAYNE));
         listingRepo.create(listing);
 
         model.addAttribute("isSeller", securityUser.getSellerActive());
