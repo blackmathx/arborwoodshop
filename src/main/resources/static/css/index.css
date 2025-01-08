@@ -2,7 +2,6 @@
 
 
 
-
 /*
 #index_main-content {
 	max-width: 1300px;
@@ -133,8 +132,8 @@
 }
 
 
-@media screen and (max-width: 470px){*/
-/*
+@media screen and (max-width: 470px){
+
 	.card-section {
 		margin: 20px 0px;
 	}
@@ -142,8 +141,9 @@
 	.offer-card-x {
 		display:none;
 	}
-	*/
+
 }
+*/
 
 /* 700px and smaller
 @media screen and (max-width: 770px){*/
@@ -185,14 +185,15 @@
 	}
 
 }
+*/
 
-@media screen and (max-width: 1350px){ */
 /*
+@media screen and (max-width: 1350px){
+
 	#index_main-content {
 		width:100%;
 	}
-*/
-/*
+
 	.local_item-card {
 		min-height:240px;
 	}
@@ -205,8 +206,8 @@
 	.offer-card-wrapper {
 		grid-template-columns: repeat(4, auto);
 		gap: 15px 20px;
-	}	*/
-/*
+	}
+
 	.offer-card-z {
 		display:none;
 	}
@@ -215,10 +216,11 @@
 		border-radius: 0px;
 		width: 100%;
 	}
-	*/
+
 
 
 }
+*/
 
 
 

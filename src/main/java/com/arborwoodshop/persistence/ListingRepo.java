@@ -23,7 +23,7 @@ public class ListingRepo {
             """;
     String CREATE_LISTING = """
         INSERT INTO listing (title, description, category, price, state, city, location, created_at, delivery_available, shipping_available, user_id)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """;
     String DELETE_LISTING_IMAGES = """
         DELETE FROM listing_images WHERE listing_id = ?

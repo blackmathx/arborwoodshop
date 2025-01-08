@@ -15,14 +15,8 @@ module.exports = {
             'bluegray': '#6B5B9A',
             'blueyonder': '#537796',
             'pine': '#5B9A8A',
-            'link': '#4d4de7',
-            'linkvisited': '#912faf',
-            'linkactive': '#FF0000',
 
             'tetrad': '#539679',
-
-
-
 
         }
     },
