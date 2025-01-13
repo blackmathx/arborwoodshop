@@ -39,6 +39,7 @@
     <main class="w-full max-w-[1500px] m-auto pb-80 xl:pb-12 2xl:pb-40">
 
 
+        <!-- SEARCH -->
         <form class="block">
             <input type="text"
                    style="padding:7px 7px 7px 30px; margin-top:13px;border-radius:20px;outline:1px solid rgb(210, 210, 210);background-color:rgb(250,250,250); font-size:1.2rem;"
@@ -46,9 +47,9 @@
                    placeholder="Search your local marketplace" />
         </form>
 
-        <!-- top two cards -->
-        <div class="flex min-h-[300px] mx-5 my-0 sm:mt-[50px] sm:mb-[70px] sm:mx-auto">
 
+        <!-- TOP TWO CARDS -->
+        <div class="flex min-h-[300px] mx-5 my-0 sm:mt-[50px] sm:mb-[70px] sm:mx-auto">
 
             <div class="p-7 md:p-12 m-3  rounded-lg shadow-2xl outline outline-1 outline-verylightblue">
                 <div class="text-2xl">
@@ -79,6 +80,7 @@
         </div>
 
         <!-- categories section -->
+        <!--
         <section class="my-0 mx-6">
             <div class="my-8">
                 <div class="text-xl">Shop Categories</div>
@@ -90,8 +92,9 @@
                 </div>
             </div>
         </section>
+        -->
 
-        <!-- seller offers -->
+        <!-- SELLER OFFERS -->
         <section class="my-0 mx-6 w-[93%] mx-auto">
 
             <div class="flex justify-between pb-4" >
@@ -154,20 +157,20 @@
 
         </section>
 
-
-
+        <!-- SEEKING SUPPLIERS -->
         <div class="text-xl  m-auto mt-8 shadow-2xl rounded-md p-4 min-h-[300px] outline outline-1 outline-verylightblue">
             <h2 class="text-5xl font-bold m-4">Seeking Suppliers</h2>
             <p class="py-4">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, adipisci nobis. Non quo, assumenda
                 illum veritatis labore omnis alias quam eum aperiam beatae eos repudiandae iusto deserunt debitis?
                 Quas, laudantium.
-                <a class="float-right no-underline hover:underline" th:href="@{/login/register}">start selling</a>
-            </p>
+                </p>
+                <a class="float-right no-underline hover:underline text-blue-700" th:href="@{/login/register}">start selling</a>
+
         </div>
     </main>
 
-
+    <!-- FOOTER -->
     <footer class="absolute min-h-[80px] w-full bottom-0" th:insert="~{_fragments/footer::footer}"></footer>
 
 </div>

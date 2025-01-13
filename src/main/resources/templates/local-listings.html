@@ -58,7 +58,7 @@
                 <ul>
                     <li th:each="index : ${#numbers.sequence(0, #arrays.length(categoriesLinks)-1)}" class="mt-2">
                         <a th:href="@{'/marketplace/browse?category=' + ${categoriesLinks[index]} + '&site=' + ${site}}"
-                           th:text="${categoriesDisplay[index]}" class=""></a>
+                           th:text="${categoriesDisplay[index]}" class="no-underline hover:underline text-blue-700"></a>
                     </li>
 
                 </ul>
@@ -230,16 +230,16 @@
         <nav class="lg:mt-5 lg:pt-8 2xl:ml-2 pl-8 w-80 min-w-[240px] bg-gray-100">
              <h3 class="font-bold">Near by</h3>
              <ul>
-                 <li class="mt-2"><a href="/marketplace/browse?site=bloomington">Bloomington</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=evansville">Evansville</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=fort_wayne">Fort Wayne</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=indianapolis">Indianapolis</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=kokomo">Kokomo</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=lafayette_west_lafayette">Lafayette/West Lafayette</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=muncie_anderson">Muncie/Anderson</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=richmond">Richmond</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=south_bend_michiana">South Bend/Michiana</a></li>
-                 <li class="mt-2"><a href="/marketplace/browse?site=terre_haute">Terre Haute</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=bloomington" class="no-underline hover:underline text-blue-700">Bloomington</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=evansville" class="no-underline hover:underline text-blue-700">Evansville</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=fort_wayne" class="no-underline hover:underline text-blue-700">Fort Wayne</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=indianapolis" class="no-underline hover:underline text-blue-700">Indianapolis</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=kokomo" class="no-underline hover:underline text-blue-700">Kokomo</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=lafayette_west_lafayette" class="no-underline hover:underline text-blue-700">Lafayette/West Lafayette</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=muncie_anderson" class="no-underline hover:underline text-blue-700">Muncie/Anderson</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=richmond" class="no-underline hover:underline text-blue-700">Richmond</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=south_bend_michiana" class="no-underline hover:underline text-blue-700">South Bend/Michiana</a></li>
+                 <li class="mt-2"><a href="/marketplace/browse?site=terre_haute" class="no-underline hover:underline text-blue-700">Terre Haute</a></li>
              </ul>
          </nav>
 

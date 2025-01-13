@@ -81,7 +81,7 @@ public class ViewController {
         EnumOfLocation siteEnum = null;
 
         if(siteUrlParam == null ||  siteUrlParam.equals("null")){
-            System.out.println("siteUrlParam is null!!!");
+            // siteUrlParam is null
             if(request.getCookies() != null) {
                 for (Cookie c : request.getCookies()) {
                     if (c.getName().equals("site")) {
@@ -91,7 +91,7 @@ public class ViewController {
                 }
             }
             if(siteCookieValue == null){
-                System.out.println("Site cookie value is null, redirecting!!!!");
+                // Site cookie value is null, redirecting!!!!
                 logger.debug("siteCookieValue is null. redirecting");
                 return "redirect:/marketplace/browse/site";
             }

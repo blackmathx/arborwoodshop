@@ -69,12 +69,3 @@ create table message (
     created_at datetime,
     primary key (message_id)
 );
-
-
-
-
-
-
--- listing - created_date to created_at
--- users - created_date to created_at
--- add category to listing
